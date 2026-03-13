@@ -3,10 +3,10 @@ function SectionHeader({ eyebrow, title, description, align = "left" }) {
 
   return (
     <div className={`max-w-3xl ${alignment}`}>
-      {eyebrow ? <p className="eyebrow">{eyebrow}</p> : null}
-      <h2 className="mt-4 text-4xl font-semibold text-ink sm:text-5xl">{title}</h2>
+      {eyebrow ? <p className="eyebrow text-[10px] tracking-[0.28em] sm:text-xs sm:tracking-[0.35em]">{eyebrow}</p> : null}
+      <h2 className="mt-3 text-3xl font-semibold text-ink sm:mt-4 sm:text-4xl lg:text-5xl">{title}</h2>
       {description ? (
-        <p className="mt-4 text-base leading-7 text-stone-700 sm:text-lg">
+        <p className="mt-3 text-sm leading-7 text-stone-700 sm:mt-4 sm:text-base lg:text-lg">
           {description}
         </p>
       ) : null}
@@ -15,4 +15,3 @@ function SectionHeader({ eyebrow, title, description, align = "left" }) {
 }
 
 export default SectionHeader;
-

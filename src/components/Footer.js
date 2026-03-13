@@ -4,24 +4,24 @@ import contactData from "../data/contact.json";
 
 function Footer() {
   return (
-    <footer className="mt-24 border-t border-white/50 bg-[#f6ead7]/90">
+    <footer className="mt-20 border-t border-white/50 bg-[#f6ead7]/90 sm:mt-24">
       <div className="section-shell py-12">
         <div className="grid gap-10 lg:grid-cols-[1.3fr_0.9fr_1fr]">
           <div>
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-3 sm:gap-4">
               <img
                 src={graceLogo}
                 alt="GRACE Ashram logo"
-                className="h-16 w-16 object-contain sm:h-20 sm:w-20"
+                className="h-14 w-14 flex-none object-contain sm:h-20 sm:w-20"
               />
-              <div>
-                <p className="eyebrow">GRACE</p>
-                <p className="text-sm font-semibold uppercase tracking-[0.24em] text-stone-600">
+              <div className="min-w-0">
+                <p className="eyebrow text-[10px] tracking-[0.28em] sm:text-xs sm:tracking-[0.35em]">GRACE</p>
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-stone-600 sm:text-sm sm:tracking-[0.24em]">
                   Serve | Connect | Grow
                 </p>
               </div>
             </div>
-            <h2 className="mt-5 text-4xl font-semibold text-ink">
+            <h2 className="mt-5 text-3xl font-semibold text-ink sm:text-4xl">
               A welcoming home for culture, study, and devotional practice.
             </h2>
             <p className="mt-4 max-w-xl text-sm leading-7 text-stone-700">
@@ -54,7 +54,7 @@ function Footer() {
 
           <div>
             <h3 className="text-2xl font-semibold text-ink">Contact</h3>
-            <div className="mt-4 space-y-3 text-sm leading-7 text-stone-700">
+            <div className="mt-4 space-y-3 break-words text-sm leading-7 text-stone-700">
               <p>Phone: {contactData.phone}</p>
               <p>
                 Email:{" "}

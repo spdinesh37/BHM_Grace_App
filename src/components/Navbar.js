@@ -37,20 +37,23 @@ function Navbar() {
     : "border-white/50 bg-white/70";
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-6">
+    <header className="fixed inset-x-0 top-0 z-50 px-3 pt-3 sm:px-6 sm:pt-4">
       <div className="section-shell px-0">
         <div
-          className={`mx-auto max-w-7xl rounded-full border backdrop-blur-xl transition ${shellClassName}`}
+          className={`mx-auto max-w-7xl rounded-[1.75rem] border backdrop-blur-xl transition sm:rounded-full ${shellClassName}`}
         >
-          <div className="flex items-center justify-between px-4 py-3 sm:px-6">
-            <Link to="/" className="flex items-center gap-3">
+          <div className="flex items-center justify-between gap-3 px-3 py-3 sm:px-6">
+            <Link to="/" className="min-w-0 flex-1 sm:flex-none flex items-center gap-3">
               <img
                 src={graceLogo}
                 alt="GRACE Ashram logo"
-                className="h-12 w-12 object-contain sm:h-14 sm:w-14"
+                className="h-11 w-11 flex-none object-contain sm:h-14 sm:w-14"
               />
-              <div>
-                <p className="text-xl font-semibold text-ink">GRACE</p>
+              <div className="min-w-0">
+                <p className="truncate text-lg font-semibold text-ink sm:text-xl">GRACE</p>
+                <p className="truncate text-[10px] uppercase tracking-[0.18em] text-stone-600 sm:hidden">
+                  Ashram
+                </p>
                 <p className="hidden text-xs uppercase tracking-[0.28em] text-stone-600 sm:block">
                   Gauranga Residential Academy
                 </p>
@@ -77,16 +80,16 @@ function Navbar() {
             <button
               type="button"
               onClick={() => setIsOpen((current) => !current)}
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-stone-200 bg-white text-stone-700 lg:hidden"
+              className="inline-flex h-10 w-10 flex-none items-center justify-center rounded-full border border-stone-200 bg-white text-stone-700 sm:h-11 sm:w-11 lg:hidden"
               aria-label="Toggle navigation"
               aria-expanded={isOpen}
             >
-              <span className="text-xl">{isOpen ? "x" : "="}</span>
+              <span className="text-xl leading-none">{isOpen ? "x" : "="}</span>
             </button>
           </div>
 
           {isOpen ? (
-            <div className="border-t border-stone-200/70 px-4 pb-4 pt-2 lg:hidden">
+            <div className="border-t border-stone-200/70 px-3 pb-4 pt-2 sm:px-4 lg:hidden">
               <nav className="grid gap-2">
                 {navItems.map((item) => (
                   <NavLink

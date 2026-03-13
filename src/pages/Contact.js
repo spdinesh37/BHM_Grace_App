@@ -25,11 +25,11 @@ function Contact() {
         description="Visitors can use the embedded form below for questions, applications, or interest in upcoming programs."
       />
 
-      <section className="py-20 sm:py-24">
-        <div className="section-shell grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
-          <article className="glass-panel p-8">
-            <p className="eyebrow">Contact Details</p>
-            <div className="mt-5 space-y-4 text-sm leading-8 text-stone-700">
+      <section className="py-16 sm:py-20 lg:py-24">
+        <div className="section-shell grid gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:gap-8">
+          <article className="glass-panel p-6 sm:p-8">
+            <p className="eyebrow text-[10px] tracking-[0.28em] sm:text-xs sm:tracking-[0.35em]">Contact Details</p>
+            <div className="mt-5 space-y-4 break-words text-sm leading-8 text-stone-700">
               <p>Phone: {contactData.phone}</p>
               <p>
                 Email:{" "}
@@ -52,12 +52,12 @@ function Contact() {
             </div>
           </article>
 
-          <div className="overflow-hidden rounded-[2rem] border border-white/70 bg-white/80 shadow-glow">
+          <div className="overflow-hidden rounded-[1.5rem] border border-white/70 bg-white/80 shadow-glow sm:rounded-[2rem]">
             <iframe
               title="GRACE inquiry form"
               src={formEmbedUrl || undefined}
               srcDoc={formEmbedUrl ? undefined : placeholderEmbed}
-              className="min-h-[720px] w-full"
+              className="min-h-[680px] w-full sm:min-h-[720px]"
               loading="lazy"
             />
           </div>
@@ -68,4 +68,3 @@ function Contact() {
 }
 
 export default Contact;
-

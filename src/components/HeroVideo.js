@@ -7,7 +7,7 @@ function HeroVideo() {
   const posterSrc = `${process.env.PUBLIC_URL}/hero-fallback.svg`;
 
   return (
-    <section className="relative isolate flex min-h-screen items-center overflow-hidden bg-[#1e140d] text-white">
+    <section className="relative isolate flex min-h-[100svh] items-center overflow-hidden bg-[#1e140d] text-white">
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{ backgroundImage: `url(${posterSrc})` }}
@@ -29,29 +29,31 @@ function HeroVideo() {
       <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(17,11,7,0.52),rgba(17,11,7,0.8))]" />
       <div className="absolute inset-x-0 bottom-0 h-40 bg-[linear-gradient(180deg,transparent,rgba(17,11,7,0.82))]" />
 
-      <div className="section-shell relative z-10 pt-28">
+      <div className="section-shell relative z-10 pt-28 pb-12 sm:pt-32 sm:pb-16">
         <div className="max-w-3xl">
-          <p className="eyebrow text-marigold">Serve with heart. Learn with purpose.</p>
-          <h1 className="mt-5 text-6xl font-semibold tracking-[0.14em] text-white sm:text-7xl">
+          <p className="eyebrow max-w-xs text-[10px] tracking-[0.28em] text-marigold sm:max-w-none sm:text-xs sm:tracking-[0.35em]">
+            Serve with heart. Learn with purpose.
+          </p>
+          <h1 className="mt-4 text-4xl font-semibold tracking-[0.1em] text-white sm:mt-5 sm:text-6xl sm:tracking-[0.14em] lg:text-7xl">
             GRACE
           </h1>
-          <p className="mt-5 max-w-2xl text-2xl leading-tight text-white/90 sm:text-3xl">
+          <p className="mt-4 max-w-2xl text-xl leading-tight text-white/90 sm:mt-5 sm:text-2xl lg:text-3xl">
             Gauranga Residential Academy for Culture and Education
           </p>
-          <p className="mt-6 text-sm font-semibold uppercase tracking-[0.4em] text-white/80">
-            Serve <span className="mx-2 text-marigold">&bull;</span> Connect
-            <span className="mx-2 text-marigold">&bull;</span> Grow
+          <p className="mt-5 max-w-md text-[11px] font-semibold uppercase leading-6 tracking-[0.24em] text-white/80 sm:mt-6 sm:max-w-none sm:text-sm sm:tracking-[0.4em]">
+            Serve <span className="mx-1.5 text-marigold sm:mx-2">&bull;</span> Connect
+            <span className="mx-1.5 text-marigold sm:mx-2">&bull;</span> Grow
           </p>
-          <p className="mt-8 max-w-2xl text-base leading-8 text-white/80 sm:text-lg">
+          <p className="mt-6 max-w-2xl text-sm leading-7 text-white/80 sm:mt-8 sm:text-base sm:leading-8 lg:text-lg">
             A residential learning community rooted in Bhakti Yoga, devotional
             culture, and compassionate leadership.
           </p>
 
-          <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-            <Link to="/about" className="primary-button">
+          <div className="mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:gap-4">
+            <Link to="/about" className="primary-button w-full sm:w-auto">
               Discover the Vision
             </Link>
-            <Link to="/contact" className="secondary-button">
+            <Link to="/contact" className="secondary-button w-full sm:w-auto">
               Inquire About GRACE
             </Link>
           </div>
