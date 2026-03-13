@@ -1,26 +1,23 @@
-[
-  {
-    "week": "March 16 - March 22, 2026",
-    "message": "Hare Krishna friends, this is a gentle reminder for this week's evening program, japa focus, and Sunday gathering followed by a delicious feast. Please arrive a little early to settle in for kirtan and seva.",
-    "menu": "Sunday Feast Menu",
-    "main_items": [
-      "Saffron rice",
-      "Paneer vegetable curry",
-      "Khichari",
-      "Chapati"
-    ],
-    "soups": [
-      "Tomato ginger soup",
-      "Moong dal soup"
-    ],
-    "desserts": [
-      "Sweet rice",
-      "Halava"
-    ],
-    "drinks": [
-      "Rose lassi",
-      "Spiced lemonade"
-    ]
-  }
-]
-
+{
+  "week": "March 16 - March 22, 2026",
+  "announcement": "Hare Krishna friends, this is a gentle reminder for this week's evening program, japa focus, and Sunday gathering followed by a delicious feast. Please arrive a little early to settle in for kirtan and seva.",
+  "menuTitle": "Sunday Feast Menu",
+  "mainItems": [
+    "Saffron rice",
+    "Paneer vegetable curry",
+    "Khichari",
+    "Chapati"
+  ],
+  "soups": [
+    "Tomato ginger soup",
+    "Moong dal soup"
+  ],
+  "desserts": [
+    "Sweet rice",
+    "Halava"
+  ],
+  "drinks": [
+    "Rose lassi",
+    "Spiced lemonade"
+  ]
+}

@@ -47,7 +47,7 @@ function Home() {
         </div>
       </section>
 
-      <WeeklyUpdate update={weeklyUpdateData[0]} />
+      <WeeklyUpdate update={weeklyUpdateData} />
 
       <EventsList events={eventsData} limit={3} showCta />
 
@@ -82,4 +82,3 @@ function Home() {
 }
 
 export default Home;
-
