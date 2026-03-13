@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "./static/css/main.4a87da7e.css",
+    "main.js": "./static/js/main.d63031c8.js",
+    "static/media/grace-logo.png": "./static/media/grace-logo.06c45f5f361d2690a65e.png",
+    "index.html": "./index.html",
+    "main.4a87da7e.css.map": "./static/css/main.4a87da7e.css.map",
+    "main.d63031c8.js.map": "./static/js/main.d63031c8.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4a87da7e.css",
+    "static/js/main.d63031c8.js"
+  ]
+}

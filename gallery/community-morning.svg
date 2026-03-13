@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title>Morning sadhana illustration</title>
+  <desc>Stylized placeholder image for the GRACE gallery.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fff8ef" />
+      <stop offset="100%" stop-color="#f2d7ae" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#bg)" />
+  <circle cx="910" cy="190" r="120" fill="#f3b451" opacity="0.45" />
+  <rect x="120" y="500" width="960" height="220" rx="36" fill="#fffdf8" opacity="0.9" />
+  <circle cx="330" cy="510" r="96" fill="#d97706" opacity="0.85" />
+  <circle cx="600" cy="510" r="96" fill="#c67b47" opacity="0.8" />
+  <circle cx="870" cy="510" r="96" fill="#8a5519" opacity="0.8" />
+  <text x="120" y="180" fill="#6b4f3b" font-family="Georgia, serif" font-size="78">Morning Sadhana</text>
+  <text x="124" y="252" fill="#6b4f3b" font-family="Arial, sans-serif" font-size="30">Prayer, japa, and a peaceful start to the day.</text>
+</svg>
+

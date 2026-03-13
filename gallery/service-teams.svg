@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title>Service teams illustration</title>
+  <desc>Stylized placeholder image for the GRACE gallery.</desc>
+  <rect width="1200" height="900" fill="#f7efe1" />
+  <rect x="130" y="180" width="940" height="520" rx="48" fill="#fffdf9" />
+  <path d="M250 590c70-170 170-255 300-255s230 85 300 255" fill="none" stroke="#d97706" stroke-width="42" stroke-linecap="round" />
+  <circle cx="360" cy="400" r="86" fill="#f3b451" opacity="0.82" />
+  <circle cx="600" cy="350" r="86" fill="#c67b47" opacity="0.82" />
+  <circle cx="840" cy="400" r="86" fill="#8a5519" opacity="0.82" />
+  <text x="120" y="110" fill="#6b4f3b" font-family="Georgia, serif" font-size="76">Shared Seva</text>
+  <text x="120" y="790" fill="#6b4f3b" font-family="Arial, sans-serif" font-size="28">Students build humility and teamwork through service.</text>
+</svg>
+

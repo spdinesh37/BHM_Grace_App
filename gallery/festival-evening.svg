@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title>Festival evening illustration</title>
+  <desc>Stylized placeholder image for the GRACE gallery.</desc>
+  <defs>
+    <linearGradient id="night" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2c1a12" />
+      <stop offset="100%" stop-color="#8a5519" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#night)" />
+  <circle cx="880" cy="180" r="120" fill="#f3b451" opacity="0.33" />
+  <circle cx="320" cy="500" r="110" fill="#f3b451" opacity="0.85" />
+  <circle cx="600" cy="500" r="110" fill="#d97706" opacity="0.78" />
+  <circle cx="880" cy="500" r="110" fill="#fff3c0" opacity="0.72" />
+  <text x="120" y="180" fill="#fff8ef" font-family="Georgia, serif" font-size="78">Festival Evening</text>
+  <text x="120" y="260" fill="#fff0cf" font-family="Arial, sans-serif" font-size="30">Warm light, kirtan, and shared celebration.</text>
+</svg>
+
