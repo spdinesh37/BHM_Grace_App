@@ -1,0 +1,39 @@
+[
+  {
+    "src": "/gallery/community-morning.svg",
+    "alt": "Students gathering in the morning for prayer and reflection.",
+    "title": "Morning Sadhana",
+    "description": "A peaceful beginning with mantra meditation, prayer, and shared intention for the day."
+  },
+  {
+    "src": "/gallery/scripture-circle.svg",
+    "alt": "A scripture circle with students learning together.",
+    "title": "Scripture Study",
+    "description": "Collaborative reading circles create space for questions, insight, and personal application."
+  },
+  {
+    "src": "/gallery/prasadam-prep.svg",
+    "alt": "Devotees preparing prasadam in the kitchen.",
+    "title": "Prasadam Preparation",
+    "description": "Cooking and serving become joyful acts of devotion and community care."
+  },
+  {
+    "src": "/gallery/festival-evening.svg",
+    "alt": "An evening kirtan gathering with warm light and music.",
+    "title": "Festival Evenings",
+    "description": "Music, kirtan, and celebration bring the academy together in gratitude and joy."
+  },
+  {
+    "src": "/gallery/service-teams.svg",
+    "alt": "Students working together in a service project.",
+    "title": "Shared Seva",
+    "description": "Hands-on service cultivates humility, cooperation, and servant leadership."
+  },
+  {
+    "src": "/gallery/garden-reflection.svg",
+    "alt": "A quiet garden space for personal reflection.",
+    "title": "Quiet Reflection",
+    "description": "Students also have space for solitude, journaling, and contemplative rest."
+  }
+]
+

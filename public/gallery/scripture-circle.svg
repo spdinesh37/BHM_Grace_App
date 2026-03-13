@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title>Scripture circle illustration</title>
+  <desc>Stylized placeholder image for the GRACE gallery.</desc>
+  <rect width="1200" height="900" fill="#fff6e7" />
+  <rect x="120" y="170" width="960" height="560" rx="48" fill="#fffdf9" stroke="#f3d39a" stroke-width="8" />
+  <circle cx="330" cy="450" r="110" fill="#f3b451" opacity="0.72" />
+  <circle cx="600" cy="450" r="110" fill="#d97706" opacity="0.72" />
+  <circle cx="870" cy="450" r="110" fill="#c67b47" opacity="0.72" />
+  <path d="M450 400h300v100H450z" fill="#6b4f3b" opacity="0.16" />
+  <text x="120" y="110" fill="#6b4f3b" font-family="Georgia, serif" font-size="74">Scripture Circle</text>
+  <text x="126" y="790" fill="#6b4f3b" font-family="Arial, sans-serif" font-size="28">Learning together through discussion, reflection, and shared inquiry.</text>
+</svg>
+

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title>Prasadam preparation illustration</title>
+  <desc>Stylized placeholder image for the GRACE gallery.</desc>
+  <rect width="1200" height="900" fill="#fffaf1" />
+  <rect x="100" y="520" width="1000" height="180" rx="32" fill="#e9c99c" />
+  <circle cx="320" cy="450" r="100" fill="#d97706" opacity="0.8" />
+  <circle cx="600" cy="450" r="100" fill="#f3b451" opacity="0.8" />
+  <circle cx="880" cy="450" r="100" fill="#c67b47" opacity="0.8" />
+  <rect x="250" y="270" width="700" height="80" rx="40" fill="#fff" opacity="0.86" />
+  <text x="120" y="170" fill="#6b4f3b" font-family="Georgia, serif" font-size="76">Prasadam Preparation</text>
+  <text x="120" y="252" fill="#6b4f3b" font-family="Arial, sans-serif" font-size="30">Cooking and serving as an offering of care.</text>
+</svg>
+

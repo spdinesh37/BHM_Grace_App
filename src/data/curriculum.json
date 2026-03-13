@@ -1,0 +1,33 @@
+[
+  {
+    "semester": "Semester 1",
+    "theme": "Foundations of Bhakti and Sacred Culture",
+    "summary": "Students establish a steady devotional rhythm while learning the philosophical and cultural essentials of Krishna consciousness.",
+    "courses": [
+      {
+        "title": "Bhagavad Gita",
+        "focus": "Core teachings on identity, duty, devotion, and spiritual practice."
+      },
+      {
+        "title": "Sri Isopanisad",
+        "focus": "A concise introduction to the personal nature of the Absolute Truth and God-centered living."
+      }
+    ]
+  },
+  {
+    "semester": "Semester 2",
+    "theme": "Character, Practice, and Leadership",
+    "summary": "Students deepen their internal practice and learn how to embody thoughtful leadership through service and relationships.",
+    "courses": [
+      {
+        "title": "Nectar of Instruction",
+        "focus": "Practical guidance for personal discipline, saintly association, and progressive spiritual growth."
+      },
+      {
+        "title": "Nectar of Devotion",
+        "focus": "The science and mood of devotional service, expressed through study, reflection, and community living."
+      }
+    ]
+  }
+]
+

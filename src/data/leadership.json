@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Resident Mentor Circle",
+    "role": "Pastoral Care and Spiritual Guidance",
+    "bio": "Mentors help students build strong sadhana, thoughtful habits, and a balanced inner life rooted in prayer, study, and compassion.",
+    "focus": "Daily guidance, accountability, and devotional culture"
+  },
+  {
+    "name": "Academic Support Team",
+    "role": "Scripture Study and Learning Support",
+    "bio": "The academic team facilitates discussions, reading plans, reflection exercises, and practical application of the curriculum.",
+    "focus": "Structured study, mentoring, and feedback"
+  },
+  {
+    "name": "Community Life Coordinators",
+    "role": "Residential Life and Service Leadership",
+    "bio": "Coordinators create a peaceful residential environment, organize service opportunities, and help students grow in cooperation.",
+    "focus": "Hospitality, schedule flow, and shared responsibility"
+  },
+  {
+    "name": "Temple Leadership Advisors",
+    "role": "Connection to ISKCON Birmingham",
+    "bio": "Advisors ensure the academy remains connected to the larger temple mission, local outreach, and service opportunities in Birmingham.",
+    "focus": "Temple connection, outreach, and long-term vision"
+  }
+]
+

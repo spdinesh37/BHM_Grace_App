@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title>Garden reflection illustration</title>
+  <desc>Stylized placeholder image for the GRACE gallery.</desc>
+  <defs>
+    <linearGradient id="garden" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#eef3e4" />
+      <stop offset="100%" stop-color="#cfe0bb" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#garden)" />
+  <circle cx="920" cy="190" r="120" fill="#fff8ef" opacity="0.55" />
+  <rect x="180" y="540" width="840" height="120" rx="60" fill="#4d6b52" opacity="0.8" />
+  <circle cx="380" cy="500" r="90" fill="#7b9a72" opacity="0.92" />
+  <circle cx="620" cy="420" r="120" fill="#4d6b52" opacity="0.88" />
+  <circle cx="860" cy="500" r="90" fill="#7b9a72" opacity="0.92" />
+  <text x="120" y="140" fill="#3b543f" font-family="Georgia, serif" font-size="76">Quiet Reflection</text>
+  <text x="120" y="222" fill="#3b543f" font-family="Arial, sans-serif" font-size="30">Space for contemplation, journaling, and rest.</text>
+</svg>
+

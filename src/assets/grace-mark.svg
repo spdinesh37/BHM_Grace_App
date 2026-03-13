@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-labelledby="title desc">
+  <title>GRACE logo placeholder</title>
+  <desc>Lotus-inspired placeholder logo for the GRACE academy website.</desc>
+  <defs>
+    <linearGradient id="petal" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f3b451" />
+      <stop offset="100%" stop-color="#d97706" />
+    </linearGradient>
+  </defs>
+  <circle cx="60" cy="60" r="58" fill="#fff9ef" />
+  <circle cx="60" cy="60" r="46" fill="#fff0cf" />
+  <g fill="url(#petal)">
+    <path d="M60 22c8 10 12 18 12 26a12 12 0 1 1-24 0c0-8 4-16 12-26Z" />
+    <path d="M31 48c11 1 19 4 24 10a12 12 0 1 1-16 16c-6-6-9-14-8-26Z" />
+    <path d="M89 48c1 12-2 20-8 26a12 12 0 1 1-16-16c5-6 13-9 24-10Z" />
+  </g>
+  <circle cx="60" cy="63" r="10" fill="#8a5519" />
+  <path d="M54 87h12" stroke="#8a5519" stroke-width="4" stroke-linecap="round" />
+</svg>
+
