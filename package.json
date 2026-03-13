@@ -21,7 +21,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build -r https://github.com/spdinesh37/BHM_Grace_App.git"
+    "deploy": "node -e \"console.log('Deployment is automatic via GitHub Actions after you push main.')\""
   },
   "browserslist": {
     "production": [
@@ -36,5 +36,6 @@
     ]
   }
 }
+
 
 
