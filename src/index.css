@@ -69,5 +69,1273 @@ body {
   .secondary-button {
     @apply inline-flex items-center justify-center rounded-full border border-white/70 bg-white/15 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/25;
   }
+
+  .ornate-stage {
+    position: relative;
+    overflow: hidden;
+    border-radius: 2.5rem;
+    border: 1px solid rgba(219, 197, 161, 0.7);
+    background:
+      radial-gradient(circle at bottom left, rgba(245, 224, 165, 0.34), transparent 28%),
+      radial-gradient(circle at top right, rgba(185, 176, 153, 0.18), transparent 32%),
+      linear-gradient(180deg, rgba(251, 246, 234, 0.98), rgba(243, 234, 216, 0.94));
+    padding: 1.35rem 1rem 0.95rem;
+    box-shadow: 0 30px 80px -45px rgba(103, 77, 44, 0.36);
+  }
+
+  .ornate-stage::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 20% 18%, rgba(255, 255, 255, 0.8), transparent 16%),
+      radial-gradient(circle at 78% 20%, rgba(124, 109, 77, 0.08), transparent 18%),
+      linear-gradient(135deg, rgba(255, 255, 255, 0.22), transparent 54%);
+    pointer-events: none;
+  }
+
+  .ornate-orbit {
+    position: absolute;
+    border: 3px solid rgba(255, 255, 255, 0.72);
+    border-radius: 999px;
+    pointer-events: none;
+  }
+
+  .ornate-orbit-one {
+    height: 11rem;
+    width: 34rem;
+    right: 4rem;
+    top: 5.5rem;
+    transform: rotate(-12deg);
+  }
+
+  .ornate-orbit-two {
+    height: 10rem;
+    width: 30rem;
+    left: 10rem;
+    bottom: 6rem;
+    transform: rotate(-14deg);
+  }
+
+  .ornate-orbit-three {
+    height: 9rem;
+    width: 26rem;
+    left: 14rem;
+    bottom: 2rem;
+    transform: rotate(-12deg);
+  }
+
+  .ornate-card-shell {
+    perspective: 1800px;
+    width: 100%;
+    max-width: 42rem;
+    min-height: 20rem;
+  }
+
+  .ornate-card-inner {
+    position: relative;
+    min-height: 20rem;
+    width: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.8s ease, translate 0.3s ease;
+  }
+
+  .ornate-card-shell:hover .ornate-card-inner,
+  .ornate-card-shell:focus-visible .ornate-card-inner,
+  .ornate-card-inner.is-flipped {
+    transform: rotateY(180deg);
+  }
+
+  .ornate-card-shell:hover .ornate-card-inner,
+  .ornate-card-shell:focus-visible .ornate-card-inner {
+    translate: 0 -6px;
+  }
+
+  .ornate-card-face {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    border-radius: 2rem;
+    border: 4px solid rgba(255, 255, 255, 0.94);
+    box-shadow: 12px 12px 0 rgba(58, 48, 42, 0.78), 0 26px 65px -30px rgba(73, 56, 34, 0.46);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+
+  .ornate-card-face::before {
+    content: "";
+    position: absolute;
+    inset: 0.65rem;
+    border-radius: 1.45rem;
+    border: 2px solid rgba(228, 222, 208, 0.92);
+    pointer-events: none;
+  }
+
+  .ornate-card-face::after {
+    content: "";
+    position: absolute;
+    inset: 1.1rem;
+    border-radius: 1.15rem;
+    border: 1px dashed rgba(210, 199, 180, 0.8);
+    pointer-events: none;
+  }
+
+  .ornate-card-front {
+    background:
+      linear-gradient(135deg, rgba(255, 255, 255, 0.68), rgba(255, 255, 255, 0.18) 42%, transparent 58%),
+      linear-gradient(180deg, rgba(255, 252, 246, 0.98), rgba(246, 239, 226, 0.96));
+  }
+
+  .ornate-card-back {
+    background:
+      radial-gradient(circle at top left, rgba(243, 180, 81, 0.14), transparent 34%),
+      linear-gradient(180deg, rgba(73, 58, 37, 0.96), rgba(44, 33, 20, 0.96));
+    transform: rotateY(180deg);
+  }
+
+  .ornate-card-frame {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    min-height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 2.4rem 2.2rem;
+    text-align: center;
+  }
+
+  .ornate-card-frame-back {
+    padding: 1.85rem 1.95rem;
+  }
+
+  .ornate-card-title {
+    color: #2c2219;
+    font-size: clamp(2.2rem, 4vw, 3.1rem);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .ornate-card-divider {
+    align-self: center;
+    width: 9rem;
+    height: 1.15rem;
+    background: radial-gradient(circle, rgba(59, 45, 27, 0.9) 0 0.18rem, transparent 0.19rem), linear-gradient(90deg, rgba(70, 53, 31, 0.85), rgba(70, 53, 31, 0.85));
+    background-size: 1.15rem 1.15rem, calc(100% - 2.4rem) 2px;
+    background-position: center center, center center;
+    background-repeat: no-repeat;
+    opacity: 0.85;
+  }
+
+  .ornate-card-text {
+    color: #382f26;
+    font-size: clamp(1.2rem, 2.3vw, 1.7rem);
+    line-height: 1.58;
+  }
+
+  .ornate-card-text-back {
+    color: rgba(255, 247, 232, 0.94);
+    font-size: clamp(1.4rem, 2.7vw, 2.05rem);
+    line-height: 1.68;
+  }
+
+  .values-stage {
+    position: relative;
+    overflow: hidden;
+    border-radius: 2.85rem;
+    border: 1px solid rgba(216, 199, 171, 0.78);
+    background:
+      radial-gradient(circle at bottom left, rgba(136, 171, 230, 0.24), transparent 22%),
+      radial-gradient(circle at bottom center, rgba(245, 224, 165, 0.36), transparent 24%),
+      radial-gradient(circle at top right, rgba(196, 184, 157, 0.16), transparent 28%),
+      linear-gradient(180deg, rgba(251, 246, 236, 0.98), rgba(243, 235, 219, 0.96));
+    padding: 1.6rem 1rem 2rem;
+    box-shadow: 0 34px 84px -52px rgba(101, 74, 40, 0.34);
+  }
+
+  .values-stage::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 12% 82%, rgba(125, 162, 224, 0.2), transparent 16%),
+      radial-gradient(circle at 32% 84%, rgba(245, 231, 186, 0.26), transparent 14%),
+      radial-gradient(circle at 88% 24%, rgba(180, 171, 146, 0.12), transparent 18%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.18), transparent 44%);
+    pointer-events: none;
+  }
+
+  .values-heading {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    gap: 0.75rem;
+    justify-items: center;
+    transition: opacity 0.35s ease, transform 0.35s ease;
+  }
+
+  .values-heading-line {
+    width: 100%;
+    height: 0.9rem;
+    background:
+      linear-gradient(180deg, transparent 0.12rem, rgba(53, 43, 34, 0.9) 0.12rem, rgba(53, 43, 34, 0.9) 0.24rem, transparent 0.24rem, transparent 0.52rem, rgba(53, 43, 34, 0.72) 0.52rem, rgba(53, 43, 34, 0.72) 0.63rem, transparent 0.63rem);
+    opacity: 0.84;
+  }
+
+  .values-title {
+    display: grid;
+    gap: 0.1rem;
+    justify-items: center;
+    color: #30251b;
+    text-align: center;
+  }
+
+  .values-title-word {
+    display: block;
+    min-width: 7ch;
+    font-size: clamp(3rem, 5.4vw, 4.3rem);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    line-height: 0.92;
+    text-transform: uppercase;
+    text-shadow: 0 10px 26px rgba(255, 255, 255, 0.34);
+  }
+
+  .values-heading-ornament {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+  }
+
+  .values-heading-stroke {
+    width: 5.25rem;
+    height: 2px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, rgba(70, 53, 31, 0.2), rgba(70, 53, 31, 0.95), rgba(70, 53, 31, 0.2));
+  }
+
+  .values-heading-dot {
+    width: 0.95rem;
+    height: 0.95rem;
+    transform: rotate(45deg);
+    border: 2px solid rgba(93, 68, 40, 0.85);
+    border-radius: 0.15rem;
+    background: rgba(255, 246, 225, 0.78);
+    box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.2);
+  }
+
+  .value-card-stack {
+    position: relative;
+    z-index: 1;
+    perspective: 2200px;
+    transform-style: preserve-3d;
+    transition: transform 0.65s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.45s ease, filter 0.45s ease;
+    will-change: transform, opacity;
+  }
+
+  .value-card-stack::before {
+    content: "";
+    position: absolute;
+    inset: 2.5rem 1.2rem -0.7rem 1.35rem;
+    border-radius: 2.25rem;
+    background: linear-gradient(180deg, rgba(59, 45, 27, 0.18), rgba(59, 45, 27, 0.08));
+    transform: translateY(0.7rem);
+    z-index: -2;
+    opacity: 0.72;
+    transition: transform 0.45s ease, opacity 0.45s ease;
+  }
+
+  .value-card-body {
+    position: relative;
+    display: grid;
+    min-height: 16rem;
+    grid-template-rows: auto auto 1fr;
+    gap: 1rem;
+    overflow: hidden;
+    border-radius: 2.1rem;
+    border: 1px solid rgba(255, 255, 255, 0.82);
+    background:
+      linear-gradient(160deg, rgba(255, 255, 255, 0.84), rgba(250, 246, 237, 0.62) 55%, rgba(244, 233, 214, 0.58)),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.5), rgba(249, 244, 234, 0.12));
+    padding: 1.25rem 1.3rem 1.45rem;
+    box-shadow: var(--value-shadow, 0 24px 52px -30px rgba(90, 66, 41, 0.3));
+    text-align: center;
+    backdrop-filter: blur(8px);
+    isolation: isolate;
+    transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.45s ease, border-color 0.45s ease;
+    transform-style: preserve-3d;
+  }
+
+  .value-card-body::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top center, var(--value-accent), transparent 54%);
+    pointer-events: none;
+    z-index: -2;
+  }
+
+  .value-card-body::after {
+    content: "";
+    position: absolute;
+    inset: -28% auto -24% -38%;
+    width: 48%;
+    background: linear-gradient(110deg, transparent, rgba(255, 255, 255, 0.45), transparent);
+    transform: translateX(-140%) rotate(12deg);
+    transition: transform 0.7s ease;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  .value-card-aura {
+    position: absolute;
+    inset: auto 12% 7% 12%;
+    height: 62%;
+    border-radius: 999px;
+    background: var(--value-glow);
+    filter: blur(34px);
+    opacity: 0.95;
+    z-index: -2;
+    transition: transform 0.35s ease, opacity 0.35s ease;
+  }
+
+  .value-card-rim {
+    position: absolute;
+    inset: 0.82rem;
+    border-radius: 1.6rem;
+    border: 1px solid rgba(255, 255, 255, 0.58);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.14), transparent 50%);
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  .value-card-head {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    transform: translateZ(26px);
+    transition: transform 0.45s ease;
+  }
+
+  .value-card-number {
+    display: inline-flex;
+    height: 2.5rem;
+    width: 2.5rem;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    border: 1px solid rgba(111, 82, 49, 0.18);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(249, 241, 227, 0.86));
+    color: #5b4230;
+    font-size: 0.86rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    box-shadow: 0 10px 24px -18px rgba(84, 60, 34, 0.35);
+  }
+
+  .value-pill {
+    display: flex;
+    min-height: 4.2rem;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.84);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(247, 243, 235, 0.76));
+    padding: 0.8rem 1.2rem;
+    box-shadow: 0 14px 32px -24px rgba(92, 65, 36, 0.26);
+    color: #33271d;
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(1.55rem, 1.85vw, 1.95rem);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-align: center;
+    text-transform: uppercase;
+    transform: translateZ(32px);
+    transition: transform 0.45s ease;
+  }
+
+  .value-card-emblem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    transform: translateZ(22px);
+    transition: transform 0.45s ease, opacity 0.45s ease;
+  }
+
+  .value-card-emblem-line {
+    height: 2px;
+    width: 3.25rem;
+    border-radius: 999px;
+    background: linear-gradient(90deg, rgba(115, 84, 48, 0.12), rgba(115, 84, 48, 0.8), rgba(115, 84, 48, 0.12));
+  }
+
+  .value-card-emblem-diamond {
+    width: 0.9rem;
+    height: 0.9rem;
+    transform: rotate(45deg);
+    border: 2px solid rgba(115, 84, 48, 0.72);
+    border-radius: 0.14rem;
+    background: rgba(255, 250, 239, 0.82);
+    box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.18);
+  }
+
+  .value-card-text {
+    color: #392d23;
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(1.52rem, 1.75vw, 1.98rem);
+    line-height: 1.42;
+    text-wrap: balance;
+    transform: translateZ(18px);
+    transition: transform 0.45s ease;
+  }
+
+  .value-card-stack:hover .value-card-body {
+    transform: translateY(-14px) rotateX(13deg) rotateY(-8deg) scale(1.01);
+    box-shadow: 0 42px 78px -30px rgba(90, 66, 41, 0.4);
+    border-color: rgba(255, 255, 255, 0.94);
+  }
+
+  .value-card-stack:hover .value-card-body::after {
+    transform: translateX(320%) rotate(12deg);
+  }
+
+  .value-card-stack:hover::before {
+    transform: translateY(1.15rem) scale(1.03);
+    opacity: 0.92;
+  }
+
+  .value-card-stack:hover .value-card-aura {
+    transform: scale(1.08);
+    opacity: 1;
+  }
+
+  .value-card-stack:hover .value-card-head {
+    transform: translateZ(34px) translateY(-5px);
+  }
+
+  .value-card-stack:hover .value-card-emblem {
+    transform: translateZ(34px) scale(1.06);
+    opacity: 1;
+  }
+
+  .value-card-stack:hover .value-pill {
+    transform: translateZ(38px) translateY(-4px);
+  }
+
+  .value-card-stack:hover .value-card-text {
+    transform: translateZ(28px);
+  }
+
+  @media (max-width: 1023px) {
+    .ornate-stage {
+      padding: 1.05rem 0.9rem 0.8rem;
+    }
+
+    .ornate-orbit {
+      display: none;
+    }
+
+    .ornate-card-shell {
+      max-width: none;
+      min-height: 18rem;
+    }
+
+    .ornate-card-inner {
+      min-height: 18rem;
+    }
+
+    .ornate-card-frame {
+      padding: 2rem 1.5rem;
+    }
+
+    .ornate-card-frame-back {
+      padding: 1.55rem 1.3rem;
+    }
+
+    .values-stage {
+      padding: 1.2rem 0.9rem 1.25rem;
+    }
+
+    .values-title-word {
+      min-width: auto;
+      font-size: clamp(2.5rem, 10vw, 3.25rem);
+    }
+
+    .values-heading-stroke {
+      width: 3.2rem;
+    }
+
+    .value-card-body {
+      min-height: 13rem;
+      padding: 1.1rem 1rem 1.2rem;
+      grid-template-rows: auto auto 1fr;
+    }
+
+    .value-card-head {
+      gap: 0.65rem;
+    }
+
+    .value-pill {
+      min-height: 3.8rem;
+      font-size: clamp(1.35rem, 6vw, 1.7rem);
+    }
+
+    .value-card-text {
+      font-size: clamp(1.34rem, 5.3vw, 1.75rem);
+    }
+  }
 }
 
+
+.grace-ashram-shell {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(223, 205, 177, 0.76);
+  border-radius: 2.4rem;
+  background:
+    radial-gradient(circle at top left, rgba(243, 180, 81, 0.18), transparent 28%),
+    radial-gradient(circle at bottom right, rgba(123, 157, 219, 0.14), transparent 24%),
+    linear-gradient(180deg, rgba(255, 250, 241, 0.96), rgba(247, 239, 224, 0.94));
+  box-shadow: 0 32px 80px -52px rgba(101, 74, 40, 0.34);
+  padding: 1.35rem 1.1rem 1.2rem;
+}
+
+.grace-ashram-shell__halo {
+  position: absolute;
+  width: 16rem;
+  height: 16rem;
+  border-radius: 999px;
+  filter: blur(44px);
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.grace-ashram-shell__halo--left {
+  left: -4rem;
+  top: -4rem;
+  background: rgba(243, 180, 81, 0.2);
+}
+
+.grace-ashram-shell__halo--right {
+  right: -4rem;
+  bottom: -5rem;
+  background: rgba(126, 164, 228, 0.18);
+}
+
+.ashram-subnav {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 1.75rem;
+}
+
+.ashram-subnav__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3.1rem;
+  padding: 0.75rem 1.15rem;
+  border-radius: 999px;
+  border: 1px solid rgba(194, 175, 147, 0.75);
+  background: rgba(255, 255, 255, 0.75);
+  box-shadow: 0 18px 38px -30px rgba(101, 74, 40, 0.3);
+  color: #4a392a;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease, color 0.25s ease;
+}
+
+.ashram-subnav__link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 24px 40px -28px rgba(101, 74, 40, 0.34);
+}
+
+.ashram-subnav__link--active {
+  background: linear-gradient(135deg, rgba(74, 57, 42, 0.96), rgba(38, 28, 18, 0.96));
+  border-color: rgba(74, 57, 42, 0.96);
+  color: #fff8ef;
+  box-shadow: 0 24px 44px -30px rgba(42, 31, 20, 0.5);
+}
+
+.curriculum-stage {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(216, 197, 166, 0.76);
+  border-radius: 2.6rem;
+  background:
+    radial-gradient(circle at bottom left, rgba(123, 157, 219, 0.22), transparent 22%),
+    radial-gradient(circle at bottom center, rgba(245, 224, 165, 0.32), transparent 22%),
+    radial-gradient(circle at top right, rgba(196, 184, 157, 0.16), transparent 28%),
+    linear-gradient(180deg, rgba(251, 246, 236, 0.98), rgba(243, 235, 219, 0.96));
+  box-shadow: 0 34px 84px -52px rgba(101, 74, 40, 0.34);
+  padding: 1.4rem 1rem 1.2rem;
+}
+
+.curriculum-stage::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, transparent 1.2rem, rgba(53, 43, 34, 0.92) 1.2rem, rgba(53, 43, 34, 0.92) 1.38rem, transparent 1.38rem, transparent 1.72rem, rgba(53, 43, 34, 0.82) 1.72rem, rgba(53, 43, 34, 0.82) 1.84rem, transparent 1.84rem),
+    radial-gradient(circle at 84% 18%, rgba(77, 63, 47, 0.08), transparent 18%);
+  pointer-events: none;
+}
+
+.curriculum-stage--secondary {
+  padding-bottom: 1.6rem;
+}
+
+.curriculum-header {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 0.35rem;
+}
+
+.curriculum-header--center {
+  justify-items: center;
+  text-align: center;
+}
+
+.curriculum-page-label {
+  margin: 2.1rem 0 0;
+  color: #3c2e21;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2rem, 4vw, 2.85rem);
+  line-height: 1;
+}
+
+.curriculum-title-lockup {
+  display: grid;
+  justify-items: center;
+  gap: 0.12rem;
+  padding: 1.1rem 0 0.4rem;
+  text-align: center;
+}
+
+.curriculum-title-lockup--secondary {
+  gap: 0.45rem;
+}
+
+.curriculum-script-title {
+  margin: 0;
+  color: #2d261f;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(4.2rem, 8vw, 6.3rem);
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  line-height: 0.8;
+}
+
+.curriculum-block-title,
+.curriculum-handbook-title {
+  margin: 0;
+  color: #31251d;
+  font-size: clamp(2.9rem, 6vw, 4.7rem);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  line-height: 0.92;
+  white-space: normal;
+  text-transform: uppercase;
+}
+
+.curriculum-handbook-title {
+  max-width: 18ch;
+  font-size: clamp(2.35rem, 4vw, 3.7rem);
+}
+
+.curriculum-underline {
+  width: 4.8rem;
+  height: 4px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(74, 57, 42, 0.16), rgba(74, 57, 42, 0.95), rgba(74, 57, 42, 0.16));
+}
+
+.curriculum-track-card {
+  position: relative;
+  z-index: 1;
+  margin-top: 1.65rem;
+  border: 1px solid rgba(73, 57, 42, 0.65);
+  border-radius: 2rem;
+  background: rgba(255, 252, 246, 0.58);
+  backdrop-filter: blur(8px);
+  padding: 1.5rem 1.15rem 1.2rem;
+}
+
+.curriculum-track-line {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: center;
+  margin-bottom: 1.45rem;
+  position: relative;
+}
+
+.curriculum-track-line::before {
+  content: "";
+  position: absolute;
+  left: 1.1rem;
+  right: 1.1rem;
+  top: 50%;
+  height: 4px;
+  transform: translateY(-50%);
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(57, 45, 31, 0.92), rgba(57, 45, 31, 0.8));
+}
+
+.curriculum-track-stop {
+  position: relative;
+  justify-self: center;
+  width: 1.45rem;
+  height: 1.45rem;
+  transform: rotate(45deg);
+  border-radius: 0.2rem;
+  background: #2f2419;
+  box-shadow: 0 0 0 10px rgba(255, 251, 244, 0.72);
+}
+
+.curriculum-semester-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.curriculum-semester-card {
+  display: grid;
+  align-content: start;
+  gap: 0.85rem;
+  padding: 0 0.5rem 0.35rem;
+}
+
+.curriculum-semester-label {
+  margin: 0;
+  color: #34261c;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2rem, 3vw, 2.7rem);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.curriculum-semester-subtitle {
+  margin: 0;
+  color: #473629;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.95rem;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.curriculum-semester-content {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.curriculum-entry-label {
+  margin: 0 0 0.18rem;
+  color: #4e3a2a;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+.curriculum-entry-title {
+  margin: 0;
+  color: #35281d;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(1.75rem, 2.2vw, 2.1rem);
+  line-height: 1.2;
+}
+
+.curriculum-entry-details {
+  margin: 0.12rem 0 0;
+  color: #4f3c2c;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.7rem;
+  line-height: 1.22;
+}
+
+.handbook-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 1.8rem;
+  align-items: start;
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+}
+
+.handbook-cover-card,
+.handbook-syllabus-card {
+  border: 1px solid rgba(196, 178, 149, 0.7);
+  background: rgba(255, 251, 244, 0.88);
+  box-shadow: 0 28px 58px -42px rgba(82, 61, 34, 0.36);
+}
+
+.handbook-cover-card {
+  border-radius: 1.4rem;
+  padding: 2rem 1.5rem 1.8rem;
+  text-align: center;
+}
+
+.handbook-kicker {
+  margin: 0;
+  color: #52729c;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2.4rem, 4vw, 3.2rem);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.handbook-seal {
+  display: flex;
+  justify-content: center;
+  margin: 1.7rem auto 1.5rem;
+}
+
+.handbook-seal-ring {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 15rem;
+  height: 15rem;
+  border-radius: 999px;
+  border: 8px double rgba(201, 160, 73, 0.7);
+  background: radial-gradient(circle, rgba(248, 228, 178, 0.76), rgba(255, 248, 233, 0.92));
+  color: #907029;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2.8rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.handbook-course-title {
+  margin: 0;
+  color: #1f1812;
+  font-family: "Manrope", sans-serif;
+  font-size: clamp(2.4rem, 4vw, 3.3rem);
+  font-weight: 800;
+}
+
+.handbook-edition {
+  margin: 0.85rem 0 0;
+  color: #2c2016;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2.2rem;
+  font-weight: 600;
+}
+
+.handbook-note {
+  margin: 1.35rem auto 0;
+  max-width: 30rem;
+  color: #514132;
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.handbook-syllabus-card {
+  border-radius: 1.4rem;
+  padding: 1.7rem 1.35rem;
+}
+
+.handbook-syllabus-title {
+  margin: 0;
+  color: #241a12;
+  font-size: clamp(2.2rem, 3vw, 3rem);
+  font-weight: 700;
+}
+
+.handbook-meta-grid,
+.handbook-detail-grid,
+.handbook-copy-grid {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.2rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.handbook-meta-item,
+.handbook-detail-card,
+.handbook-copy-card {
+  border-radius: 1.2rem;
+  border: 1px solid rgba(212, 195, 171, 0.78);
+  background: rgba(255, 255, 255, 0.76);
+  padding: 1rem 1rem 1.05rem;
+}
+
+.handbook-meta-label,
+.handbook-detail-label {
+  margin: 0;
+  color: #2e8b57;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.handbook-meta-value,
+.handbook-copy-text,
+.handbook-list,
+.handbook-objectives-list {
+  margin: 0.55rem 0 0;
+  color: #36281c;
+  font-size: 0.96rem;
+  line-height: 1.72;
+}
+
+.handbook-list,
+.handbook-objectives-list {
+  padding-left: 1.1rem;
+}
+
+.handbook-copy-card--objectives {
+  margin-top: 1rem;
+}
+
+@media (max-width: 1279px) {
+  .curriculum-semester-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .handbook-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 767px) {
+  .grace-ashram-shell {
+    padding: 1.15rem 0.95rem 1rem;
+  }
+
+  .ashram-subnav {
+    gap: 0.65rem;
+  }
+
+  .ashram-subnav__link {
+    width: 100%;
+  }
+
+  .curriculum-stage {
+    padding: 1.1rem 0.85rem 1rem;
+    border-radius: 2rem;
+  }
+
+  .curriculum-page-label {
+    margin-top: 1.85rem;
+  }
+
+  .curriculum-script-title {
+    font-size: clamp(3.5rem, 16vw, 4.6rem);
+  }
+
+  .curriculum-block-title,
+  .curriculum-handbook-title {
+    font-size: clamp(2.1rem, 10vw, 3rem);
+  }
+
+  .curriculum-track-card {
+    padding: 1.1rem 0.85rem 0.85rem;
+  }
+
+  .curriculum-track-line {
+    display: none;
+  }
+
+  .curriculum-semester-grid,
+  .handbook-meta-grid,
+  .handbook-detail-grid,
+  .handbook-copy-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .curriculum-semester-card {
+    padding: 0;
+  }
+
+  .curriculum-semester-label {
+    font-size: 1.95rem;
+  }
+
+  .curriculum-semester-subtitle,
+  .curriculum-entry-label,
+  .curriculum-entry-title,
+  .curriculum-entry-details {
+    font-size: 1.55rem;
+  }
+
+  .handbook-cover-card,
+  .handbook-syllabus-card {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .handbook-seal-ring {
+    width: 11.5rem;
+    height: 11.5rem;
+    font-size: 2rem;
+  }
+
+  .handbook-course-title {
+    font-size: 2.15rem;
+  }
+
+  .handbook-edition {
+    font-size: 1.8rem;
+  }
+}
+
+.curriculum-books-stage {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(216, 197, 166, 0.76);
+  border-radius: 2.6rem;
+  background:
+    radial-gradient(circle at top left, rgba(243, 180, 81, 0.14), transparent 24%),
+    radial-gradient(circle at bottom right, rgba(123, 157, 219, 0.18), transparent 24%),
+    linear-gradient(180deg, rgba(255, 251, 244, 0.96), rgba(247, 239, 224, 0.94));
+  box-shadow: 0 34px 84px -52px rgba(101, 74, 40, 0.34);
+  padding: 1.35rem 1rem 1.4rem;
+}
+
+.curriculum-books-stage::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 84% 18%, rgba(77, 63, 47, 0.08), transparent 18%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.12), transparent 30%);
+  pointer-events: none;
+}
+
+.curriculum-books-heading {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 0.55rem;
+  justify-items: center;
+  text-align: center;
+}
+
+.curriculum-books-title {
+  margin: 0;
+  max-width: 28ch;
+  color: #2f231a;
+  font-size: clamp(2rem, 3.4vw, 3.2rem);
+  line-height: 1.02;
+  text-wrap: balance;
+}
+
+.curriculum-books-list {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.6rem;
+}
+
+.curriculum-book-card {
+  display: grid;
+  align-items: center;
+  grid-template-columns: minmax(0, 1.7fr) minmax(9.5rem, 12rem);
+  gap: 2.2rem;
+  border-radius: 2rem;
+  border: 1px solid rgba(223, 208, 184, 0.78);
+  background: rgba(255, 252, 246, 0.74);
+  box-shadow: 0 24px 54px -42px rgba(91, 68, 38, 0.3);
+  padding: 1.55rem 1.5rem;
+}
+
+.curriculum-book-copy {
+  display: grid;
+  gap: 0.42rem;
+  width: 100%;
+  max-width: none;
+  align-content: center;
+  justify-items: start;
+}
+
+.curriculum-book-semester {
+  margin: 0;
+  color: #8a683f;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+.curriculum-book-heading {
+  margin: 0;
+  color: #3b2d21;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2.1rem, 3vw, 2.9rem);
+  font-weight: 600;
+  line-height: 1;
+}
+
+.curriculum-book-title {
+  margin: 0;
+  max-width: 20ch;
+  color: #1f1812;
+  font-size: clamp(1.95rem, 2.7vw, 2.65rem);
+  line-height: 1.05;
+  text-wrap: balance;
+}
+
+.curriculum-book-details {
+  margin: 0.15rem 0 0;
+  color: #5a4533;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(1.25rem, 1.8vw, 1.55rem);
+  font-weight: 600;
+  line-height: 1.14;
+}
+
+.curriculum-book-summary {
+  margin: 0.4rem 0 0;
+  max-width: 46ch;
+  color: #4a392b;
+  font-size: 1rem;
+  line-height: 1.72;
+}
+
+.curriculum-book-visual {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 18rem;
+}
+
+.curriculum-book-glow {
+  position: absolute;
+  inset: auto 12% 8% 12%;
+  height: 60%;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(243, 180, 81, 0.42), rgba(123, 157, 219, 0.14), transparent 72%);
+  filter: blur(32px);
+  transition: opacity 0.35s ease;
+}
+
+.curriculum-book-cover {
+  position: relative;
+  width: min(100%, 10.4rem);
+  object-fit: contain;
+  transform-origin: center right;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  will-change: transform;
+}
+
+@media (max-width: 1023px) {
+  .curriculum-book-card {
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+  }
+
+  .curriculum-book-copy {
+    justify-items: center;
+    text-align: center;
+  }
+
+  .curriculum-book-summary {
+    max-width: 36ch;
+  }
+
+  .curriculum-book-visual {
+    min-height: 13.5rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .curriculum-books-stage {
+    padding: 1.05rem 0.85rem 1rem;
+    border-radius: 2rem;
+  }
+
+  .curriculum-books-title {
+    max-width: 14ch;
+    font-size: clamp(1.9rem, 9vw, 2.5rem);
+  }
+
+  .curriculum-book-card {
+    padding: 1rem 0.9rem;
+    border-radius: 1.55rem;
+  }
+
+  .curriculum-book-heading {
+    font-size: 1.95rem;
+  }
+
+  .curriculum-book-title {
+    max-width: 15ch;
+    font-size: 2.2rem;
+  }
+
+  .curriculum-book-details {
+    font-size: 1.45rem;
+  }
+
+  .curriculum-book-summary {
+    max-width: 28ch;
+    font-size: 0.96rem;
+    line-height: 1.65;
+  }
+
+  .curriculum-book-cover {
+    width: min(100%, 10rem);
+  }
+}
+
+
+
+
+
+
+
+
+.curriculum-handbook-title {
+  display: grid;
+  gap: 0.04em;
+  justify-items: center;
+  width: fit-content;
+  max-width: none;
+  font-size: clamp(2rem, 3.3vw, 3.15rem);
+  letter-spacing: 0.035em;
+  line-height: 0.95;
+  white-space: normal;
+}
+
+.curriculum-handbook-title span {
+  display: block;
+  white-space: nowrap;
+}
+
+.handbook-seal-image {
+  width: min(100%, 18rem);
+  object-fit: contain;
+  filter: drop-shadow(0 18px 28px rgba(191, 154, 71, 0.18));
+}
+
+@media (max-width: 767px) {
+  .curriculum-handbook-title {
+    font-size: clamp(1.7rem, 7.7vw, 2.45rem);
+    letter-spacing: 0.03em;
+  }
+
+  .handbook-seal-image {
+    width: min(100%, 13rem);
+  }
+}

@@ -5,7 +5,7 @@ import SectionHeader from "./SectionHeader";
 function EventsList({
   events,
   eyebrow = "Upcoming Events",
-  title = "Temple gatherings and academy moments to look forward to",
+  title = "Temple gatherings and community moments to look forward to",
   description = "Join study circles, kirtan evenings, service opportunities, and celebrations that strengthen community life.",
   limit,
   showCta = false
@@ -36,4 +36,3 @@ function EventsList({
 }
 
 export default EventsList;
-

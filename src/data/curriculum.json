@@ -1,33 +1,186 @@
-[
-  {
-    "semester": "Semester 1",
-    "theme": "Foundations of Bhakti and Sacred Culture",
-    "summary": "Students establish a steady devotional rhythm while learning the philosophical and cultural essentials of Krishna consciousness.",
-    "courses": [
+{
+  "pageEightLabel": "Page 08",
+  "pageNineLabel": "Page 09",
+  "titleScript": "Grace",
+  "title": "Curriculum",
+  "semesters": [
+    {
+      "name": "Semester 1",
+      "subtitle": "Foundation",
+      "items": [
+        {
+          "title": "Perfect Questions, Perfect Answers"
+        },
+        {
+          "title": "Beyond Birth and Death"
+        },
+        {
+          "title": "Krishna, The Reservoir of Pleasure"
+        },
+        {
+          "title": "Science of Self-Realization"
+        }
+      ]
+    },
+    {
+      "name": "Semester 2",
+      "items": [
+        {
+          "label": "Module 1",
+          "title": "Bhagavad-Gita",
+          "details": "Chapters 1-6"
+        },
+        {
+          "label": "Module 2",
+          "title": "Sri Isopanisad"
+        }
+      ]
+    },
+    {
+      "name": "Semester 3",
+      "items": [
+        {
+          "label": "Module 3",
+          "title": "Bhagavad-Gita",
+          "details": "Chapters 7-12"
+        },
+        {
+          "label": "Module 4",
+          "title": "Nectar of Instruction"
+        }
+      ]
+    },
+    {
+      "name": "Semester 4",
+      "items": [
+        {
+          "label": "Module 5",
+          "title": "Bhagavad-Gita",
+          "details": "Chapters 13-18"
+        },
+        {
+          "label": "Module 6",
+          "title": "Nectar of Devotion"
+        }
+      ]
+    }
+  ],
+  "bookShowcase": [
+    {
+      "semester": "Semester 1",
+      "heading": "Foundation",
+      "title": "Perfect Questions, Perfect Answers",
+      "summary": "A welcoming introduction to spiritual life through simple questions about the soul, Krishna, and the purpose of human existence.",
+      "image": "books/semester1/Perfect Questions Perfect Answers.jpg"
+    },
+    {
+      "semester": "Semester 1",
+      "heading": "Foundation",
+      "title": "Beyond Birth and Death",
+      "summary": "A clear explanation of the difference between body and soul, and how spiritual understanding frees one from fear and illusion.",
+      "image": "books/semester1/Beyond Birth and Death.jpg"
+    },
+    {
+      "semester": "Semester 1",
+      "heading": "Foundation",
+      "title": "Krishna, The Reservoir of Pleasure",
+      "summary": "An invitation to see Krishna as the all-attractive source of joy and to approach devotion as a personal, living relationship.",
+      "image": "books/semester1/Krishna The Reservoir of Pleasure.jpg"
+    },
+    {
+      "semester": "Semester 1",
+      "heading": "Foundation",
+      "title": "Science of Self-Realization",
+      "summary": "A broad collection of teachings on identity, consciousness, and spiritual practice applied to modern life and sincere inquiry.",
+      "image": "books/semester1/Science of Self-Realization.jpg"
+    },
+    {
+      "semester": "Semester 2",
+      "heading": "Module 1",
+      "title": "Bhagavad-Gita As It Is",
+      "details": "Chapters 1-6",
+      "summary": "Establishes the foundations of duty, self-knowledge, disciplined practice, and the beginning stages of Krishna-centered spiritual life.",
+      "image": "books/semester2/Bhagavad Gita As It Is.jpg"
+    },
+    {
+      "semester": "Semester 2",
+      "heading": "Module 2",
+      "title": "Sri Isopanisad",
+      "summary": "A concise guide to seeing everything in relation to the Supreme and living with gratitude, restraint, and divine awareness.",
+      "image": "books/semester2/Sri Isopanishad.jpg"
+    },
+    {
+      "semester": "Semester 3",
+      "heading": "Module 3",
+      "title": "Bhagavad-Gita As It Is",
+      "details": "Chapters 7-12",
+      "summary": "Explores Krishna's energies, His personal nature, and the central place of devotion in spiritual realization.",
+      "image": "books/semester3/Bhagavad Gita As It Is.jpg"
+    },
+    {
+      "semester": "Semester 3",
+      "heading": "Module 4",
+      "title": "Nectar of Instruction",
+      "summary": "Offers practical guidance for discipline, relationships, sacred habits, and progressive growth in devotional service.",
+      "image": "books/semester3/Nectar of Instruction.jpg"
+    },
+    {
+      "semester": "Semester 4",
+      "heading": "Module 5",
+      "title": "Bhagavad-Gita As It Is",
+      "details": "Chapters 13-18",
+      "summary": "Completes the Gita with teachings on the modes, the nature of action, surrender, and the culmination of spiritual wisdom.",
+      "image": "books/semester4/Bhagavad Gita As It Is.jpg"
+    },
+    {
+      "semester": "Semester 4",
+      "heading": "Module 6",
+      "title": "Nectar of Devotion",
+      "summary": "An in-depth study of the moods, practices, and theology of pure devotional service in the bhakti tradition.",
+      "image": "books/semester4/Nectar of Devotion.jpg"
+    }
+  ],
+  "handbook": {
+    "heading": "Student Handbook\n& Syllabus",
+    "institute": "Mayapur Institute",
+    "course": "Bhakti-sastri Course",
+    "edition": "Student Handbook",
+    "note": "The International Society for Krishna Consciousness Founder-Acarya: His Divine Grace A.C. Bhaktivedanta Swami Prabhupada",
+    "courseInfo": [
       {
-        "title": "Bhagavad Gita",
-        "focus": "Core teachings on identity, duty, devotion, and spiritual practice."
+        "label": "Instructor",
+        "value": "Madhava Nimai Das"
       },
       {
-        "title": "Sri Isopanisad",
-        "focus": "A concise introduction to the personal nature of the Absolute Truth and God-centered living."
-      }
-    ]
-  },
-  {
-    "semester": "Semester 2",
-    "theme": "Character, Practice, and Leadership",
-    "summary": "Students deepen their internal practice and learn how to embody thoughtful leadership through service and relationships.",
-    "courses": [
-      {
-        "title": "Nectar of Instruction",
-        "focus": "Practical guidance for personal discipline, saintly association, and progressive spiritual growth."
+        "label": "Meeting Time",
+        "value": "Monday-Friday, 6:00 PM - 7:00 PM CST"
       },
       {
-        "title": "Nectar of Devotion",
-        "focus": "The science and mood of devotional service, expressed through study, reflection, and community living."
+        "label": "Format",
+        "value": "Guided Bhakti-sastri study with reading, discussion, and application"
+      },
+      {
+        "label": "Resources",
+        "value": "Meeting link, WhatsApp group, and course folder shared with enrolled students"
       }
+    ],
+    "prerequisites": [
+      "Four rounds of japa daily"
+    ],
+    "requiredTexts": [
+      "Bhagavad-gita As It Is",
+      "Sri Isopanisad",
+      "Nectar of Instruction",
+      "Nectar of Devotion"
+    ],
+    "method": "The course follows a flipped-classroom approach: students study the assigned material before class, then meet for guided reflection, clarification, and lived application.",
+    "description": "This syllabus presents the essential teachings of Bhakti Yoga through a systematic path that helps students connect spiritual study to practice, character, and daily life.",
+    "objectives": [
+      "Strengthen understanding of foundational bhakti-sastra.",
+      "Help students connect teachings to real decisions and relationships.",
+      "Build confidence in presenting, discussing, and applying scriptural knowledge.",
+      "Deepen appreciation for Srila Prabhupada's mood and mission."
     ]
   }
-]
+}
 

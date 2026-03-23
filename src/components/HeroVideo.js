@@ -31,30 +31,27 @@ function HeroVideo() {
 
       <div className="section-shell relative z-10 pt-28 pb-12 sm:pt-32 sm:pb-16">
         <div className="max-w-3xl">
-          <p className="eyebrow max-w-xs text-[10px] tracking-[0.28em] text-marigold sm:max-w-none sm:text-xs sm:tracking-[0.35em]">
-            Serve with heart. Learn with purpose.
-          </p>
-          <h1 className="mt-4 text-4xl font-semibold tracking-[0.1em] text-white sm:mt-5 sm:text-6xl sm:tracking-[0.14em] lg:text-7xl">
-            GRACE
+          <h1 className="text-4xl font-semibold tracking-[0.1em] text-white sm:text-6xl sm:tracking-[0.14em] lg:text-7xl">
+            ABC
           </h1>
           <p className="mt-4 max-w-2xl text-xl leading-tight text-white/90 sm:mt-5 sm:text-2xl lg:text-3xl">
-            Gauranga Residential Academy for Culture and Education
+            Alabama Bhakti Community
           </p>
           <p className="mt-5 max-w-md text-[11px] font-semibold uppercase leading-6 tracking-[0.24em] text-white/80 sm:mt-6 sm:max-w-none sm:text-sm sm:tracking-[0.4em]">
             Serve <span className="mx-1.5 text-marigold sm:mx-2">&bull;</span> Connect
             <span className="mx-1.5 text-marigold sm:mx-2">&bull;</span> Grow
           </p>
           <p className="mt-6 max-w-2xl text-sm leading-7 text-white/80 sm:mt-8 sm:text-base sm:leading-8 lg:text-lg">
-            A residential learning community rooted in Bhakti Yoga, devotional
-            culture, and compassionate leadership.
+            A devotional learning community rooted in Bhakti Yoga, devotional
+            culture, and shared spiritual practice.
           </p>
 
           <div className="mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:gap-4">
             <Link to="/about" className="primary-button w-full sm:w-auto">
-              Discover the Vision
+              Discover Vision and Mission
             </Link>
             <Link to="/contact" className="secondary-button w-full sm:w-auto">
-              Inquire About GRACE
+              Contact ABC
             </Link>
           </div>
         </div>

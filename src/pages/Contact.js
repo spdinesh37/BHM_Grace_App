@@ -22,7 +22,7 @@ function Contact() {
       <PageHero
         eyebrow="Contact"
         title="Reach out to learn more or begin your inquiry"
-        description="Visitors can use the embedded form below for questions, applications, or interest in upcoming programs."
+        description="Visitors can use the embedded form below for questions, applications, or interest in upcoming Alabama Bhakti Community programs."
       />
 
       <section className="py-16 sm:py-20 lg:py-24">
@@ -54,7 +54,7 @@ function Contact() {
 
           <div className="overflow-hidden rounded-[1.5rem] border border-white/70 bg-white/80 shadow-glow sm:rounded-[2rem]">
             <iframe
-              title="GRACE inquiry form"
+              title="ABC inquiry form"
               src={formEmbedUrl || undefined}
               srcDoc={formEmbedUrl ? undefined : placeholderEmbed}
               className="min-h-[680px] w-full sm:min-h-[720px]"

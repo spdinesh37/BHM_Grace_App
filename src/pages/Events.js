@@ -8,13 +8,13 @@ function Events() {
       <PageHero
         eyebrow="Events"
         title="Upcoming gatherings for study, seva, kirtan, and community"
-        description="This page highlights the academy and temple moments that invite students, families, and well-wishers into the life of GRACE."
+        description="This page highlights the community and temple moments that invite families, students, and well-wishers into the life of Alabama Bhakti Community."
       />
 
       <EventsList
         events={eventsData}
         eyebrow="Calendar"
-        title="Plan your next visit to GRACE"
+        title="Plan your next visit to ABC"
         description="Each event below is driven by learning, community connection, and devotional culture."
       />
     </>
@@ -22,4 +22,3 @@ function Events() {
 }
 
 export default Events;
-
