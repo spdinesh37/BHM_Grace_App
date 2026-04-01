@@ -1,19 +1,52 @@
-function EventCard({ event }) {
+function EventCard({ event, style }) {
+  const [month, ...rest] = event.date ? event.date.split(" ") : ["", event.date];
+  const day = rest.join(" ");
+
   return (
-    <article className="soft-card h-full">
-      <div className="flex items-start justify-between gap-4">
-        <div>
+    <article
+      className="group relative flex flex-col overflow-hidden rounded-2xl border border-white/70 bg-white/90 shadow-[0_8px_32px_-16px_rgba(90,66,41,0.18)] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_24px_48px_-20px_rgba(90,66,41,0.28)] hover:border-marigold/40"
+      style={style}
+    >
+      {/* Top accent bar */}
+      <div className="h-1 w-full bg-gradient-to-r from-saffron via-marigold to-clay/60" />
+
+      <div className="flex flex-1 flex-col p-6">
+        {/* Date badge + eyebrow */}
+        <div className="flex items-start justify-between gap-4">
           <p className="eyebrow">Upcoming Event</p>
-          <h3 className="mt-3 text-2xl font-semibold text-ink">{event.title}</h3>
+
+          {/* Calendar badge */}
+          <div className="shrink-0 overflow-hidden rounded-xl border border-amber-100 bg-sandal text-center shadow-sm">
+            <div className="bg-saffron px-3 py-0.5">
+              <p className="font-body text-[9px] font-bold uppercase tracking-widest text-white">
+                {month}
+              </p>
+            </div>
+            <div className="px-3 py-1.5">
+              <p className="font-display text-2xl font-bold leading-none text-ink">{day || "—"}</p>
+              {event.time && (
+                <p className="mt-0.5 font-body text-[10px] text-stone-500">{event.time}</p>
+              )}
+            </div>
+          </div>
         </div>
-        <div className="rounded-2xl bg-marigold/20 px-4 py-3 text-right">
-          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-clay">
-            {event.date}
-          </p>
-          <p className="mt-1 text-sm text-stone-700">{event.time}</p>
+
+        <h3 className="mt-3 font-display text-2xl font-semibold text-ink leading-snug group-hover:text-saffron transition-colors duration-200">
+          {event.title}
+        </h3>
+
+        <p className="mt-3 flex-1 font-body text-sm leading-7 text-stone-600">
+          {event.description}
+        </p>
+
+        {/* Bottom indicator */}
+        <div className="mt-5 flex items-center gap-2">
+          <div className="h-px flex-1 bg-gradient-to-r from-amber-100 to-transparent" />
+          <span className="font-body text-[10px] font-semibold uppercase tracking-wider text-clay">
+            ABC Event
+          </span>
         </div>
       </div>
-      <p className="mt-5 text-sm leading-7 text-stone-700">{event.description}</p>
     </article>
   );
 }

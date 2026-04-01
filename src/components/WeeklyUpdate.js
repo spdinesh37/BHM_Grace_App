@@ -1,16 +1,17 @@
+import { useReveal } from "./useReveal";
 import SectionHeader from "./SectionHeader";
 
 const menuGroups = [
-  { key: "mainItems", label: "Main Items" },
-  { key: "soups", label: "Soups" },
-  { key: "desserts", label: "Desserts" },
-  { key: "drinks", label: "Drinks" }
+  { key: "mainItems", label: "Main Items",  icon: "🍛" },
+  { key: "soups",     label: "Soups",       icon: "🥣" },
+  { key: "desserts",  label: "Desserts",    icon: "🍮" },
+  { key: "drinks",    label: "Drinks",      icon: "🥤" },
 ];
 
 function WeeklyUpdate({ update }) {
-  if (!update) {
-    return null;
-  }
+  const [ref, visible] = useReveal(0.1);
+
+  if (!update) return null;
 
   return (
     <section id="weekly-update" className="py-20 sm:py-24">
@@ -21,39 +22,51 @@ function WeeklyUpdate({ update }) {
           description="Keep the community rhythm close at hand with the latest message, gathering details, and feast offerings."
         />
 
-        <div className="mt-10 grid gap-6 lg:grid-cols-[1.1fr_1fr]">
-          <article className="glass-panel p-6 sm:p-8">
-            <div className="flex flex-col gap-3 border-b border-amber-100 pb-6 sm:flex-row sm:items-end sm:justify-between">
+        <div
+          ref={ref}
+          className={`mt-12 grid gap-6 lg:grid-cols-[1.1fr_1fr] transition-all duration-700 ease-out
+            ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+        >
+          {/* Announcement card */}
+          <article className="glass-panel relative overflow-hidden p-6 sm:p-8">
+            <div className="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-marigold/15 blur-2xl" />
+
+            <div className="flex flex-col gap-3 border-b border-amber-100/80 pb-6 sm:flex-row sm:items-end sm:justify-between">
               <div>
-                <p className="eyebrow text-[10px] tracking-[0.28em] sm:text-xs sm:tracking-[0.35em]">
-                  Current Week
-                </p>
-                <h3 className="mt-3 text-2xl font-semibold text-ink sm:text-3xl">
+                <div className="flex items-center gap-2">
+                  <div className="h-px w-5 bg-saffron/60" />
+                  <p className="eyebrow">Current Week</p>
+                </div>
+                <h3 className="mt-3 font-display text-2xl font-semibold text-ink sm:text-3xl">
                   {update.week}
                 </h3>
               </div>
-              <span className="inline-flex rounded-full bg-marigold/20 px-4 py-2 text-sm font-semibold text-clay">
-                {update.menuTitle}
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-marigold/30 to-saffron/20 px-4 py-2 font-body text-sm font-semibold text-clay shadow-sm">
+                🙏 {update.menuTitle}
               </span>
             </div>
 
-            <p className="mt-6 text-sm leading-8 text-stone-700 sm:text-base">
+            <p className="mt-6 font-body text-sm leading-8 text-stone-600 sm:text-base">
               {update.announcement}
             </p>
           </article>
 
+          {/* Menu grid */}
           <div className="grid gap-4 sm:grid-cols-2">
             {menuGroups.map((group) => (
-              <article key={group.key} className="soft-card p-5 sm:p-6">
-                <p className="eyebrow text-[10px] tracking-[0.28em] sm:text-xs sm:tracking-[0.35em]">
-                  {group.label}
-                </p>
-                <ul className="mt-4 space-y-3 text-sm leading-7 text-stone-700">
-                  {update[group.key].map((item) => (
+              <article key={group.key} className="soft-card overflow-hidden p-0">
+                {/* Card header */}
+                <div className="flex items-center gap-2 border-b border-amber-50 px-5 py-3 bg-sandal/50">
+                  <span className="text-base">{group.icon}</span>
+                  <p className="eyebrow text-[10px]">{group.label}</p>
+                </div>
+                <ul className="space-y-2 p-4">
+                  {update[group.key]?.map((item) => (
                     <li
                       key={item}
-                      className="rounded-2xl bg-sandal/70 px-4 py-3 font-medium"
+                      className="flex items-center gap-2.5 rounded-xl bg-white/70 px-3 py-2.5 font-body text-sm font-medium text-stone-700 shadow-sm"
                     >
+                      <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-saffron/70" />
                       {item}
                     </li>
                   ))}

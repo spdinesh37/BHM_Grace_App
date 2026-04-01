@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useReveal } from "./useReveal";
 import EventCard from "./EventCard";
 import SectionHeader from "./SectionHeader";
 
@@ -11,25 +12,43 @@ function EventsList({
   showCta = false
 }) {
   const items = limit ? events.slice(0, limit) : events;
+  const [ctaRef, ctaVisible] = useReveal(0.1);
 
   return (
     <section className="py-20 sm:py-24">
       <div className="section-shell">
         <SectionHeader eyebrow={eyebrow} title={title} description={description} />
 
-        <div className="mt-10 grid gap-6 lg:grid-cols-3">
-          {items.map((event) => (
-            <EventCard key={`${event.date}-${event.title}`} event={event} />
+        <div className="mt-12 grid gap-6 lg:grid-cols-3">
+          {items.map((event, i) => (
+            <div
+              key={`${event.date}-${event.title}`}
+              className="reveal"
+              style={{ transitionDelay: `${i * 100}ms` }}
+              ref={(el) => {
+                if (!el) return;
+                const obs = new IntersectionObserver(
+                  ([entry]) => { if (entry.isIntersecting) { el.classList.add("visible"); obs.disconnect(); } },
+                  { threshold: 0.1 }
+                );
+                obs.observe(el);
+              }}
+            >
+              <EventCard event={event} />
+            </div>
           ))}
         </div>
 
-        {showCta ? (
-          <div className="mt-10">
+        {showCta && (
+          <div
+            ref={ctaRef}
+            className={`mt-12 transition-all duration-700 ${ctaVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
+          >
             <Link to="/events" className="primary-button">
               View All Events
             </Link>
           </div>
-        ) : null}
+        )}
       </div>
     </section>
   );

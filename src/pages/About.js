@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import prabhupadaPortrait from "../assets/prabhupada-portrait.jpg";
+import { useReveal } from "../components/useReveal";
 
 const values = [
   {
@@ -69,6 +70,139 @@ const missionVisionCards = [
 
 const mix = (start, end, amount) => Math.round(start + (end - start) * amount);
 const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
+
+function FlipCard({ item, index, isActive, onActivate, onDeactivate }) {
+  const [ref, visible] = useReveal(0.1);
+  const isVision = item.key === "vision";
+
+  return (
+    <div
+      ref={ref}
+      className={`transition-all duration-700 ease-out ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+      style={{
+        transitionDelay: `${index * 150}ms`,
+        perspective: "1400px",
+      }}
+    >
+      <button
+        type="button"
+        onClick={() => onActivate(item.key)}
+        onMouseEnter={() => onActivate(item.key)}
+        onMouseLeave={onDeactivate}
+        onFocus={() => onActivate(item.key)}
+        onBlur={onDeactivate}
+        aria-pressed={isActive}
+        aria-label={`${item.title} — hover or tap to reveal`}
+        className="group w-full cursor-pointer"
+        style={{ perspective: "1400px" }}
+      >
+        <div
+          className="relative w-full transition-transform duration-700"
+          style={{
+            transformStyle: "preserve-3d",
+            transform: isActive ? "rotateY(180deg)" : "rotateY(0deg)",
+            minHeight: "260px",
+          }}
+        >
+          {/* Front */}
+          <div
+            className="absolute inset-0 flex flex-col items-center justify-center overflow-hidden rounded-3xl border border-white/80 p-8 text-center"
+            style={{
+              backfaceVisibility: "hidden",
+              background: isVision
+                ? "linear-gradient(135deg, rgba(30,58,95,0.97), rgba(20,40,70,0.97))"
+                : "linear-gradient(135deg, rgba(199,123,71,0.97), rgba(160,90,40,0.97))",
+              boxShadow: "0 32px 72px -32px rgba(0,0,0,0.42)",
+            }}
+          >
+            {/* Glow blob */}
+            <div
+              className="absolute inset-0 rounded-3xl opacity-40"
+              style={{
+                background: isVision
+                  ? "radial-gradient(circle at top left, rgba(243,180,81,0.4), transparent 55%)"
+                  : "radial-gradient(circle at bottom right, rgba(255,255,255,0.25), transparent 55%)",
+              }}
+            />
+            {/* Top shimmer line */}
+            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent" />
+
+            <p className="relative z-10 font-body text-[10px] font-semibold uppercase tracking-[0.35em] text-white/50">
+              {isVision ? "Our" : "Our"}
+            </p>
+            <h3 className="relative z-10 mt-2 font-display text-5xl font-semibold text-white sm:text-6xl">
+              {item.title}
+            </h3>
+            <div className="relative z-10 mt-4 flex items-center gap-3">
+              <div className="h-px w-8 rounded-full bg-white/30" />
+              <p className="font-body text-xs font-medium text-white/50">hover to reveal</p>
+              <div className="h-px w-8 rounded-full bg-white/30" />
+            </div>
+          </div>
+
+          {/* Back */}
+          <div
+            className="absolute inset-0 flex flex-col items-center justify-center overflow-hidden rounded-3xl border p-8 text-center"
+            style={{
+              backfaceVisibility: "hidden",
+              transform: "rotateY(180deg)",
+              background: "linear-gradient(135deg, rgba(255,252,244,0.98), rgba(247,239,225,0.96))",
+              borderColor: "rgba(243,180,81,0.35)",
+              boxShadow: "0 32px 72px -32px rgba(90,60,20,0.35)",
+            }}
+          >
+            <div className="absolute inset-x-0 top-0 h-1 rounded-t-3xl bg-gradient-to-r from-saffron via-marigold to-clay/50" />
+            <p className="font-body text-[10px] font-semibold uppercase tracking-[0.35em] text-clay">{item.title}</p>
+            <p className="mt-4 max-w-md font-display text-xl font-medium leading-relaxed text-ink sm:text-2xl">
+              {item.text}
+            </p>
+          </div>
+        </div>
+      </button>
+    </div>
+  );
+}
+
+function VisionMissionSection({ cards, activeFeature, setActiveFeature }) {
+  const [headerRef, headerVisible] = useReveal(0.1);
+
+  return (
+    <section className="pb-5">
+      <div className="section-shell">
+        {/* Section header */}
+        <div
+          ref={headerRef}
+          className={`mb-8 text-center transition-all duration-700 ease-out ${headerVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
+        >
+          <div className="flex items-center justify-center gap-3">
+            <div className="h-px w-8 bg-saffron/60" />
+            <p className="eyebrow">Who We Are</p>
+            <div className="h-px w-8 bg-saffron/60" />
+          </div>
+          <h2 className="mt-3 font-display text-3xl font-semibold text-ink sm:text-4xl">
+            Vision & Mission
+          </h2>
+          <p className="mt-2 font-body text-sm text-stone-500">Hover each card to reveal our statement</p>
+          <div className="mx-auto mt-4 h-0.5 w-12 rounded-full bg-gradient-to-r from-saffron to-marigold/40" />
+        </div>
+
+        {/* Cards grid */}
+        <div className="grid gap-5 sm:grid-cols-2">
+          {cards.map((item, i) => (
+            <FlipCard
+              key={item.key}
+              item={item}
+              index={i}
+              isActive={activeFeature === item.key}
+              onActivate={(key) => setActiveFeature(key)}
+              onDeactivate={() => setActiveFeature((cur) => (cur === item.key ? null : cur))}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
 
 function About() {
   const spotlightRef = useRef(null);
@@ -167,36 +301,63 @@ function About() {
               />
 
               <div className="grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-center">
-                <div className="mx-auto w-full max-w-sm text-center lg:max-w-md">
+                <div className="mx-auto w-full max-w-sm text-center lg:max-w-lg">
                   <div
-                    className="relative mx-auto w-full max-w-[19rem] transition-all duration-500 sm:max-w-[22rem]"
+                    className="relative mx-auto w-full max-w-[22rem] transition-all duration-500 sm:max-w-[26rem]"
                     style={{ transform: `translateY(${(1 - spotlight) * 10}px) scale(${1 + spotlight * 0.05})` }}
                   >
+                    {/* Outer golden ring glow */}
                     <div
-                      className="absolute inset-3 rounded-[999px] blur-2xl transition-all duration-500"
-                      style={{ background: `linear-gradient(180deg, rgba(243,180,81,${(0.24 + spotlight * 0.24).toFixed(3)}), rgba(255,255,255,0), rgba(69,112,84,${(0.12 + spotlight * 0.16).toFixed(3)}))` }}
-                    />
-                    <div
-                      className="relative overflow-hidden rounded-[999px] border-4 bg-white/70 p-2 transition-all duration-500"
+                      className="absolute inset-0 rounded-[999px] transition-all duration-500"
                       style={{
-                        borderColor: `rgba(255,255,255,${(0.78 + spotlight * 0.18).toFixed(3)})`,
-                        boxShadow: `0 36px 90px -36px rgba(0,0,0,${(0.42 + spotlight * 0.34).toFixed(3)})`
+                        boxShadow: `0 0 0 6px rgba(243,180,81,${(0.18 + spotlight * 0.32).toFixed(3)}), 0 0 0 14px rgba(243,180,81,${(0.06 + spotlight * 0.12).toFixed(3)})`,
+                      }}
+                    />
+                    {/* Warm glow beneath */}
+                    <div
+                      className="absolute inset-2 rounded-[999px] blur-3xl transition-all duration-500"
+                      style={{ background: `radial-gradient(circle, rgba(243,180,81,${(0.32 + spotlight * 0.36).toFixed(3)}), rgba(69,112,84,${(0.10 + spotlight * 0.18).toFixed(3)}) 70%, transparent)` }}
+                    />
+                    {/* Portrait frame */}
+                    <div
+                      className="relative overflow-hidden rounded-[999px] border-[5px] bg-white/80 p-1.5 transition-all duration-500"
+                      style={{
+                        borderColor: `rgba(243,180,81,${(0.55 + spotlight * 0.40).toFixed(3)})`,
+                        boxShadow: `0 40px 100px -40px rgba(0,0,0,${(0.50 + spotlight * 0.36).toFixed(3)}), inset 0 0 0 2px rgba(255,255,255,${(0.5 + spotlight * 0.4).toFixed(3)})`
                       }}
                     >
                       <img
                         src={prabhupadaPortrait}
                         alt="His Divine Grace A.C. Bhaktivedanta Swami Prabhupada"
                         className="aspect-[4/5] w-full rounded-[999px] object-cover transition-all duration-500"
-                        style={{ filter: `grayscale(1) brightness(${(0.92 + spotlight * 0.28).toFixed(3)}) contrast(${(1.02 + spotlight * 0.12).toFixed(3)})` }}
+                        style={{
+                          filter: `grayscale(${(0.6 - spotlight * 0.6).toFixed(2)}) brightness(${(0.94 + spotlight * 0.16).toFixed(3)}) contrast(${(1.04 + spotlight * 0.08).toFixed(3)}) saturate(${(0.8 + spotlight * 0.5).toFixed(3)})`,
+                        }}
                       />
                     </div>
                   </div>
-                  <p
-                    className="mt-5 text-sm font-semibold uppercase tracking-[0.24em] transition-colors duration-500"
-                    style={{ color: captionColor }}
+
+                  {/* Name badge */}
+                  <div
+                    className="mx-auto mt-6 max-w-xs rounded-2xl border px-5 py-3 transition-all duration-500"
+                    style={{
+                      background: `rgba(255,255,255,${(0.08 + spotlight * 0.12).toFixed(3)})`,
+                      borderColor: `rgba(243,180,81,${(0.28 + spotlight * 0.34).toFixed(3)})`,
+                    }}
                   >
-                    His Divine Grace A.C. Bhaktivedanta Swami Prabhupada
-                  </p>
+                    <p
+                      className="font-display text-xs font-semibold uppercase tracking-[0.28em] transition-colors duration-500"
+                      style={{ color: captionColor }}
+                    >
+                      His Divine Grace
+                    </p>
+                    <p
+                      className="mt-1 font-display text-sm font-semibold transition-colors duration-500 sm:text-base"
+                      style={{ color: captionColor }}
+                    >
+                      A.C. Bhaktivedanta Swami Prabhupada
+                    </p>
+                  </div>
                 </div>
 
                 <div
@@ -239,51 +400,11 @@ function About() {
         </div>
       </section>
 
-      <section className="pb-5">
-        <div className="section-shell">
-          <div className="ornate-stage">
-            <div className="ornate-orbit ornate-orbit-one" aria-hidden="true" />
-            <div className="ornate-orbit ornate-orbit-two" aria-hidden="true" />
-            <div className="ornate-orbit ornate-orbit-three" aria-hidden="true" />
-
-            <div className="relative z-10 grid gap-6 lg:gap-0">
-              {missionVisionCards.map((item) => {
-                const isActive = activeFeature === item.key;
-                const alignmentClass = item.alignment === "end" ? "lg:ml-auto lg:-mt-8" : "lg:mr-auto";
-
-                return (
-                  <button
-                    key={item.key}
-                    type="button"
-                    className={`ornate-card-shell ${alignmentClass}`}
-                    onClick={() => setActiveFeature((current) => (current === item.key ? null : item.key))}
-                    onMouseEnter={() => setActiveFeature(item.key)}
-                    onMouseLeave={() => setActiveFeature((current) => (current === item.key ? null : current))}
-                    onFocus={() => setActiveFeature(item.key)}
-                    onBlur={() => setActiveFeature((current) => (current === item.key ? null : current))}
-                    aria-pressed={isActive}
-                    aria-label={`${item.title} card. Flip to see the statement.`}
-                  >
-                    <div className={`ornate-card-inner ${isActive ? "is-flipped" : ""}`}>
-                      <div className="ornate-card-face ornate-card-front">
-                        <div className="ornate-card-frame">
-                          <p className="ornate-card-title">{item.title}</p>
-                          <div className="ornate-card-divider" />
-                        </div>
-                      </div>
-                      <div className="ornate-card-face ornate-card-back">
-                        <div className="ornate-card-frame ornate-card-frame-back">
-                          <p className="ornate-card-text ornate-card-text-back">{item.text}</p>
-                        </div>
-                      </div>
-                    </div>
-                  </button>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-      </section>
+      <VisionMissionSection
+        cards={missionVisionCards}
+        activeFeature={activeFeature}
+        setActiveFeature={setActiveFeature}
+      />
 
       <section className="pb-6">
         <div className="section-shell">

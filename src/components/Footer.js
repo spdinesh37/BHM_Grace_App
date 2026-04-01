@@ -2,85 +2,109 @@ import { Link } from "react-router-dom";
 import abcLogo from "../assets/abc-logo.png";
 import contactData from "../data/contact.json";
 
+const links = [
+  { label: "Home",          to: "/" },
+  { label: "About",         to: "/about" },
+  { label: "Grace Ashram",  to: "/grace-ashram" },
+  { label: "Events",        to: "/events" },
+  { label: "Contact",       to: "/contact" },
+];
+
 function Footer() {
   return (
-    <footer className="mt-20 border-t border-white/50 bg-[#f6ead7]/90 sm:mt-24">
-      <div className="section-shell py-12">
-        <div className="grid gap-10 lg:grid-cols-[1.3fr_0.9fr_1fr]">
-          <div>
-            <div className="flex items-center gap-3 sm:gap-4">
-              <img
-                src={abcLogo}
-                alt="Alabama Bhakti Community logo"
-                className="h-14 w-14 flex-none object-contain sm:h-20 sm:w-20"
-              />
-              <div className="min-w-0">
-                <p className="eyebrow text-[10px] tracking-[0.28em] sm:text-xs sm:tracking-[0.35em]">ABC</p>
-                <p className="text-sm font-semibold text-ink sm:text-base">
-                  Alabama Bhakti Community
-                </p>
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-stone-600 sm:text-sm sm:tracking-[0.24em]">
-                  Serve | Connect | Grow
-                </p>
+    <footer className="mt-20 sm:mt-24">
+      {/* Top divider shimmer */}
+      <div className="h-px w-full bg-gradient-to-r from-transparent via-marigold/50 to-transparent" />
+
+      <div className="bg-[#f6ead7]/80 backdrop-blur-sm">
+        <div className="section-shell py-14">
+          <div className="grid gap-12 lg:grid-cols-[1.4fr_0.8fr_1fr]">
+
+            {/* Brand col */}
+            <div>
+              <Link to="/" className="inline-flex items-center gap-3 sm:gap-4 group">
+                <img
+                  src={abcLogo}
+                  alt="Alabama Bhakti Community logo"
+                  className="h-14 w-14 flex-none object-contain transition duration-300 group-hover:scale-105 sm:h-18 sm:w-18"
+                />
+                <div>
+                  <p className="eyebrow text-[10px] tracking-[0.28em] sm:text-xs">ABC</p>
+                  <p className="font-body text-sm font-semibold text-ink sm:text-base">
+                    Alabama Bhakti Community
+                  </p>
+                  <p className="font-body text-xs font-semibold uppercase tracking-[0.18em] text-stone-500 sm:text-sm">
+                    Serve · Connect · Grow
+                  </p>
+                </div>
+              </Link>
+
+              <p className="mt-6 max-w-sm font-display text-2xl font-semibold leading-snug text-ink sm:text-3xl">
+                A welcoming home for devotional practice, culture, and community.
+              </p>
+              <p className="mt-4 max-w-sm font-body text-sm leading-7 text-stone-600">
+                Inspired by the teachings of His Divine Grace A.C. Bhaktivedanta
+                Swami Prabhupada and the community spirit of ISKCON Birmingham, Alabama.
+              </p>
+            </div>
+
+            {/* Quick links col */}
+            <div>
+              <p className="font-display text-xl font-semibold text-ink">Quick Links</p>
+              <div className="mt-px h-0.5 w-8 rounded-full bg-gradient-to-r from-saffron to-transparent" />
+              <nav className="mt-5 grid gap-2.5">
+                {links.map((l) => (
+                  <Link
+                    key={l.to}
+                    to={l.to}
+                    className="group inline-flex items-center gap-2 font-body text-sm text-stone-600 transition-colors hover:text-saffron"
+                  >
+                    <span className="h-px w-3 bg-stone-300 transition-all duration-200 group-hover:w-5 group-hover:bg-saffron" />
+                    {l.label}
+                  </Link>
+                ))}
+              </nav>
+            </div>
+
+            {/* Contact col */}
+            <div>
+              <p className="font-display text-xl font-semibold text-ink">Contact</p>
+              <div className="mt-px h-0.5 w-8 rounded-full bg-gradient-to-r from-saffron to-transparent" />
+              <div className="mt-5 space-y-3 font-body text-sm text-stone-600">
+                <div className="flex items-start gap-2.5">
+                  <span className="mt-0.5 text-base">📞</span>
+                  <span>{contactData.phone}</span>
+                </div>
+                <div className="flex items-start gap-2.5">
+                  <span className="mt-0.5 text-base">✉️</span>
+                  <a href={`mailto:${contactData.email}`} className="transition-colors hover:text-saffron break-all">
+                    {contactData.email}
+                  </a>
+                </div>
+                <div className="flex items-start gap-2.5">
+                  <span className="mt-0.5 text-base">🌐</span>
+                  <a href={contactData.website} target="_blank" rel="noreferrer" className="transition-colors hover:text-saffron">
+                    {contactData.websiteLabel}
+                  </a>
+                </div>
+                <div className="flex items-start gap-2.5">
+                  <span className="mt-0.5 text-base">📍</span>
+                  <span>{contactData.location}</span>
+                </div>
               </div>
             </div>
-            <h2 className="mt-5 text-3xl font-semibold text-ink sm:text-4xl">
-              A welcoming home for devotional practice, culture, and community.
-            </h2>
-            <p className="mt-4 max-w-xl text-sm leading-7 text-stone-700">
-              Inspired by the teachings of His Divine Grace A.C. Bhaktivedanta
-              Swami Prabhupada and the community spirit of ISKCON Birmingham,
-              Alabama.
+          </div>
+        </div>
+
+        {/* Bottom strip */}
+        <div className="border-t border-amber-200/60">
+          <div className="section-shell flex flex-col items-center justify-between gap-3 py-5 sm:flex-row">
+            <p className="font-body text-xs text-stone-500">
+              © {new Date().getFullYear()} Alabama Bhakti Community. All rights reserved.
             </p>
-          </div>
-
-          <div>
-            <h3 className="text-2xl font-semibold text-ink">Quick Links</h3>
-            <div className="mt-4 grid gap-3 text-sm text-stone-700">
-              <Link to="/" className="hover:text-saffron">
-                Home
-              </Link>
-              <Link to="/about" className="hover:text-saffron">
-                About
-              </Link>
-              <Link to="/grace-ashram" className="hover:text-saffron">
-                Grace Ashram
-              </Link>
-              <Link to="/events" className="hover:text-saffron">
-                Events
-              </Link>
-              <Link to="/contact" className="hover:text-saffron">
-                Contact
-              </Link>
-            </div>
-          </div>
-
-          <div>
-            <h3 className="text-2xl font-semibold text-ink">Contact</h3>
-            <div className="mt-4 space-y-3 break-words text-sm leading-7 text-stone-700">
-              <p>Phone: {contactData.phone}</p>
-              <p>
-                Email:{" "}
-                <a
-                  className="hover:text-saffron"
-                  href={`mailto:${contactData.email}`}
-                >
-                  {contactData.email}
-                </a>
-              </p>
-              <p>
-                Website:{" "}
-                <a
-                  className="hover:text-saffron"
-                  href={contactData.website}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  {contactData.websiteLabel}
-                </a>
-              </p>
-              <p>Location: {contactData.location}</p>
-            </div>
+            <p className="font-body text-xs text-stone-400 uppercase tracking-widest">
+              Serve · Connect · Grow
+            </p>
           </div>
         </div>
       </div>
