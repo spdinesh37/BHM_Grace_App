@@ -4,13 +4,13 @@ function EventCard({ event, style }) {
 
   return (
     <article
-      className="group relative flex flex-col overflow-hidden rounded-2xl border border-white/70 bg-white/90 shadow-[0_8px_32px_-16px_rgba(90,66,41,0.18)] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_24px_48px_-20px_rgba(90,66,41,0.28)] hover:border-marigold/40"
+      className="group relative flex flex-col overflow-hidden rounded-xl border border-white/70 bg-white/90 shadow-[0_8px_32px_-16px_rgba(90,66,41,0.18)] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_24px_48px_-20px_rgba(90,66,41,0.28)] hover:border-marigold/40 sm:rounded-2xl"
       style={style}
     >
       {/* Top accent bar */}
       <div className="h-1 w-full bg-gradient-to-r from-saffron via-marigold to-clay/60" />
 
-      <div className="flex flex-1 flex-col p-6">
+      <div className="flex flex-1 flex-col p-4 sm:p-6">
         {/* Date badge + eyebrow */}
         <div className="flex items-start justify-between gap-4">
           <p className="eyebrow">Upcoming Event</p>
@@ -31,7 +31,7 @@ function EventCard({ event, style }) {
           </div>
         </div>
 
-        <h3 className="mt-3 font-display text-2xl font-semibold text-ink leading-snug group-hover:text-saffron transition-colors duration-200">
+        <h3 className="mt-3 font-display text-xl font-semibold text-ink leading-snug group-hover:text-saffron transition-colors duration-200 sm:text-2xl">
           {event.title}
         </h3>
 

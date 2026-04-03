@@ -46,7 +46,7 @@ function TimelineItem({ item, index }) {
     <div
       ref={ref}
       style={{ transitionDelay: delay }}
-      className={`group relative flex items-start gap-5 transition-all duration-700 ease-out
+      className={`group relative flex items-start gap-3 sm:gap-5 transition-all duration-700 ease-out
         ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
     >
       {/* Timeline spine + dot */}
@@ -64,8 +64,9 @@ function TimelineItem({ item, index }) {
       </div>
 
       {/* Card */}
-      <div className={`mb-5 flex-1 rounded-2xl border px-5 py-4 shadow-sm transition-all duration-300
+      <div className={`mb-4 flex-1 rounded-xl border px-3 py-3 shadow-sm transition-all duration-300
         group-hover:-translate-y-0.5 group-hover:shadow-md
+        sm:mb-5 sm:rounded-2xl sm:px-5 sm:py-4
         ${item.optional
           ? "border-amber-100 bg-white/70"
           : "border-white/80 bg-white/90"
@@ -111,7 +112,7 @@ function StudentLife() {
             ${headerVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
         >
           <p className="eyebrow">Student Life</p>
-          <h2 className="mt-3 font-display text-4xl font-semibold text-ink sm:text-5xl">
+          <h2 className="mt-3 font-display text-2xl font-semibold text-ink sm:text-3xl md:text-4xl lg:text-5xl">
             A Day in the Life
           </h2>
           <p className="mt-2 font-body text-sm font-semibold uppercase tracking-widest text-clay">

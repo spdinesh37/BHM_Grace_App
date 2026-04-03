@@ -15,11 +15,11 @@ function EventsList({
   const [ctaRef, ctaVisible] = useReveal(0.1);
 
   return (
-    <section className="py-20 sm:py-24">
+    <section className="py-12 sm:py-16 md:py-20 lg:py-24">
       <div className="section-shell">
         <SectionHeader eyebrow={eyebrow} title={title} description={description} />
 
-        <div className="mt-12 grid gap-6 lg:grid-cols-3">
+        <div className="mt-8 grid gap-4 sm:mt-10 sm:grid-cols-2 sm:gap-5 md:mt-12 lg:grid-cols-3 lg:gap-6">
           {items.map((event, i) => (
             <div
               key={`${event.date}-${event.title}`}

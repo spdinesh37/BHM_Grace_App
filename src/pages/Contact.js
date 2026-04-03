@@ -34,15 +34,15 @@ function Contact() {
         description="Visitors can use the embedded form below for questions, applications, or interest in upcoming Alabama Bhakti Community programs."
       />
 
-      <section className="py-16 sm:py-20 lg:py-24">
+      <section className="py-10 sm:py-14 md:py-16 lg:py-24">
         <div
           ref={ref}
-          className={`section-shell grid gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:gap-8
+          className={`section-shell grid gap-4 sm:gap-5 md:gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:gap-8
             transition-all duration-700 ease-out
             ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
         >
           {/* Contact details */}
-          <article className="glass-panel relative overflow-hidden p-6 sm:p-8">
+          <article className="glass-panel relative overflow-hidden p-4 sm:p-6 md:p-8">
             <div className="absolute -left-8 -top-8 h-32 w-32 rounded-full bg-marigold/15 blur-2xl" />
 
             <div className="flex items-center gap-3">
@@ -50,7 +50,7 @@ function Contact() {
               <p className="eyebrow">Contact Details</p>
             </div>
 
-            <h2 className="mt-3 font-display text-2xl font-semibold text-ink">
+            <h2 className="mt-3 font-display text-xl font-semibold text-ink sm:text-2xl">
               We'd love to hear from you
             </h2>
 
@@ -80,12 +80,12 @@ function Contact() {
           </article>
 
           {/* Form */}
-          <div className="overflow-hidden rounded-[1.5rem] border border-white/70 bg-white/80 shadow-glow sm:rounded-[2rem]">
+          <div className="overflow-hidden rounded-xl border border-white/70 bg-white/80 shadow-glow sm:rounded-[1.5rem] md:rounded-[2rem]">
             <iframe
               title="ABC inquiry form"
               src={formEmbedUrl || undefined}
               srcDoc={formEmbedUrl ? undefined : placeholderEmbed}
-              className="min-h-[680px] w-full sm:min-h-[720px]"
+              className="min-h-[520px] w-full sm:min-h-[620px] md:min-h-[720px]"
               loading="lazy"
               sandbox="allow-same-origin allow-scripts allow-forms allow-popups"
             />

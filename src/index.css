@@ -6,6 +6,7 @@
 
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -17,6 +18,9 @@ body {
     linear-gradient(180deg, #fffaf2 0%, #f7efe1 100%);
   color: #24180f;
   font-family: "Manrope", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 * {
@@ -25,6 +29,7 @@ body {
 
 #root {
   min-height: 100vh;
+  min-height: 100dvh;
 }
 
 @layer base {
@@ -63,11 +68,11 @@ body {
   }
 
   .primary-button {
-    @apply inline-flex items-center justify-center rounded-full bg-saffron px-5 py-3 text-sm font-semibold text-white transition hover:bg-amber-700;
+    @apply inline-flex items-center justify-center rounded-full bg-saffron px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-amber-700 active:scale-[0.97] sm:px-5 sm:py-3;
   }
 
   .secondary-button {
-    @apply inline-flex items-center justify-center rounded-full border border-white/70 bg-white/15 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/25;
+    @apply inline-flex items-center justify-center rounded-full border border-white/70 bg-white/15 px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-white/25 active:scale-[0.97] sm:px-5 sm:py-3;
   }
 
   .ornate-stage {
@@ -1338,6 +1343,7 @@ body {
   .handbook-seal-image {
     width: min(100%, 13rem);
   }
+}
 
 /* ── Global scroll-reveal utilities ─────────────────────────────── */
 @keyframes fadeUp {
@@ -1398,4 +1404,56 @@ body {
 .primary-button:hover::after {
   transform: translateX(380%) rotate(12deg);
 }
+
+/* ── Mobile-first responsive enhancements ───────────────────────── */
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .value-card-stack:hover .value-card-body,
+  .value-card-stack:hover::before,
+  .value-card-stack:hover .value-card-aura {
+    transform: none;
+    opacity: inherit;
+  }
+
+  .ornate-card-shell:hover .ornate-card-inner {
+    transform: none;
+  }
+}
+
+/* Small phones (< 380px) */
+@media (max-width: 379px) {
+  .section-shell {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  .glass-panel {
+    border-radius: 1.25rem;
+  }
+
+  .soft-card {
+    border-radius: 1rem;
+    padding: 1rem;
+  }
+}
+
+/* Tablet landscape improvements */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .handbook-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .curriculum-book-card {
+    grid-template-columns: minmax(0, 1.4fr) minmax(8rem, 10rem);
+    gap: 1.5rem;
+    padding: 1.25rem;
+  }
+}
+
+/* Safe area for notched phones */
+@supports (padding: env(safe-area-inset-bottom)) {
+  footer {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
 }

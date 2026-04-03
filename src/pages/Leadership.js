@@ -40,7 +40,7 @@ function LeaderCard({ leader, index }) {
 
         <div className="min-w-0 flex-1">
           <p className="eyebrow text-[10px] leading-none">{leader.role}</p>
-          <h2 className="mt-1.5 font-display text-2xl font-semibold text-ink leading-snug">
+          <h2 className="mt-1.5 font-display text-xl font-semibold text-ink leading-snug sm:text-2xl">
             {leader.name}
           </h2>
         </div>
@@ -65,12 +65,12 @@ function Leadership() {
     <>
       <PageHero
         eyebrow="Leadership"
-        title="Mentors and support teams who care for the GRACE community"
-        description="Leadership at GRACE is centered on service, guidance, steadiness, and meaningful relationships that help students flourish."
+        title="Mentors and support teams who care for the ABC community"
+        description="Leadership at Alabama Bhakti Community is centered on service, guidance, steadiness, and meaningful relationships that help students flourish."
       />
 
-      <section className="py-20 sm:py-24">
-        <div className="section-shell grid gap-6 md:grid-cols-2">
+      <section className="py-12 sm:py-16 md:py-20 lg:py-24">
+        <div className="section-shell grid gap-4 sm:gap-5 md:grid-cols-2 md:gap-6">
           {leadershipData.map((leader, i) => (
             <LeaderCard key={leader.name} leader={leader} index={i} />
           ))}

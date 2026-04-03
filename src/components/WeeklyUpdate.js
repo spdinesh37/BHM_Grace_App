@@ -14,7 +14,7 @@ function WeeklyUpdate({ update }) {
   if (!update) return null;
 
   return (
-    <section id="weekly-update" className="py-20 sm:py-24">
+    <section id="weekly-update" className="py-12 sm:py-16 md:py-20 lg:py-24">
       <div className="section-shell">
         <SectionHeader
           eyebrow="Weekly Update"
@@ -24,11 +24,11 @@ function WeeklyUpdate({ update }) {
 
         <div
           ref={ref}
-          className={`mt-12 grid gap-6 lg:grid-cols-[1.1fr_1fr] transition-all duration-700 ease-out
+          className={`mt-8 grid gap-4 sm:mt-10 sm:gap-5 md:mt-12 lg:grid-cols-[1.1fr_1fr] lg:gap-6 transition-all duration-700 ease-out
             ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
         >
           {/* Announcement card */}
-          <article className="glass-panel relative overflow-hidden p-6 sm:p-8">
+          <article className="glass-panel relative overflow-hidden p-4 sm:p-6 md:p-8">
             <div className="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-marigold/15 blur-2xl" />
 
             <div className="flex flex-col gap-3 border-b border-amber-100/80 pb-6 sm:flex-row sm:items-end sm:justify-between">
@@ -37,7 +37,7 @@ function WeeklyUpdate({ update }) {
                   <div className="h-px w-5 bg-saffron/60" />
                   <p className="eyebrow">Current Week</p>
                 </div>
-                <h3 className="mt-3 font-display text-2xl font-semibold text-ink sm:text-3xl">
+                <h3 className="mt-2 font-display text-xl font-semibold text-ink sm:mt-3 sm:text-2xl md:text-3xl">
                   {update.week}
                 </h3>
               </div>
@@ -52,7 +52,7 @@ function WeeklyUpdate({ update }) {
           </article>
 
           {/* Menu grid */}
-          <div className="grid gap-4 sm:grid-cols-2">
+          <div className="grid grid-cols-2 gap-3 sm:gap-4">
             {menuGroups.map((group) => (
               <article key={group.key} className="soft-card overflow-hidden p-0">
                 {/* Card header */}

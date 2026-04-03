@@ -10,11 +10,11 @@ function PageHero({ eyebrow, title, description }) {
   }, []);
 
   return (
-    <section className="relative isolate overflow-hidden pt-28 sm:pt-32">
+    <section className="relative isolate overflow-hidden pt-20 sm:pt-28 md:pt-32">
       <div className="section-shell">
         <div
           ref={ref}
-          className="reveal glass-panel relative overflow-hidden px-5 py-14 sm:px-12 sm:py-20"
+          className="reveal glass-panel relative overflow-hidden px-4 py-10 sm:px-8 sm:py-14 md:px-12 md:py-20"
         >
           {/* Decorative blobs */}
           <div className="absolute -right-16 -top-10 -z-10 h-56 w-56 rounded-full bg-marigold/20 blur-3xl" />
@@ -31,12 +31,12 @@ function PageHero({ eyebrow, title, description }) {
             </div>
           )}
 
-          <h1 className="mt-4 max-w-4xl font-display text-4xl font-semibold text-ink sm:text-5xl lg:text-6xl leading-tight">
+          <h1 className="mt-3 max-w-4xl font-display text-2xl font-semibold text-ink leading-tight sm:mt-4 sm:text-4xl md:text-5xl lg:text-6xl">
             {title}
           </h1>
 
           {description && (
-            <p className="mt-5 max-w-3xl font-body text-sm leading-8 text-stone-600 sm:text-base lg:text-lg">
+            <p className="mt-3 max-w-3xl font-body text-xs leading-6 text-stone-600 sm:mt-5 sm:text-sm sm:leading-8 lg:text-base">
               {description}
             </p>
           )}

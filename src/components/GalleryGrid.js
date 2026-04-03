@@ -1,6 +1,6 @@
 function GalleryGrid({ images }) {
   return (
-    <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
+    <div className="grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
       {images.map((image, i) => {
         const src = image.src.startsWith("http")
           ? image.src
@@ -9,7 +9,7 @@ function GalleryGrid({ images }) {
         return (
           <figure
             key={image.src}
-            className="reveal group overflow-hidden rounded-[1.75rem] border border-white/60 bg-white/80 shadow-glow"
+            className="reveal group overflow-hidden rounded-xl border border-white/60 bg-white/80 shadow-glow sm:rounded-[1.75rem]"
             ref={(el) => {
               if (!el) return;
               const obs = new IntersectionObserver(
@@ -34,9 +34,9 @@ function GalleryGrid({ images }) {
                 <h3 className="font-display text-xl font-semibold text-white">{image.title}</h3>
               </div>
             </div>
-            <figcaption className="space-y-1.5 px-5 py-4">
-              <h3 className="font-display text-xl font-semibold text-ink">{image.title}</h3>
-              <p className="font-body text-sm leading-6 text-stone-600">{image.description}</p>
+            <figcaption className="space-y-1 px-4 py-3 sm:space-y-1.5 sm:px-5 sm:py-4">
+              <h3 className="font-display text-lg font-semibold text-ink sm:text-xl">{image.title}</h3>
+              <p className="font-body text-xs leading-5 text-stone-600 sm:text-sm sm:leading-6">{image.description}</p>
             </figcaption>
           </figure>
         );

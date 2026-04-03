@@ -12,13 +12,13 @@ const links = [
 
 function Footer() {
   return (
-    <footer className="mt-20 sm:mt-24">
+    <footer className="mt-14 sm:mt-20 md:mt-24">
       {/* Top divider shimmer */}
       <div className="h-px w-full bg-gradient-to-r from-transparent via-marigold/50 to-transparent" />
 
       <div className="bg-[#f6ead7]/80 backdrop-blur-sm">
-        <div className="section-shell py-14">
-          <div className="grid gap-12 lg:grid-cols-[1.4fr_0.8fr_1fr]">
+        <div className="section-shell py-10 sm:py-14">
+          <div className="grid gap-10 sm:grid-cols-2 sm:gap-8 lg:grid-cols-[1.4fr_0.8fr_1fr] lg:gap-12">
 
             {/* Brand col */}
             <div>
@@ -39,10 +39,10 @@ function Footer() {
                 </div>
               </Link>
 
-              <p className="mt-6 max-w-sm font-display text-2xl font-semibold leading-snug text-ink sm:text-3xl">
+              <p className="mt-4 max-w-sm font-display text-xl font-semibold leading-snug text-ink sm:mt-6 sm:text-2xl md:text-3xl">
                 A welcoming home for devotional practice, culture, and community.
               </p>
-              <p className="mt-4 max-w-sm font-body text-sm leading-7 text-stone-600">
+              <p className="mt-3 max-w-sm font-body text-xs leading-6 text-stone-600 sm:mt-4 sm:text-sm sm:leading-7">
                 Inspired by the teachings of His Divine Grace A.C. Bhaktivedanta
                 Swami Prabhupada and the community spirit of ISKCON Birmingham, Alabama.
               </p>

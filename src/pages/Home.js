@@ -47,7 +47,7 @@ function PillarCard({ pillar, index }) {
           {pillar.icon}
         </div>
         <p className="eyebrow mt-4">{pillar.title}</p>
-        <h3 className="mt-2 font-display text-3xl font-semibold text-ink">{pillar.title}</h3>
+        <h3 className="mt-2 font-display text-2xl font-semibold text-ink sm:text-3xl">{pillar.title}</h3>
         <div className={`mx-auto mt-3 h-0.5 w-8 rounded-full ${pillar.dot}`} />
         <p className="mt-4 font-body text-sm leading-7 text-stone-600">{pillar.text}</p>
       </div>
@@ -60,7 +60,7 @@ function Home() {
     <>
       <HeroVideo />
 
-      <section className="py-20 sm:py-24">
+      <section className="py-12 sm:py-16 md:py-20 lg:py-24">
         <div className="section-shell">
           <SectionHeader
             eyebrow="ABC at a Glance"
@@ -69,7 +69,7 @@ function Home() {
             align="center"
           />
 
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
+          <div className="mt-8 grid gap-4 sm:mt-10 sm:grid-cols-2 sm:gap-5 md:mt-12 md:grid-cols-3 md:gap-6">
             {pillars.map((pillar, i) => (
               <PillarCard key={pillar.title} pillar={pillar} index={i} />
             ))}

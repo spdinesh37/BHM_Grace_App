@@ -11,7 +11,7 @@ function Gallery() {
         description="The gallery is set up to use optimized local images from the public/gallery folder and lazy-load them for a faster mobile experience."
       />
 
-      <section className="py-20 sm:py-24">
+      <section className="py-12 sm:py-16 md:py-20 lg:py-24">
         <div className="section-shell">
           <div className="mb-10 soft-card">
             <p className="eyebrow">Image Notes</p>

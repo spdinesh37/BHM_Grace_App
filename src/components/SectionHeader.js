@@ -19,12 +19,12 @@ function SectionHeader({ eyebrow, title, description, align = "left" }) {
         </div>
       )}
 
-      <h2 className="mt-3 font-display text-3xl font-semibold text-ink sm:text-4xl lg:text-5xl leading-tight">
+      <h2 className="mt-3 font-display text-2xl font-semibold text-ink leading-tight sm:text-3xl md:text-4xl lg:text-5xl">
         {title}
       </h2>
 
       {description && (
-        <p className="mt-4 font-body text-sm leading-8 text-stone-600 sm:text-base lg:text-lg">
+        <p className="mt-3 font-body text-xs leading-6 text-stone-600 sm:mt-4 sm:text-sm sm:leading-8 lg:text-base">
           {description}
         </p>
       )}

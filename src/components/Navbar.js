@@ -169,7 +169,7 @@ function Navbar() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 px-3 pt-2 sm:px-6 sm:pt-3 transition-transform duration-300 ease-in-out ${
+      className={`fixed inset-x-0 top-0 z-50 px-2 pt-1.5 sm:px-4 sm:pt-2 md:px-6 md:pt-3 transition-transform duration-300 ease-in-out ${
         isHidden ? "-translate-y-full" : "translate-y-0"
       }`}
     >
@@ -191,13 +191,13 @@ function Navbar() {
                 <img src={abcLogo} alt="Alabama Bhakti Community logo" className="h-10 w-10 flex-none object-contain" />
               </div>
             ) : (
-              <Link to="/" className="flex min-w-0 items-center gap-3">
-                <img src={abcLogo} alt="Alabama Bhakti Community logo" className="h-11 w-11 flex-none object-contain sm:h-14 sm:w-14" />
+              <Link to="/" className="flex min-w-0 items-center gap-2 sm:gap-3">
+                <img src={abcLogo} alt="Alabama Bhakti Community logo" className="h-9 w-9 flex-none object-contain sm:h-11 sm:w-11 md:h-14 md:w-14" />
                 <div className="min-w-0">
-                  <p className="flex justify-between text-lg font-semibold text-ink sm:text-xl">
+                  <p className="flex justify-between text-base font-semibold text-ink sm:text-lg md:text-xl">
                     <span>A</span><span>B</span><span>C</span>
                   </p>
-                  <p className="flex justify-between text-[10px] uppercase tracking-[0.12em] text-stone-600 sm:text-xs sm:tracking-[0.22em]">
+                  <p className="flex justify-between text-[8px] uppercase tracking-[0.08em] text-stone-600 sm:text-[10px] sm:tracking-[0.12em] md:text-xs md:tracking-[0.22em]">
                     <span>Alabama</span><span>Bhakti</span><span>Community</span>
                   </p>
                 </div>
@@ -217,7 +217,7 @@ function Navbar() {
             <button
               type="button"
               onClick={() => setIsOpen((c) => !c)}
-              className={`inline-flex h-10 w-10 flex-none items-center justify-center rounded-full border sm:h-11 sm:w-11 transition-colors duration-200 ${buttonClass} ${isAboutCompact ? "" : "lg:hidden"}`}
+              className={`inline-flex h-10 w-10 flex-none items-center justify-center rounded-full border transition-colors duration-200 active:scale-95 ${buttonClass} ${isAboutCompact ? "" : "lg:hidden"}`}
               aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
               aria-expanded={isOpen}
             >
@@ -226,7 +226,7 @@ function Navbar() {
           </div>
 
           {isOpen && (
-            <div className={`${isAboutCompact ? "absolute left-0 top-full mt-2 w-[18rem]" : "lg:hidden"}`}>
+            <div className={`${isAboutCompact ? "absolute left-0 top-full mt-2 w-[18rem]" : "lg:hidden"} animate-[fadeIn_0.2s_ease-out]`}>
               <div className={`rounded-[1.5rem] border p-2 ${panelBg}`}>
                 <nav className="grid gap-0.5">
                   {navItems.map((item) => (
