@@ -32,11 +32,8 @@ function HeroVideo() {
       <div className="section-shell relative z-10 pt-28 pb-12 sm:pt-32 sm:pb-16">
         <div className="max-w-3xl">
           <h1 className="text-4xl font-semibold tracking-[0.1em] text-white sm:text-6xl sm:tracking-[0.14em] lg:text-7xl">
-            ABC
-          </h1>
-          <p className="mt-4 max-w-2xl text-xl leading-tight text-white/90 sm:mt-5 sm:text-2xl lg:text-3xl">
             Alabama Bhakti Community
-          </p>
+          </h1>
           <p className="mt-5 max-w-md text-[11px] font-semibold uppercase leading-6 tracking-[0.24em] text-white/80 sm:mt-6 sm:max-w-none sm:text-sm sm:tracking-[0.4em]">
             Serve <span className="mx-1.5 text-marigold sm:mx-2">&bull;</span> Connect
             <span className="mx-1.5 text-marigold sm:mx-2">&bull;</span> Grow

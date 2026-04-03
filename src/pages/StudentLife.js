@@ -101,13 +101,13 @@ function StudentLife() {
   const [plusRef, plusVisible] = useReveal(0.15);
 
   return (
-    <section className="pb-20">
+    <section className="pt-10 pb-12">
       <div className="section-shell">
 
         {/* ── Header ── */}
         <div
           ref={headerRef}
-          className={`mb-12 text-center transition-all duration-700 ease-out
+          className={`mb-6 text-center transition-all duration-700 ease-out
             ${headerVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
         >
           <p className="eyebrow">Student Life</p>

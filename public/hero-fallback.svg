@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
-  <title>GRACE hero fallback</title>
-  <desc>Warm illustrated fallback image for the GRACE landing page hero.</desc>
+  <title>Alabama Bhakti Community hero fallback</title>
+  <desc>Warm illustrated fallback image for the Alabama Bhakti Community landing page hero.</desc>
   <defs>
     <linearGradient id="sky" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#2f2116" />
@@ -16,7 +16,6 @@
   <circle cx="1120" cy="280" r="220" fill="url(#sun)" />
   <path d="M0 650C170 580 320 590 480 650S820 760 1020 660 1370 530 1600 650V900H0Z" fill="#3c2819" opacity="0.8" />
   <path d="M0 720C170 650 330 660 520 730S910 840 1130 730 1420 620 1600 730V900H0Z" fill="#24180f" opacity="0.9" />
-  <text x="120" y="220" fill="#fff8ef" font-family="Georgia, serif" font-size="120" letter-spacing="18">GRACE</text>
-  <text x="126" y="290" fill="#fff0cf" font-family="Arial, sans-serif" font-size="34" letter-spacing="5">Gauranga Residential Academy</text>
+  <text x="120" y="220" fill="#fff8ef" font-family="Georgia, serif" font-size="90" letter-spacing="12">Alabama Bhakti Community</text>
 </svg>
 

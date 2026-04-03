@@ -194,9 +194,11 @@ function Navbar() {
               <Link to="/" className="flex min-w-0 items-center gap-3">
                 <img src={abcLogo} alt="Alabama Bhakti Community logo" className="h-11 w-11 flex-none object-contain sm:h-14 sm:w-14" />
                 <div className="min-w-0">
-                  <p className="truncate text-lg font-semibold text-ink sm:text-xl">ABC</p>
-                  <p className="truncate text-[10px] uppercase tracking-[0.12em] text-stone-600 sm:text-xs sm:tracking-[0.22em]">
-                    Alabama Bhakti Community
+                  <p className="flex justify-between text-lg font-semibold text-ink sm:text-xl">
+                    <span>A</span><span>B</span><span>C</span>
+                  </p>
+                  <p className="flex justify-between text-[10px] uppercase tracking-[0.12em] text-stone-600 sm:text-xs sm:tracking-[0.22em]">
+                    <span>Alabama</span><span>Bhakti</span><span>Community</span>
                   </p>
                 </div>
               </Link>

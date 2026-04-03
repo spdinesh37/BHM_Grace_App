@@ -1,20 +1,31 @@
+import PageHero from "../components/PageHero";
+import contactData from "../data/contact.json";
+
 function ResidenceApplication() {
+  const formEmbedUrl = contactData.formEmbedUrl.trim();
+
   return (
-    <section className="pb-16">
-      <div className="section-shell">
-        <div className="glass-panel px-6 py-12 sm:px-10">
-          <p className="eyebrow">Grace Ashram</p>
-          <h2 className="mt-4 text-4xl font-semibold text-ink sm:text-5xl">
-            Residence application details will be added here.
-          </h2>
-          <p className="mt-5 max-w-3xl text-sm leading-8 text-stone-700 sm:text-base">
-            This space is prepared for the residence application flow. When you
-            send the copy, we can shape it into a warm, clear, applicant-friendly
-            section with the right calls to action.
-          </p>
+    <>
+      <PageHero
+        eyebrow="Grace Ashram"
+        title="Residence Application"
+        description="Fill out the form below to begin your residence application. We look forward to hearing from you."
+      />
+
+      <section className="py-16 sm:py-20 lg:py-24">
+        <div className="section-shell">
+          <div className="overflow-hidden rounded-[1.5rem] border border-white/70 bg-white/80 shadow-glow sm:rounded-[2rem]">
+            <iframe
+              title="Residence application form"
+              src={formEmbedUrl}
+              className="min-h-[680px] w-full sm:min-h-[720px]"
+              loading="lazy"
+              sandbox="allow-same-origin allow-scripts allow-forms allow-popups"
+            />
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }
 
