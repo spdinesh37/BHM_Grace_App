@@ -2,12 +2,14 @@ import { useEffect, useRef, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import abcLogo from "../assets/abc-logo.png";
 
+const ICON_CLASS = "h-4 w-4 shrink-0";
+
 const navItems = [
   {
     label: "Home",
     to: "/",
     icon: (
-      <svg viewBox="0 0 20 20" fill="currentColor" className="h-4 w-4 shrink-0">
+      <svg viewBox="0 0 20 20" fill="currentColor" className={ICON_CLASS}>
         <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h4a1 1 0 001-1v-3h2v3a1 1 0 001 1h4a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
       </svg>
     )
@@ -16,7 +18,7 @@ const navItems = [
     label: "About",
     to: "/about",
     icon: (
-      <svg viewBox="0 0 20 20" fill="currentColor" className="h-4 w-4 shrink-0">
+      <svg viewBox="0 0 20 20" fill="currentColor" className={ICON_CLASS}>
         <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
       </svg>
     )
@@ -25,16 +27,21 @@ const navItems = [
     label: "Grace Ashram",
     to: "/grace-ashram",
     icon: (
-      <svg viewBox="0 0 20 20" fill="currentColor" className="h-4 w-4 shrink-0">
+      <svg viewBox="0 0 20 20" fill="currentColor" className={ICON_CLASS}>
         <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838l-2.727 1.17 1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zm5.99 7.176A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z" />
       </svg>
-    )
+    ),
+    children: [
+      { label: "Curriculum", to: "/grace-ashram/curriculum" },
+      { label: "Student Life", to: "/grace-ashram/student-life" },
+      { label: "Residence Application", to: "/grace-ashram/residence-application" }
+    ]
   },
   {
     label: "Events",
     to: "/events",
     icon: (
-      <svg viewBox="0 0 20 20" fill="currentColor" className="h-4 w-4 shrink-0">
+      <svg viewBox="0 0 20 20" fill="currentColor" className={ICON_CLASS}>
         <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd" />
       </svg>
     )
@@ -43,13 +50,21 @@ const navItems = [
     label: "Contact",
     to: "/contact",
     icon: (
-      <svg viewBox="0 0 20 20" fill="currentColor" className="h-4 w-4 shrink-0">
+      <svg viewBox="0 0 20 20" fill="currentColor" className={ICON_CLASS}>
         <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
         <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
       </svg>
     )
   }
 ];
+
+function ChevronIcon({ open }) {
+  return (
+    <svg viewBox="0 0 20 20" fill="currentColor" className={`h-3 w-3 shrink-0 transition-transform duration-200 ${open ? "rotate-180" : ""}`}>
+      <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
+    </svg>
+  );
+}
 
 function HamburgerIcon() {
   return (
@@ -72,11 +87,15 @@ function Navbar() {
   const [scrollY, setScrollY] = useState(0);
   const [isHidden, setIsHidden] = useState(false);
   const [isAboutCompact, setIsAboutCompact] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState(null);
+  const [mobileExpanded, setMobileExpanded] = useState(null);
   const lastScrollY = useRef(0);
   const location = useLocation();
 
   useEffect(() => {
     setIsOpen(false);
+    setOpenDropdown(null);
+    setMobileExpanded(null);
   }, [location.pathname]);
 
   useEffect(() => {
@@ -206,11 +225,60 @@ function Navbar() {
 
             {!isAboutCompact && (
               <nav className="hidden items-center gap-1 lg:flex">
-                {navItems.map((item) => (
-                  <NavLink key={item.to} to={item.to} className={({ isActive }) => getNavClasses(isActive)}>
-                    {item.label}
-                  </NavLink>
-                ))}
+                {navItems.map((item) => {
+                  if (item.children) {
+                    const isDropdownOpen = openDropdown === item.to;
+                    const isParentActive = location.pathname.startsWith(item.to);
+                    return (
+                      <div
+                        key={item.to}
+                        className="relative"
+                        onMouseEnter={() => setOpenDropdown(item.to)}
+                        onMouseLeave={() => setOpenDropdown(null)}
+                      >
+                        <button
+                          type="button"
+                          onClick={() => setOpenDropdown(isDropdownOpen ? null : item.to)}
+                          className={`${getNavClasses(isParentActive)} flex items-center gap-1.5`}
+                          aria-expanded={isDropdownOpen}
+                        >
+                          {item.label}
+                          <ChevronIcon open={isDropdownOpen} />
+                        </button>
+                        {isDropdownOpen && (
+                          <div className="absolute left-1/2 top-full z-50 -translate-x-1/2 pt-2">
+                            <div className="min-w-[14rem] overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-[0_20px_60px_-20px_rgba(0,0,0,0.35)]">
+                              <div className="h-1 w-full bg-gradient-to-r from-brand-green via-brand-green-light to-brand-yellow" />
+                              <nav className="grid gap-0.5 p-2">
+                                {item.children.map((child) => (
+                                  <NavLink
+                                    key={child.to}
+                                    to={child.to}
+                                    onClick={() => setOpenDropdown(null)}
+                                    className={({ isActive }) =>
+                                      `rounded-xl px-4 py-2.5 text-sm font-semibold transition ${
+                                        isActive
+                                          ? "bg-brand-green/10 text-brand-green"
+                                          : "text-stone-800 hover:bg-brand-yellow/20 hover:text-brand-green"
+                                      }`
+                                    }
+                                  >
+                                    {child.label}
+                                  </NavLink>
+                                ))}
+                              </nav>
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    );
+                  }
+                  return (
+                    <NavLink key={item.to} to={item.to} className={({ isActive }) => getNavClasses(isActive)}>
+                      {item.label}
+                    </NavLink>
+                  );
+                })}
               </nav>
             )}
 
@@ -229,16 +297,59 @@ function Navbar() {
             <div className={`${isAboutCompact ? "absolute left-0 top-full mt-2 w-[18rem]" : "lg:hidden"} animate-[fadeIn_0.2s_ease-out]`}>
               <div className={`rounded-[1.5rem] border p-2 ${panelBg}`}>
                 <nav className="grid gap-0.5">
-                  {navItems.map((item) => (
-                    <NavLink
-                      key={item.to}
-                      to={item.to}
-                      className={({ isActive }) => getMobileNavClasses(isActive)}
-                    >
-                      {item.icon}
-                      {item.label}
-                    </NavLink>
-                  ))}
+                  {navItems.map((item) => {
+                    if (item.children) {
+                      const isExpanded = mobileExpanded === item.to;
+                      const isParentActive = location.pathname.startsWith(item.to);
+                      return (
+                        <div key={item.to}>
+                          <button
+                            type="button"
+                            onClick={() => setMobileExpanded(isExpanded ? null : item.to)}
+                            className={`${getMobileNavClasses(isParentActive)} w-full justify-between`}
+                            aria-expanded={isExpanded}
+                          >
+                            <span className="flex items-center gap-3">
+                              {item.icon}
+                              {item.label}
+                            </span>
+                            <ChevronIcon open={isExpanded} />
+                          </button>
+                          {isExpanded && (
+                            <div className="ml-7 mt-1 grid gap-0.5 border-l-2 border-saffron/30 pl-3">
+                              {item.children.map((child) => (
+                                <NavLink
+                                  key={child.to}
+                                  to={child.to}
+                                  className={({ isActive }) =>
+                                    `rounded-xl px-3 py-2.5 text-sm font-medium transition ${
+                                      isActive
+                                        ? "bg-saffron/10 text-saffron font-semibold"
+                                        : isAboutCompact
+                                          ? "text-white/75 hover:bg-white/10 hover:text-white"
+                                          : "text-stone-600 hover:bg-stone-50 hover:text-saffron"
+                                    }`
+                                  }
+                                >
+                                  {child.label}
+                                </NavLink>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      );
+                    }
+                    return (
+                      <NavLink
+                        key={item.to}
+                        to={item.to}
+                        className={({ isActive }) => getMobileNavClasses(isActive)}
+                      >
+                        {item.icon}
+                        {item.label}
+                      </NavLink>
+                    );
+                  })}
                 </nav>
               </div>
             </div>

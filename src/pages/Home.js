@@ -43,7 +43,7 @@ function PillarCard({ pillar, index }) {
       <div className={`absolute inset-0 bg-gradient-to-br ${pillar.accent} opacity-0 transition-opacity duration-300 group-hover:opacity-100 -z-0`} />
 
       <div className="relative z-10 text-center">
-        <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-white shadow-sm text-2xl border border-amber-100/80">
+        <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-white shadow-sm text-2xl border border-yellow-100/80">
           {pillar.icon}
         </div>
         <p className="eyebrow mt-4">{pillar.title}</p>

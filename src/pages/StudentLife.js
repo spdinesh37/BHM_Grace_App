@@ -68,7 +68,7 @@ function TimelineItem({ item, index }) {
         group-hover:-translate-y-0.5 group-hover:shadow-md
         sm:mb-5 sm:rounded-2xl sm:px-5 sm:py-4
         ${item.optional
-          ? "border-amber-100 bg-white/70"
+          ? "border-yellow-100 bg-white/70"
           : "border-white/80 bg-white/90"
         }`}
       >

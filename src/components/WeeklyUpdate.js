@@ -31,7 +31,7 @@ function WeeklyUpdate({ update }) {
           <article className="glass-panel relative overflow-hidden p-4 sm:p-6 md:p-8">
             <div className="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-marigold/15 blur-2xl" />
 
-            <div className="flex flex-col gap-3 border-b border-amber-100/80 pb-6 sm:flex-row sm:items-end sm:justify-between">
+            <div className="flex flex-col gap-3 border-b border-yellow-100/80 pb-6 sm:flex-row sm:items-end sm:justify-between">
               <div>
                 <div className="flex items-center gap-2">
                   <div className="h-px w-5 bg-saffron/60" />
@@ -56,7 +56,7 @@ function WeeklyUpdate({ update }) {
             {menuGroups.map((group) => (
               <article key={group.key} className="soft-card overflow-hidden p-0">
                 {/* Card header */}
-                <div className="flex items-center gap-2 border-b border-amber-50 px-5 py-3 bg-sandal/50">
+                <div className="flex items-center gap-2 border-b border-yellow-50 px-5 py-3 bg-sandal/50">
                   <span className="text-base">{group.icon}</span>
                   <p className="eyebrow text-[10px]">{group.label}</p>
                 </div>

@@ -57,9 +57,9 @@ function Footer() {
                   <Link
                     key={l.to}
                     to={l.to}
-                    className="group inline-flex items-center gap-2 font-body text-sm text-stone-600 transition-colors hover:text-saffron"
+                    className="group inline-flex items-center gap-2 font-body text-sm text-stone-600 transition-colors hover:text-brand-green"
                   >
-                    <span className="h-px w-3 bg-stone-300 transition-all duration-200 group-hover:w-5 group-hover:bg-saffron" />
+                    <span className="h-px w-3 bg-stone-300 transition-all duration-200 group-hover:w-5 group-hover:bg-brand-green" />
                     {l.label}
                   </Link>
                 ))}
@@ -77,13 +77,13 @@ function Footer() {
                 </div>
                 <div className="flex items-start gap-2.5">
                   <span className="mt-0.5 text-base">✉️</span>
-                  <a href={`mailto:${contactData.email}`} className="transition-colors hover:text-saffron break-all">
+                  <a href={`mailto:${contactData.email}`} className="transition-colors hover:text-brand-green break-all">
                     {contactData.email}
                   </a>
                 </div>
                 <div className="flex items-start gap-2.5">
                   <span className="mt-0.5 text-base">🌐</span>
-                  <a href={contactData.website} target="_blank" rel="noreferrer" className="transition-colors hover:text-saffron">
+                  <a href={contactData.website} target="_blank" rel="noreferrer" className="transition-colors hover:text-brand-green">
                     {contactData.websiteLabel}
                   </a>
                 </div>
@@ -97,7 +97,7 @@ function Footer() {
         </div>
 
         {/* Bottom strip */}
-        <div className="border-t border-amber-200/60">
+        <div className="border-t border-yellow-200/60">
           <div className="section-shell flex flex-col items-center justify-between gap-3 py-5 sm:flex-row">
             <p className="font-body text-xs text-stone-500">
               © {new Date().getFullYear()} Alabama Bhakti Community. All rights reserved.

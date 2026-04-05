@@ -3,7 +3,7 @@ import PageHero from "../components/PageHero";
 import leadershipData from "../data/leadership.json";
 
 const avatarColors = [
-  { bg: "bg-amber-100",   text: "text-amber-700",  border: "border-amber-200"  },
+  { bg: "bg-yellow-100",   text: "text-amber-700",  border: "border-yellow-200"  },
   { bg: "bg-sky-100",     text: "text-sky-700",     border: "border-sky-200"    },
   { bg: "bg-emerald-100", text: "text-emerald-700", border: "border-emerald-200"},
   { bg: "bg-purple-100",  text: "text-purple-700",  border: "border-purple-200" },
@@ -30,7 +30,7 @@ function LeaderCard({ leader, index }) {
       style={{ transitionDelay: `${index * 110}ms` }}
     >
       {/* Top accent */}
-      <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-saffron via-marigold to-clay/50" />
+      <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-brand-green via-brand-green-light to-brand-yellow" />
 
       <div className="flex items-start gap-4">
         {/* Avatar */}
@@ -53,7 +53,7 @@ function LeaderCard({ leader, index }) {
       </div>
 
       {/* Divider */}
-      <div className="my-4 h-px bg-gradient-to-r from-amber-100 via-amber-200/60 to-transparent" />
+      <div className="my-4 h-px bg-gradient-to-r from-yellow-100 via-yellow-200/60 to-transparent" />
 
       <p className="font-body text-sm leading-7 text-stone-600">{leader.bio}</p>
     </article>

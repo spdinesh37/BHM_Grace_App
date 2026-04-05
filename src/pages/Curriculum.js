@@ -6,7 +6,7 @@ import curriculumData from "../data/curriculum.json";
 const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
 
 const semesterAccents = [
-  { bg: "bg-amber-50",   border: "border-amber-200/70",  badge: "bg-saffron text-white",          dot: "bg-saffron"   },
+  { bg: "bg-yellow-50",   border: "border-yellow-200/70",  badge: "bg-saffron text-white",          dot: "bg-saffron"   },
   { bg: "bg-sky-50",     border: "border-sky-200/70",    badge: "bg-sky-600 text-white",           dot: "bg-sky-500"   },
   { bg: "bg-emerald-50", border: "border-emerald-200/70",badge: "bg-emerald-700 text-white",       dot: "bg-emerald-600"},
   { bg: "bg-purple-50",  border: "border-purple-200/70", badge: "bg-purple-700 text-white",        dot: "bg-purple-600"},

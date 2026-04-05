@@ -110,8 +110,8 @@ function FlipCard({ item, index, isActive, onActivate, onDeactivate }) {
             style={{
               backfaceVisibility: "hidden",
               background: isVision
-                ? "linear-gradient(135deg, rgba(30,58,95,0.97), rgba(20,40,70,0.97))"
-                : "linear-gradient(135deg, rgba(199,123,71,0.97), rgba(160,90,40,0.97))",
+                ? "linear-gradient(135deg, rgba(15,81,50,0.97), rgba(8,50,30,0.97))"
+                : "linear-gradient(135deg, rgba(27,112,66,0.97), rgba(15,70,42,0.97))",
               boxShadow: "0 32px 72px -32px rgba(0,0,0,0.42)",
             }}
           >
@@ -119,8 +119,8 @@ function FlipCard({ item, index, isActive, onActivate, onDeactivate }) {
               className="absolute inset-0 rounded-3xl opacity-40"
               style={{
                 background: isVision
-                  ? "radial-gradient(circle at top left, rgba(243,180,81,0.4), transparent 55%)"
-                  : "radial-gradient(circle at bottom right, rgba(255,255,255,0.25), transparent 55%)",
+                  ? "radial-gradient(circle at top left, rgba(244,208,63,0.45), transparent 55%)"
+                  : "radial-gradient(circle at bottom right, rgba(244,208,63,0.35), transparent 55%)",
               }}
             />
             <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent" />
@@ -141,13 +141,13 @@ function FlipCard({ item, index, isActive, onActivate, onDeactivate }) {
             style={{
               backfaceVisibility: "hidden",
               transform: "rotateY(180deg)",
-              background: "linear-gradient(135deg, rgba(255,252,244,0.98), rgba(247,239,225,0.96))",
-              borderColor: "rgba(243,180,81,0.35)",
-              boxShadow: "0 32px 72px -32px rgba(90,60,20,0.35)",
+              background: "linear-gradient(135deg, rgba(255,252,240,0.98), rgba(246,242,222,0.96))",
+              borderColor: "rgba(244,208,63,0.45)",
+              boxShadow: "0 32px 72px -32px rgba(15,60,40,0.35)",
             }}
           >
-            <div className="absolute inset-x-0 top-0 h-1 rounded-t-3xl bg-gradient-to-r from-saffron via-marigold to-clay/50" />
-            <p className="font-body text-[10px] font-semibold uppercase tracking-[0.35em] text-clay">{item.title}</p>
+            <div className="absolute inset-x-0 top-0 h-1 rounded-t-3xl bg-gradient-to-r from-brand-green via-brand-green-light to-brand-yellow" />
+            <p className="font-body text-[10px] font-semibold uppercase tracking-[0.35em] text-brand-green">{item.title}</p>
             <p className="mt-3 max-w-md font-display text-base font-medium leading-relaxed text-ink sm:mt-4 sm:text-xl md:text-2xl">
               {item.text}
             </p>
@@ -199,9 +199,9 @@ function VisionMissionSection({ cards, activeFeature, setActiveFeature }) {
 
 const valueColors = [
   { border: "border-blue-200/60", accent: "from-blue-50 to-sky-50", icon: "bg-blue-100 text-blue-700", dot: "bg-blue-500" },
-  { border: "border-amber-200/60", accent: "from-amber-50 to-orange-50", icon: "bg-amber-100 text-amber-700", dot: "bg-amber-500" },
+  { border: "border-yellow-200/60", accent: "from-yellow-50 to-orange-50", icon: "bg-yellow-100 text-amber-700", dot: "bg-yellow-500" },
   { border: "border-emerald-200/60", accent: "from-emerald-50 to-teal-50", icon: "bg-emerald-100 text-emerald-700", dot: "bg-emerald-500" },
-  { border: "border-orange-200/60", accent: "from-orange-50 to-amber-50", icon: "bg-orange-100 text-orange-700", dot: "bg-orange-500" },
+  { border: "border-orange-200/60", accent: "from-orange-50 to-yellow-50", icon: "bg-orange-100 text-orange-700", dot: "bg-orange-500" },
 ];
 
 function ValueCard({ value, index }) {
@@ -219,7 +219,7 @@ function ValueCard({ value, index }) {
       style={{ transitionDelay: `${index * 120}ms` }}
     >
       {/* Top accent bar */}
-      <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-saffron via-marigold to-clay/50" />
+      <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-brand-green via-brand-green-light to-brand-yellow" />
 
       {/* Hover gradient */}
       <div className={`absolute inset-0 bg-gradient-to-br ${color.accent} opacity-0 transition-opacity duration-300 group-hover:opacity-100 -z-0`} />
@@ -237,9 +237,9 @@ function ValueCard({ value, index }) {
 
         {/* Divider */}
         <div className="my-4 flex items-center gap-3">
-          <div className="h-px flex-1 bg-gradient-to-r from-amber-200/80 to-transparent" />
+          <div className="h-px flex-1 bg-gradient-to-r from-yellow-200/80 to-transparent" />
           <div className={`h-1.5 w-1.5 rounded-full ${color.dot}`} />
-          <div className="h-px flex-1 bg-gradient-to-l from-amber-200/80 to-transparent" />
+          <div className="h-px flex-1 bg-gradient-to-l from-yellow-200/80 to-transparent" />
         </div>
 
         {/* Description */}
@@ -297,8 +297,8 @@ function About() {
     };
   }, []);
 
-  const stageBackground = `linear-gradient(180deg, rgba(4, 3, 2, ${(0.22 + spotlight * 0.7).toFixed(3)}), rgba(4, 3, 2, ${(0.32 + spotlight * 0.64).toFixed(3)}))`;
-  const shellBackground = `linear-gradient(135deg, rgba(${mix(255, 18, spotlight)}, ${mix(250, 14, spotlight)}, ${mix(242, 12, spotlight)}, ${(0.96 - spotlight * 0.05).toFixed(3)}), rgba(${mix(250, 28, spotlight)}, ${mix(239, 20, spotlight)}, ${mix(220, 16, spotlight)}, ${(0.92 - spotlight * 0.05).toFixed(3)}))`;
+  const stageBackground = `linear-gradient(180deg, rgba(8, 40, 24, ${(0.22 + spotlight * 0.7).toFixed(3)}), rgba(6, 30, 18, ${(0.32 + spotlight * 0.64).toFixed(3)}))`;
+  const shellBackground = `linear-gradient(135deg, rgba(${mix(255, 12, spotlight)}, ${mix(250, 45, spotlight)}, ${mix(242, 28, spotlight)}, ${(0.96 - spotlight * 0.05).toFixed(3)}), rgba(${mix(250, 8, spotlight)}, ${mix(239, 35, spotlight)}, ${mix(220, 22, spotlight)}, ${(0.92 - spotlight * 0.05).toFixed(3)}))`;
   const titleColor = `rgb(${mix(36, 252, spotlight)}, ${mix(24, 245, spotlight)}, ${mix(15, 231, spotlight)})`;
   const bodyColor = `rgba(${mix(87, 244, spotlight)}, ${mix(83, 236, spotlight)}, ${mix(78, 225, spotlight)}, ${(0.94 + spotlight * 0.04).toFixed(3)})`;
   const captionColor = `rgba(${mix(107, 248, spotlight)}, ${mix(79, 204, spotlight)}, ${mix(59, 137, spotlight)}, ${(0.92 + spotlight * 0.06).toFixed(3)})`;
@@ -307,7 +307,7 @@ function About() {
     <>
       <section id="about-spotlight" ref={spotlightRef} className="relative pt-0 md:min-h-[100vh] lg:min-h-[112vh]">
         <div className="absolute inset-0 -z-20 transition-all duration-500" style={{ background: stageBackground }} />
-        <div className="absolute inset-x-0 top-0 -z-10 h-72 bg-[radial-gradient(circle_at_top,rgba(243,180,81,0.14),transparent_62%)]" />
+        <div className="absolute inset-x-0 top-0 -z-10 h-72 bg-[radial-gradient(circle_at_top,rgba(244,208,63,0.18),transparent_62%)]" />
 
         <div className="section-shell relative md:min-h-[100vh] lg:min-h-[112vh]">
           <div className="pt-6 sm:pt-8 md:pt-10 lg:sticky lg:top-6 lg:py-4">
@@ -319,14 +319,14 @@ function About() {
                 boxShadow: `0 30px 100px -45px rgba(0,0,0,${(0.34 + spotlight * 0.44).toFixed(3)})`
               }}
             >
-              <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_left,rgba(243,180,81,0.18),transparent_30%),radial-gradient(circle_at_bottom_right,rgba(15,90,60,0.16),transparent_30%)]" />
+              <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_left,rgba(244,208,63,0.22),transparent_30%),radial-gradient(circle_at_bottom_right,rgba(27,112,66,0.22),transparent_30%)]" />
               <div
                 className="absolute -left-10 top-10 -z-10 h-40 w-40 rounded-full blur-3xl transition-all duration-500"
-                style={{ backgroundColor: `rgba(243, 180, 81, ${(0.16 + spotlight * 0.18).toFixed(3)})` }}
+                style={{ backgroundColor: `rgba(244, 208, 63, ${(0.2 + spotlight * 0.2).toFixed(3)})` }}
               />
               <div
                 className="absolute -right-8 bottom-8 -z-10 h-44 w-44 rounded-full blur-3xl transition-all duration-500"
-                style={{ backgroundColor: `rgba(15, 90, 60, ${(0.16 + spotlight * 0.22).toFixed(3)})` }}
+                style={{ backgroundColor: `rgba(27, 112, 66, ${(0.2 + spotlight * 0.25).toFixed(3)})` }}
               />
 
               <div className="grid gap-6 sm:gap-8 md:gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-center">
@@ -339,19 +339,19 @@ function About() {
                     <div
                       className="absolute inset-0 rounded-[999px] transition-all duration-500"
                       style={{
-                        boxShadow: `0 0 0 6px rgba(243,180,81,${(0.18 + spotlight * 0.32).toFixed(3)}), 0 0 0 14px rgba(243,180,81,${(0.06 + spotlight * 0.12).toFixed(3)})`,
+                        boxShadow: `0 0 0 6px rgba(244,208,63,${(0.22 + spotlight * 0.35).toFixed(3)}), 0 0 0 14px rgba(244,208,63,${(0.08 + spotlight * 0.14).toFixed(3)})`,
                       }}
                     />
                     {/* Warm glow beneath */}
                     <div
                       className="absolute inset-2 rounded-[999px] blur-3xl transition-all duration-500"
-                      style={{ background: `radial-gradient(circle, rgba(243,180,81,${(0.32 + spotlight * 0.36).toFixed(3)}), rgba(69,112,84,${(0.10 + spotlight * 0.18).toFixed(3)}) 70%, transparent)` }}
+                      style={{ background: `radial-gradient(circle, rgba(244,208,63,${(0.36 + spotlight * 0.36).toFixed(3)}), rgba(27,112,66,${(0.14 + spotlight * 0.2).toFixed(3)}) 70%, transparent)` }}
                     />
                     {/* Portrait frame */}
                     <div
                       className="relative overflow-hidden rounded-[999px] border-[5px] bg-white/80 p-1.5 transition-all duration-500"
                       style={{
-                        borderColor: `rgba(243,180,81,${(0.55 + spotlight * 0.40).toFixed(3)})`,
+                        borderColor: `rgba(244,208,63,${(0.6 + spotlight * 0.4).toFixed(3)})`,
                         boxShadow: `0 40px 100px -40px rgba(0,0,0,${(0.50 + spotlight * 0.36).toFixed(3)}), inset 0 0 0 2px rgba(255,255,255,${(0.5 + spotlight * 0.4).toFixed(3)})`
                       }}
                     >
@@ -371,7 +371,7 @@ function About() {
                     className="mx-auto mt-6 max-w-xs rounded-2xl border px-5 py-3 transition-all duration-500"
                     style={{
                       background: `rgba(255,255,255,${(0.08 + spotlight * 0.12).toFixed(3)})`,
-                      borderColor: `rgba(243,180,81,${(0.28 + spotlight * 0.34).toFixed(3)})`,
+                      borderColor: `rgba(244,208,63,${(0.32 + spotlight * 0.38).toFixed(3)})`,
                     }}
                   >
                     <p

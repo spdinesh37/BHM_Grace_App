@@ -8,7 +8,7 @@ function EventCard({ event, style }) {
       style={style}
     >
       {/* Top accent bar */}
-      <div className="h-1 w-full bg-gradient-to-r from-saffron via-marigold to-clay/60" />
+      <div className="h-1 w-full bg-gradient-to-r from-brand-green via-brand-green-light to-brand-yellow" />
 
       <div className="flex flex-1 flex-col p-4 sm:p-6">
         {/* Date badge + eyebrow */}
@@ -16,7 +16,7 @@ function EventCard({ event, style }) {
           <p className="eyebrow">Upcoming Event</p>
 
           {/* Calendar badge */}
-          <div className="shrink-0 overflow-hidden rounded-xl border border-amber-100 bg-sandal text-center shadow-sm">
+          <div className="shrink-0 overflow-hidden rounded-xl border border-yellow-100 bg-sandal text-center shadow-sm">
             <div className="bg-saffron px-3 py-0.5">
               <p className="font-body text-[9px] font-bold uppercase tracking-widest text-white">
                 {month}
@@ -41,7 +41,7 @@ function EventCard({ event, style }) {
 
         {/* Bottom indicator */}
         <div className="mt-5 flex items-center gap-2">
-          <div className="h-px flex-1 bg-gradient-to-r from-amber-100 to-transparent" />
+          <div className="h-px flex-1 bg-gradient-to-r from-yellow-100 to-transparent" />
           <span className="font-body text-[10px] font-semibold uppercase tracking-wider text-clay">
             ABC Event
           </span>

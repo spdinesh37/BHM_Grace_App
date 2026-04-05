@@ -4,13 +4,16 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        saffron: "#d97706",
-        marigold: "#f3b451",
-        sandal: "#f7efe1",
-        clay: "#c67b47",
+        saffron: "#0f5132",
+        marigold: "#f4d03f",
+        sandal: "#fdf8e4",
+        clay: "#1b7042",
         leaf: "#4d6b52",
-        soil: "#6b4f3b",
-        ink: "#24180f"
+        soil: "#2d5a3a",
+        ink: "#1a2e20",
+        "brand-green": "#0f5132",
+        "brand-green-light": "#1b7042",
+        "brand-yellow": "#f4d03f"
       },
       fontFamily: {
         display: ["Cormorant Garamond", "serif"],
