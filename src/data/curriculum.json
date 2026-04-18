@@ -24,6 +24,7 @@
     },
     {
       "name": "Semester 2",
+      "subtitle": "Intro",
       "items": [
         {
           "label": "Module 1",
@@ -38,6 +39,7 @@
     },
     {
       "name": "Semester 3",
+      "subtitle": "Assimilation",
       "items": [
         {
           "label": "Module 3",
@@ -52,6 +54,7 @@
     },
     {
       "name": "Semester 4",
+      "subtitle": "Application",
       "items": [
         {
           "label": "Module 5",

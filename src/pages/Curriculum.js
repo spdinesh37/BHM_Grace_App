@@ -1,67 +1,17 @@
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import mayapurInstituteImage from "../assets/mayapur-institute.webp";
 import { useReveal } from "../components/useReveal";
+import ExpandCards from "../components/ExpandCards";
 import curriculumData from "../data/curriculum.json";
 
 const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
 
-const semesterAccents = [
-  { bg: "bg-yellow-50",   border: "border-yellow-200/70",  badge: "bg-saffron text-white",          dot: "bg-saffron"   },
-  { bg: "bg-sky-50",     border: "border-sky-200/70",    badge: "bg-sky-600 text-white",           dot: "bg-sky-500"   },
-  { bg: "bg-emerald-50", border: "border-emerald-200/70",badge: "bg-emerald-700 text-white",       dot: "bg-emerald-600"},
-  { bg: "bg-purple-50",  border: "border-purple-200/70", badge: "bg-purple-700 text-white",        dot: "bg-purple-600"},
+const semesterGradients = [
+  "linear-gradient(145deg, #1b7042, #0f5132, #092e1e)",
+  "linear-gradient(145deg, #0f5132, #0a3d26, #072a1a)",
+  "linear-gradient(145deg, #2d5a3a, #1b7042, #0f5132)",
+  "linear-gradient(145deg, #0f5132, #0a3d26, #072a1a)",
 ];
-
-function SemesterCard({ semester, index }) {
-  const [ref, visible] = useReveal(0.08);
-  const accent = semesterAccents[index % semesterAccents.length];
-
-  return (
-    <article
-      ref={ref}
-      className={`flex flex-col overflow-hidden rounded-2xl border ${accent.border} ${accent.bg} shadow-sm
-        transition-all duration-700 ease-out hover:-translate-y-1 hover:shadow-md
-        ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
-      style={{ transitionDelay: `${index * 100}ms` }}
-    >
-      {/* Card header */}
-      <div className="flex items-center justify-between border-b border-inherit px-5 py-4">
-        <div>
-          <span className={`inline-flex rounded-full px-3 py-1 font-body text-xs font-bold uppercase tracking-wider ${accent.badge}`}>
-            {semester.name}
-          </span>
-          {semester.subtitle && (
-            <p className="mt-1.5 font-display text-lg font-semibold text-ink">{semester.subtitle}</p>
-          )}
-        </div>
-        <div className={`flex h-9 w-9 items-center justify-center rounded-xl font-display text-lg font-bold text-white ${accent.badge.split(" ")[0]}`}>
-          {index + 1}
-        </div>
-      </div>
-
-      {/* Book list */}
-      <ul className="flex flex-1 flex-col gap-2 p-4">
-        {semester.items.map((item) => (
-          <li
-            key={`${semester.name}-${item.title}`}
-            className="flex items-start gap-3 rounded-xl bg-white/80 px-4 py-3 shadow-sm border border-white"
-          >
-            <span className={`mt-1.5 h-2 w-2 shrink-0 rounded-full ${accent.dot}`} />
-            <div className="min-w-0">
-              {item.label && (
-                <p className="font-body text-[10px] font-bold uppercase tracking-widest text-stone-400">{item.label}</p>
-              )}
-              <p className="font-body text-sm font-semibold text-ink leading-snug">{item.title}</p>
-              {item.details && (
-                <p className="font-body text-xs text-stone-500 mt-0.5">{item.details}</p>
-              )}
-            </div>
-          </li>
-        ))}
-      </ul>
-    </article>
-  );
-}
 
 function Curriculum() {
   const { titleScript, title, semesters, bookShowcase, handbook } = curriculumData;
@@ -71,6 +21,14 @@ function Curriculum() {
   const [showcaseDepths, setShowcaseDepths] = useState(() => bookShowcase.map(() => 0));
   const [headerRef, headerVisible] = useReveal(0.1);
   const [booksHeaderRef, booksHeaderVisible] = useReveal(0.1);
+
+  const scrollToSemester = useCallback((semesterName) => {
+    const id = semesterName.toLowerCase().replace(/\s+/g, "-");
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  }, []);
 
   useEffect(() => {
     const updateShowcase = () => {
@@ -110,7 +68,7 @@ function Curriculum() {
   return (
     <>
       {/* ── Semester overview ─────────────────────────────────────── */}
-      <section className="pb-10">
+      <section className="pt-8 pb-10 sm:pt-10 md:pt-12">
         <div className="section-shell">
 
           {/* Header */}
@@ -132,11 +90,17 @@ function Curriculum() {
           </div>
 
           {/* Semester cards */}
-          <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
-            {semesters.map((semester, i) => (
-              <SemesterCard key={semester.name} semester={semester} index={i} />
-            ))}
-          </div>
+          <ExpandCards
+            items={semesters.map((semester, i) => ({
+              title: semester.name,
+              eyebrow: semester.subtitle || undefined,
+              listItems: semester.items.map((item) =>
+                item.details ? `${item.title} — ${item.details}` : item.title
+              ),
+              gradient: semesterGradients[i % semesterGradients.length],
+              onCtaClick: () => scrollToSemester(semester.name),
+            }))}
+          />
         </div>
       </section>
 
@@ -162,9 +126,15 @@ function Curriculum() {
                 const scale = 0.88 + depth * 0.12;
                 const glowOpacity = 0.2 + depth * 0.28;
 
+                const isFirstOfSemester = index === 0 || bookShowcase[index - 1].semester !== book.semester;
+                const semesterId = isFirstOfSemester
+                  ? book.semester.toLowerCase().replace(/\s+/g, "-")
+                  : undefined;
+
                 return (
                   <article
                     key={`${book.semester}-${book.title}`}
+                    id={semesterId}
                     ref={(element) => { showcaseRefs.current[index] = element; }}
                     className="curriculum-book-card"
                   >

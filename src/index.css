@@ -1346,6 +1346,286 @@ body {
   }
 }
 
+/* ── Expand cards (accordion image cards) ──────────────────────── */
+.expand-cards {
+  display: flex;
+  gap: 0.5rem;
+  height: 280px;
+  width: 100%;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  box-shadow: 0 20px 50px -20px rgba(42, 30, 18, 0.28);
+}
+
+.expand-card {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: flex 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+  text-align: left;
+  outline: none;
+}
+
+.expand-card--active {
+  flex: 2.2;
+}
+
+/* Gradient background fill */
+.expand-card__bg {
+  position: absolute;
+  inset: 0;
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), filter 0.6s ease;
+}
+
+.expand-card--active .expand-card__bg {
+  transform: scale(1.08);
+}
+
+/* Subtle radial pattern for depth */
+.expand-card__pattern {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255,255,255,0.12), transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(0,0,0,0.15), transparent 50%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Bottom shade for text readability */
+.expand-card__shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.55) 0%,
+    rgba(0, 0, 0, 0.08) 50%,
+    transparent 100%
+  );
+  z-index: 1;
+  transition: opacity 0.4s ease;
+}
+
+.expand-card--active .expand-card__shade {
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.6) 0%,
+    rgba(0, 0, 0, 0.15) 45%,
+    transparent 100%
+  );
+}
+
+/* ─── Collapsed state ─── */
+.expand-card__collapsed {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.expand-card__collapsed--hide {
+  opacity: 0;
+  transform: translateY(8px);
+  pointer-events: none;
+}
+
+.expand-card__collapsed-title {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  color: #fff;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(1.15rem, 1.5vw, 1.4rem);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.4), 0 0 40px rgba(244, 208, 63, 0.15);
+}
+
+/* ─── Expanded state ─── */
+.expand-card__expanded {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1.25rem 1.25rem;
+  z-index: 3;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.4s ease 0.12s, transform 0.4s cubic-bezier(0.22, 1, 0.36, 1) 0.12s;
+  pointer-events: none;
+}
+
+.expand-card__expanded--show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.expand-card__eyebrow {
+  display: inline-block;
+  margin-bottom: 0.35rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(6px);
+  color: rgba(255, 255, 255, 0.85);
+  font-family: "Manrope", sans-serif;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  width: fit-content;
+}
+
+.expand-card__title {
+  margin: 0;
+  color: #fff;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(1.4rem, 2vw, 1.85rem);
+  font-weight: 700;
+  line-height: 1.1;
+  text-shadow: 0 2px 24px rgba(244, 208, 63, 0.25), 0 1px 8px rgba(0, 0, 0, 0.3);
+  color: #f4d03f;
+}
+
+.expand-card__divider {
+  width: 2.5rem;
+  height: 2px;
+  margin: 0.5rem auto;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, rgba(244, 208, 63, 0.85), transparent);
+}
+
+.expand-card__text {
+  margin: 0;
+  max-width: 34ch;
+  color: rgba(255, 255, 255, 0.92);
+  font-family: "Manrope", sans-serif;
+  font-size: 0.8rem;
+  line-height: 1.65;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
+}
+
+.expand-card__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.expand-card__list-item {
+  color: rgba(255, 255, 255, 0.9);
+  font-family: "Manrope", sans-serif;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
+}
+
+
+.expand-card__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  margin-top: 0.75rem;
+  padding: 0.4rem 0.9rem;
+  border: 1.5px solid rgba(255, 255, 255, 0.45);
+  border-radius: 0.45rem;
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  font-family: "Manrope", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+}
+
+.expand-card__cta:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.75);
+  transform: translateX(3px);
+}
+
+/* Accessibility */
+.expand-card:focus-visible {
+  box-shadow: 0 0 0 3px rgba(244, 208, 63, 0.55);
+}
+
+/* Hover glow on inactive cards */
+.expand-card:not(.expand-card--active):hover .expand-card__bg {
+  filter: brightness(1.08);
+}
+
+/* ─── Responsive: stack on mobile ─── */
+@media (max-width: 767px) {
+  .expand-cards {
+    flex-direction: column;
+    height: auto;
+    gap: 0.35rem;
+    border-radius: 1rem;
+  }
+
+  .expand-card {
+    flex: none !important;
+    height: 60px;
+    border-radius: 0.75rem;
+    transition: height 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .expand-card--active {
+    height: 220px;
+  }
+
+  .expand-card__collapsed {
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+  }
+
+  .expand-card__collapsed-title {
+    writing-mode: horizontal-tb;
+    text-orientation: initial;
+    font-size: 1.05rem;
+    letter-spacing: 0.06em;
+  }
+
+  .expand-card__expanded {
+    padding: 1rem 1.1rem;
+  }
+
+  .expand-card__title {
+    font-size: 1.25rem;
+  }
+
+  .expand-card__text {
+    font-size: 0.72rem;
+    line-height: 1.5;
+  }
+
+  .expand-card__divider {
+    margin: 0.35rem auto;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .expand-cards {
+    height: 260px;
+  }
+}
+
 /* ── Global scroll-reveal utilities ─────────────────────────────── */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(28px); }

@@ -2,56 +2,31 @@ import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import prabhupadaPortrait from "../assets/prabhupada-portrait.jpg";
 import { useReveal } from "../components/useReveal";
+import ExpandCards from "../components/ExpandCards";
 
 const values = [
   {
     title: "Equal Vision",
     text: "We honor the inherent dignity and potential of every individual, embracing diversity as an opportunity.",
-    accent: "rgba(122, 156, 224, 0.22)",
-    glow: "rgba(122, 156, 224, 0.28)",
-    offset: "-16px",
-    tilt: -1.2
+    gradient: "linear-gradient(145deg, #1b7042, #0f5132, #092e1e)",
   },
   {
     title: "Respect",
     text: "We foster a culture of care and understanding, valuing all beings and their individual choices.",
-    accent: "rgba(245, 220, 160, 0.24)",
-    glow: "rgba(245, 220, 160, 0.3)",
-    offset: "12px",
-    tilt: 0.9
+    gradient: "linear-gradient(145deg, #0f5132, #0a3d26, #072a1a)",
   },
   {
     title: "Compassion",
     text: "We practice and promote compassion in thought, word, and action towards all living beings.",
-    accent: "rgba(168, 201, 177, 0.22)",
-    glow: "rgba(168, 201, 177, 0.28)",
-    offset: "-6px",
-    tilt: -0.7
+    gradient: "linear-gradient(145deg, #2d5a3a, #1b7042, #0f5132)",
   },
   {
     title: "Servant-Leadership",
     text: "We lead through service that reflects integrity, humility, and dedication, inspiring others to embrace self-transformation.",
-    accent: "rgba(220, 180, 148, 0.22)",
-    glow: "rgba(220, 180, 148, 0.28)",
-    offset: "16px",
-    tilt: 1.1
-  }
+    gradient: "linear-gradient(145deg, #0f5132, #0a3d26, #072a1a)",
+  },
 ];
 
-const pillars = [
-  {
-    title: "Serve",
-    text: "Service creates a culture of contribution, humility, and practical care for the whole community."
-  },
-  {
-    title: "Connect",
-    text: "Connection grows through sincere association, shared practice, and relationships rooted in respect."
-  },
-  {
-    title: "Grow",
-    text: "Growth comes through Bhakti, reflection, learning, and the steady transformation of character."
-  }
-];
 
 const missionVisionCards = [
   {
@@ -69,7 +44,6 @@ const missionVisionCards = [
 ];
 
 const mix = (start, end, amount) => Math.round(start + (end - start) * amount);
-const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
 
 function FlipCard({ item, index, isActive, onActivate, onDeactivate }) {
   const [ref, visible] = useReveal(0.1);
@@ -92,7 +66,7 @@ function FlipCard({ item, index, isActive, onActivate, onDeactivate }) {
         onFocus={() => onActivate(item.key)}
         onBlur={onDeactivate}
         aria-pressed={isActive}
-        aria-label={`${item.title} — hover or tap to reveal`}
+        aria-label={`${item.title} — hover `}
         className="group w-full cursor-pointer"
         style={{ perspective: "1400px" }}
       >
@@ -128,11 +102,6 @@ function FlipCard({ item, index, isActive, onActivate, onDeactivate }) {
             <h3 className="relative z-10 mt-2 font-display text-3xl font-semibold text-white sm:text-5xl md:text-6xl">
               {item.title}
             </h3>
-            <div className="relative z-10 mt-4 flex items-center gap-3">
-              <div className="h-px w-8 rounded-full bg-white/30" />
-              <p className="font-body text-xs font-medium text-white/50">tap to reveal</p>
-              <div className="h-px w-8 rounded-full bg-white/30" />
-            </div>
           </div>
 
           {/* Back */}
@@ -176,7 +145,7 @@ function VisionMissionSection({ cards, activeFeature, setActiveFeature }) {
           <h2 className="mt-3 font-display text-2xl font-semibold text-ink sm:text-3xl md:text-4xl">
             Vision & Mission
           </h2>
-          <p className="mt-2 font-body text-sm text-stone-500">Tap each card to reveal our statement</p>
+          <p className="mt-2 font-body text-sm text-stone-500"></p>
           <div className="mx-auto mt-4 h-0.5 w-12 rounded-full bg-gradient-to-r from-saffron to-marigold/40" />
         </div>
 
@@ -197,59 +166,6 @@ function VisionMissionSection({ cards, activeFeature, setActiveFeature }) {
   );
 }
 
-const valueColors = [
-  { border: "border-blue-200/60", accent: "from-blue-50 to-sky-50", icon: "bg-blue-100 text-blue-700", dot: "bg-blue-500" },
-  { border: "border-yellow-200/60", accent: "from-yellow-50 to-orange-50", icon: "bg-yellow-100 text-amber-700", dot: "bg-yellow-500" },
-  { border: "border-emerald-200/60", accent: "from-emerald-50 to-teal-50", icon: "bg-emerald-100 text-emerald-700", dot: "bg-emerald-500" },
-  { border: "border-orange-200/60", accent: "from-orange-50 to-yellow-50", icon: "bg-orange-100 text-orange-700", dot: "bg-orange-500" },
-];
-
-function ValueCard({ value, index }) {
-  const [ref, visible] = useReveal(0.1);
-  const color = valueColors[index % valueColors.length];
-
-  return (
-    <article
-      ref={ref}
-      className={`group relative overflow-hidden rounded-xl border bg-white/90 p-5 shadow-[0_12px_40px_-16px_rgba(90,66,41,0.18)] transition-all duration-700 ease-out
-        hover:-translate-y-1.5 hover:shadow-[0_24px_56px_-20px_rgba(90,66,41,0.26)]
-        sm:rounded-2xl sm:p-6 md:p-7
-        ${color.border}
-        ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
-      style={{ transitionDelay: `${index * 120}ms` }}
-    >
-      {/* Top accent bar */}
-      <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-brand-green via-brand-green-light to-brand-yellow" />
-
-      {/* Hover gradient */}
-      <div className={`absolute inset-0 bg-gradient-to-br ${color.accent} opacity-0 transition-opacity duration-300 group-hover:opacity-100 -z-0`} />
-
-      <div className="relative z-10">
-        {/* Number + Title */}
-        <div className="flex items-center gap-3">
-          <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl font-body text-sm font-bold shadow-sm ${color.icon}`}>
-            {String(index + 1).padStart(2, "0")}
-          </div>
-          <h3 className="font-display text-xl font-semibold text-ink sm:text-2xl">
-            {value.title}
-          </h3>
-        </div>
-
-        {/* Divider */}
-        <div className="my-4 flex items-center gap-3">
-          <div className="h-px flex-1 bg-gradient-to-r from-yellow-200/80 to-transparent" />
-          <div className={`h-1.5 w-1.5 rounded-full ${color.dot}`} />
-          <div className="h-px flex-1 bg-gradient-to-l from-yellow-200/80 to-transparent" />
-        </div>
-
-        {/* Description */}
-        <p className="font-body text-sm leading-7 text-stone-600">
-          {value.text}
-        </p>
-      </div>
-    </article>
-  );
-}
 
 function About() {
   const spotlightRef = useRef(null);
@@ -301,7 +217,6 @@ function About() {
   const shellBackground = `linear-gradient(135deg, rgba(${mix(255, 12, spotlight)}, ${mix(250, 45, spotlight)}, ${mix(242, 28, spotlight)}, ${(0.96 - spotlight * 0.05).toFixed(3)}), rgba(${mix(250, 8, spotlight)}, ${mix(239, 35, spotlight)}, ${mix(220, 22, spotlight)}, ${(0.92 - spotlight * 0.05).toFixed(3)}))`;
   const titleColor = `rgb(${mix(36, 252, spotlight)}, ${mix(24, 245, spotlight)}, ${mix(15, 231, spotlight)})`;
   const bodyColor = `rgba(${mix(87, 244, spotlight)}, ${mix(83, 236, spotlight)}, ${mix(78, 225, spotlight)}, ${(0.94 + spotlight * 0.04).toFixed(3)})`;
-  const captionColor = `rgba(${mix(107, 248, spotlight)}, ${mix(79, 204, spotlight)}, ${mix(59, 137, spotlight)}, ${(0.92 + spotlight * 0.06).toFixed(3)})`;
 
   return (
     <>
@@ -368,21 +283,21 @@ function About() {
 
                   {/* Name badge */}
                   <div
-                    className="mx-auto mt-6 max-w-xs rounded-2xl border px-5 py-3 transition-all duration-500"
+                    className="mx-auto mt-16 max-w-xs rounded-2xl border px-5 py-3 transition-all duration-500"
                     style={{
-                      background: `rgba(255,255,255,${(0.08 + spotlight * 0.12).toFixed(3)})`,
-                      borderColor: `rgba(244,208,63,${(0.32 + spotlight * 0.38).toFixed(3)})`,
+                      background: `rgba(15,81,50,${(0.85 + spotlight * 0.1).toFixed(3)})`,
+                      borderColor: `rgba(244,208,63,${(0.5 + spotlight * 0.4).toFixed(3)})`,
                     }}
                   >
                     <p
-                      className="font-display text-xs font-semibold uppercase tracking-[0.28em] transition-colors duration-500"
-                      style={{ color: captionColor }}
+                      className="font-display text-xs font-semibold uppercase tracking-[0.28em]"
+                      style={{ color: "#f4d03f" }}
                     >
                       His Divine Grace
                     </p>
                     <p
-                      className="mt-1 font-display text-sm font-semibold transition-colors duration-500 sm:text-base"
-                      style={{ color: captionColor }}
+                      className="mt-1 font-display text-sm font-semibold sm:text-base"
+                      style={{ color: "#fff" }}
                     >
                       A.C. Bhaktivedanta Swami Prabhupada
                     </p>
@@ -435,20 +350,6 @@ function About() {
         setActiveFeature={setActiveFeature}
       />
 
-      <section className="py-6 sm:py-8 md:py-10">
-        <div className="section-shell">
-          <div className="grid gap-4 sm:grid-cols-2 sm:gap-5 md:grid-cols-3 md:gap-6">
-            {pillars.map((pillar) => (
-              <article key={pillar.title} className="soft-card">
-                <p className="eyebrow">Serve | Connect | Grow</p>
-                <h3 className="mt-3 text-2xl font-semibold text-ink sm:mt-4 sm:text-3xl">{pillar.title}</h3>
-                <p className="mt-3 text-xs leading-6 text-stone-700 sm:mt-4 sm:text-sm sm:leading-7">{pillar.text}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <section className="py-8 sm:py-12 md:py-16">
         <div className="section-shell">
           {/* Header */}
@@ -464,12 +365,7 @@ function About() {
             <div className="mx-auto mt-4 h-0.5 w-12 rounded-full bg-gradient-to-r from-saffron to-marigold/40" />
           </div>
 
-          {/* Value cards grid */}
-          <div className="grid gap-4 sm:grid-cols-2 sm:gap-5 md:gap-6 xl:grid-cols-4">
-            {values.map((value, index) => (
-              <ValueCard key={value.title} value={value} index={index} />
-            ))}
-          </div>
+          <ExpandCards items={values} />
         </div>
       </section>
 
