@@ -69,11 +69,23 @@ body {
   }
 
   .primary-button {
-    @apply inline-flex items-center justify-center rounded-full bg-brand-green px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-brand-green-light active:scale-[0.97] sm:px-5 sm:py-3;
+    @apply inline-flex items-center justify-center rounded-full border-2 border-brand-green bg-brand-green px-6 py-3 text-sm font-semibold text-white transition hover:bg-brand-green-light hover:border-brand-green-light active:scale-[0.97] sm:px-7 sm:py-3 min-w-[12rem];
   }
 
   .secondary-button {
-    @apply inline-flex items-center justify-center rounded-full border-2 border-brand-yellow bg-brand-yellow/10 px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-brand-yellow/25 active:scale-[0.97] sm:px-5 sm:py-3;
+    @apply inline-flex items-center justify-center rounded-full border-2 border-brand-yellow bg-brand-yellow/10 px-6 py-3 text-sm font-semibold text-white transition hover:bg-brand-yellow/25 active:scale-[0.97] sm:px-7 sm:py-3 min-w-[12rem];
+  }
+
+  .hero-outline-button {
+    @apply relative inline-flex items-center justify-center overflow-hidden rounded-full border-2 px-6 py-3 text-sm font-semibold text-white transition active:scale-[0.97] sm:px-7 sm:py-3 min-w-[12rem];
+  }
+
+  .hero-outline-button--green {
+    @apply border-brand-green-light bg-brand-green-light/10 hover:bg-brand-green-light/25;
+  }
+
+  .hero-outline-button--yellow {
+    @apply border-brand-yellow bg-brand-yellow/10 hover:bg-brand-yellow/25;
   }
 
   .ornate-stage {
@@ -643,33 +655,55 @@ body {
 }
 
 .ashram-subnav__link {
+  position: relative;
+  overflow: hidden;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   min-height: 3.1rem;
-  padding: 0.75rem 1.15rem;
+  min-width: 12rem;
+  padding: 0.75rem 1.5rem;
   border-radius: 999px;
-  border: 1px solid rgba(194, 175, 147, 0.75);
-  background: rgba(255, 255, 255, 0.75);
-  box-shadow: 0 18px 38px -30px rgba(101, 74, 40, 0.3);
-  color: #4a392a;
-  font-size: 0.95rem;
-  font-weight: 700;
+  border: 2px solid #1b7042;
+  background: rgba(27, 112, 66, 0.08);
+  color: #0f5132;
+  font-size: 0.9rem;
+  font-weight: 600;
   letter-spacing: 0.02em;
   text-decoration: none;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease, color 0.25s ease;
+  transition: transform 0.25s ease, background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+
+.ashram-subnav__link::after {
+  content: "";
+  position: absolute;
+  inset: -30% auto -30% -40%;
+  width: 40%;
+  background: linear-gradient(110deg, transparent, rgba(244, 208, 63, 0.35), transparent);
+  transform: translateX(-160%) rotate(12deg);
+  transition: transform 0.55s ease;
+  pointer-events: none;
 }
 
 .ashram-subnav__link:hover {
+  background: rgba(27, 112, 66, 0.18);
   transform: translateY(-2px);
-  box-shadow: 0 24px 40px -28px rgba(101, 74, 40, 0.34);
+}
+
+.ashram-subnav__link:hover::after {
+  transform: translateX(380%) rotate(12deg);
 }
 
 .ashram-subnav__link--active {
-  background: linear-gradient(135deg, rgba(74, 57, 42, 0.96), rgba(38, 28, 18, 0.96));
-  border-color: rgba(74, 57, 42, 0.96);
-  color: #fff8ef;
-  box-shadow: 0 24px 44px -30px rgba(42, 31, 20, 0.5);
+  background: #0f5132;
+  border-color: #0f5132;
+  color: #fff;
+  box-shadow: 0 18px 38px -22px rgba(15, 81, 50, 0.55);
+}
+
+.ashram-subnav__link--active:hover {
+  background: #1b7042;
+  border-color: #1b7042;
 }
 
 .curriculum-stage {
@@ -879,8 +913,14 @@ body {
   display: grid;
   gap: 1.5rem;
   margin-top: 1.8rem;
-  align-items: start;
+  align-items: stretch;
   grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+}
+
+.handbook-cover-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .handbook-cover-card,
@@ -1346,6 +1386,24 @@ body {
   }
 }
 
+/* ── Typewriter cursor ─────────────────────────────────────────── */
+.typewriter-cursor {
+  display: inline-block;
+  margin-left: 0.05em;
+  font-weight: 400;
+  color: currentColor;
+  opacity: 0.85;
+}
+
+.typewriter-cursor--blink {
+  animation: typewriter-blink 0.9s steps(1) infinite;
+}
+
+@keyframes typewriter-blink {
+  0%, 50% { opacity: 0.85; }
+  51%, 100% { opacity: 0; }
+}
+
 /* ── Expand cards (accordion image cards) ──────────────────────── */
 .expand-cards {
   display: flex;
@@ -1666,12 +1724,16 @@ body {
 }
 
 /* ── Button improvements ─────────────────────────────────────────── */
-.primary-button {
+.primary-button,
+.secondary-button,
+.hero-outline-button {
   position: relative;
   overflow: hidden;
 }
 
-.primary-button::after {
+.primary-button::after,
+.secondary-button::after,
+.hero-outline-button::after {
   content: "";
   position: absolute;
   inset: -30% auto -30% -40%;
@@ -1682,7 +1744,9 @@ body {
   pointer-events: none;
 }
 
-.primary-button:hover::after {
+.primary-button:hover::after,
+.secondary-button:hover::after,
+.hero-outline-button:hover::after {
   transform: translateX(380%) rotate(12deg);
 }
 

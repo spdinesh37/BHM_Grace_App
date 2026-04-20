@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import Typewriter from "./Typewriter";
 
 function HeroVideo() {
   const [isVideoReady, setIsVideoReady] = useState(false);
@@ -32,23 +33,23 @@ function HeroVideo() {
       <div className="section-shell relative z-10 px-4 pt-24 pb-10 sm:px-6 sm:pt-32 sm:pb-16 md:pt-36">
         <div className="max-w-3xl">
           <h1 className="text-3xl font-semibold tracking-[0.06em] text-white sm:text-5xl sm:tracking-[0.1em] md:text-6xl lg:text-7xl lg:tracking-[0.14em]">
-            Alabama Bhakti Community
+            <Typewriter text="Alabama Bhakti Community" speed={90} />
           </h1>
           <p className="mt-4 max-w-md text-[10px] font-semibold uppercase leading-6 tracking-[0.18em] text-white/80 sm:mt-5 sm:max-w-none sm:text-xs sm:tracking-[0.3em] md:text-sm md:tracking-[0.4em]">
             Serve <span className="mx-1 text-marigold sm:mx-1.5 md:mx-2">&bull;</span> Connect
             <span className="mx-1 text-marigold sm:mx-1.5 md:mx-2">&bull;</span> Grow
           </p>
           <p className="mt-4 max-w-2xl text-sm leading-6 text-white/80 sm:mt-6 sm:text-base sm:leading-8 md:mt-8 lg:text-lg">
-            A devotional learning community rooted in Bhakti Yoga, devotional
-            culture, and shared spiritual practice.
+            A devotional learning community founded on selfless service,
+            inspiring association, and collective growth.
           </p>
 
           <div className="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:gap-4 md:mt-10">
-            <Link to="/about" className="primary-button w-full text-center sm:w-auto">
-              Discover Vision and Mission
+            <Link to="/about" className="hero-outline-button hero-outline-button--green w-full text-center sm:w-auto">
+              Discover Us
             </Link>
-            <Link to="/contact" className="secondary-button w-full text-center sm:w-auto">
-              Contact ABC
+            <Link to="/contact" className="hero-outline-button hero-outline-button--yellow w-full text-center sm:w-auto">
+              Contact Us
             </Link>
           </div>
         </div>

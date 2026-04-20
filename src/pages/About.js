@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import prabhupadaPortrait from "../assets/prabhupada-portrait.jpg";
 import { useReveal } from "../components/useReveal";
 import ExpandCards from "../components/ExpandCards";
+import Typewriter from "../components/Typewriter";
 
 const values = [
   {
@@ -313,10 +314,10 @@ function About() {
                   }}
                 >
                   <h2
-                    className="max-w-3xl text-2xl font-semibold transition-colors duration-500 sm:text-3xl md:text-4xl lg:text-5xl"
+                    className="mx-auto max-w-3xl text-center text-2xl font-semibold transition-colors duration-500 sm:text-3xl md:text-4xl lg:text-5xl"
                     style={{ color: titleColor }}
                   >
-                    A spiritual vision rooted in Bhakti.
+                    <Typewriter text="Our Origins" speed={120} />
                   </h2>
                   <p
                     className="mt-3 max-w-3xl text-xs leading-6 transition-colors duration-500 sm:mt-5 sm:text-sm sm:leading-8 md:text-base"

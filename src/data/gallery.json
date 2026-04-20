@@ -1,39 +1,44 @@
 [
   {
-    "src": "/gallery/community-morning.svg",
-    "alt": "Students gathering in the morning for prayer and reflection.",
-    "title": "Morning Sadhana",
-    "description": "A peaceful beginning with mantra meditation, prayer, and shared intention for the day."
+    "id": "post-1",
+    "image": "/gallery/community-morning.svg",
+    "caption": "Morning Sadhana — A peaceful beginning with mantra meditation, prayer, and shared intention for the day.",
+    "permalink": "https://www.instagram.com/",
+    "timestamp": "2026-04-10T07:00:00Z"
   },
   {
-    "src": "/gallery/scripture-circle.svg",
-    "alt": "A scripture circle with students learning together.",
-    "title": "Scripture Study",
-    "description": "Collaborative reading circles create space for questions, insight, and personal application."
+    "id": "post-2",
+    "image": "/gallery/scripture-circle.svg",
+    "caption": "Scripture Study — Collaborative reading circles create space for questions, insight, and personal application.",
+    "permalink": "https://www.instagram.com/",
+    "timestamp": "2026-04-08T18:30:00Z"
   },
   {
-    "src": "/gallery/prasadam-prep.svg",
-    "alt": "Devotees preparing prasadam in the kitchen.",
-    "title": "Prasadam Preparation",
-    "description": "Cooking and serving become joyful acts of devotion and community care."
+    "id": "post-3",
+    "image": "/gallery/prasadam-prep.svg",
+    "caption": "Prasadam Preparation — Cooking and serving become joyful acts of devotion and community care.",
+    "permalink": "https://www.instagram.com/",
+    "timestamp": "2026-04-05T11:15:00Z"
   },
   {
-    "src": "/gallery/festival-evening.svg",
-    "alt": "An evening kirtan gathering with warm light and music.",
-    "title": "Festival Evenings",
-    "description": "Music, kirtan, and celebration bring the academy together in gratitude and joy."
+    "id": "post-4",
+    "image": "/gallery/festival-evening.svg",
+    "caption": "Festival Evenings — Music, kirtan, and celebration bring the academy together in gratitude and joy.",
+    "permalink": "https://www.instagram.com/",
+    "timestamp": "2026-04-02T20:00:00Z"
   },
   {
-    "src": "/gallery/service-teams.svg",
-    "alt": "Students working together in a service project.",
-    "title": "Shared Seva",
-    "description": "Hands-on service cultivates humility, cooperation, and servant leadership."
+    "id": "post-5",
+    "image": "/gallery/service-teams.svg",
+    "caption": "Shared Seva — Hands-on service cultivates humility, cooperation, and servant leadership.",
+    "permalink": "https://www.instagram.com/",
+    "timestamp": "2026-03-28T14:00:00Z"
   },
   {
-    "src": "/gallery/garden-reflection.svg",
-    "alt": "A quiet garden space for personal reflection.",
-    "title": "Quiet Reflection",
-    "description": "Students also have space for solitude, journaling, and contemplative rest."
+    "id": "post-6",
+    "image": "/gallery/garden-reflection.svg",
+    "caption": "Quiet Reflection — Students also have space for solitude, journaling, and contemplative rest.",
+    "permalink": "https://www.instagram.com/",
+    "timestamp": "2026-03-25T16:45:00Z"
   }
 ]
-

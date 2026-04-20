@@ -33,8 +33,8 @@ function Home() {
         <div className="section-shell">
           <SectionHeader
             eyebrow="ABC at a Glance"
-            title="A calm community pathway for devotion, education, and shared life"
-            description="Alabama Bhakti Community is designed as a living environment where sacred study, daily practice, service, and cultural learning support one another."
+            title="Your Spiritual Hub"
+            description="Alabama Bhakti Community is designed as a living environment where sacred study, daily practice, service, like-minded connections, and personal growth support one another."
             align="center"
           />
 
