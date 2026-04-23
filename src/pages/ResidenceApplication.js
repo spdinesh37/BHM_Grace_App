@@ -2,7 +2,7 @@ import PageHero from "../components/PageHero";
 import contactData from "../data/contact.json";
 
 function ResidenceApplication() {
-  const formEmbedUrl = contactData.formEmbedUrl.trim();
+  const formEmbedUrl = contactData.residenceFormUrl.trim();
 
   return (
     <>
@@ -20,7 +20,7 @@ function ResidenceApplication() {
               src={formEmbedUrl}
               className="min-h-[520px] w-full sm:min-h-[620px] md:min-h-[720px]"
               loading="lazy"
-              sandbox="allow-same-origin allow-scripts allow-forms allow-popups"
+              sandbox="allow-same-origin allow-scripts allow-forms"
             />
           </div>
         </div>

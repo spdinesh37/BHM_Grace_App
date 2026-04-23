@@ -18,7 +18,7 @@ function WeeklyUpdate({ update }) {
       <div className="section-shell">
         <SectionHeader
           eyebrow="Weekly Update"
-          title="This week's reminders and prasadam menu"
+          title="This week's dinner recipes"
           description="Keep the community rhythm close at hand with the latest message, gathering details, and feast offerings."
         />
 
@@ -49,6 +49,22 @@ function WeeklyUpdate({ update }) {
             <p className="mt-6 font-body text-sm leading-8 text-stone-600 sm:text-base">
               {update.announcement}
             </p>
+
+            <div className="mt-6 overflow-hidden rounded-2xl border border-yellow-100/80 shadow-[0_12px_32px_-16px_rgba(90,66,41,0.28)]">
+              <video
+                className="pointer-events-none aspect-video w-full object-cover"
+                src={`${process.env.PUBLIC_URL}/videos/food.mp4`}
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                disablePictureInPicture
+                disableRemotePlayback
+                controlsList="nodownload nofullscreen noremoteplayback noplaybackrate"
+                onContextMenu={(e) => e.preventDefault()}
+              />
+            </div>
           </article>
 
           {/* Menu grid */}

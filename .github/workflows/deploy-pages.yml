@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+  schedule:
+    # Refresh events from Google Calendar every 6 hours (UTC)
+    - cron: "0 */6 * * *"
   workflow_dispatch:
 
 permissions:

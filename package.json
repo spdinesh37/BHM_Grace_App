@@ -16,6 +16,9 @@
     "tailwindcss": "^3.4.13"
   },
   "scripts": {
+    "fetch-events": "node scripts/fetch-events.js",
+    "prestart": "node scripts/fetch-events.js",
+    "prebuild": "node scripts/fetch-events.js",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
