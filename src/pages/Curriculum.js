@@ -182,16 +182,41 @@ function Curriculum() {
             <div className="handbook-grid">
               <article className="handbook-cover-card">
                 <p className="handbook-kicker">{handbook.institute}</p>
-                <div className="handbook-seal" aria-hidden="true">
-                  <img src={mayapurInstituteImage} alt="" className="handbook-seal-image" />
-                </div>
+                <a
+                  href={`${process.env.PUBLIC_URL}/books/Bhakti-Shastri-Student-Handbook.pdf`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="handbook-seal block transition-transform duration-300 hover:scale-105"
+                  title="Open Bhakti Shastri Student Handbook (PDF)"
+                >
+                  <img
+                    src={mayapurInstituteImage}
+                    alt="Open Bhakti Shastri Student Handbook (PDF)"
+                    className="handbook-seal-image"
+                  />
+                </a>
                 <h3 className="handbook-course-title">{handbook.course}</h3>
                 <p className="handbook-edition">{handbook.edition}</p>
                 <p className="handbook-note">{handbook.note}</p>
               </article>
 
               <article className="handbook-syllabus-card">
-                <h3 className="handbook-syllabus-title">Bhakti Shastri Syllabus</h3>
+                <h3 className="handbook-syllabus-title">
+                  <a
+                    href={`${process.env.PUBLIC_URL}/books/Bhakti_Shastri_Syllabus.pdf`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title="Open Bhakti Shastri Syllabus (PDF)"
+                    className="inline-flex items-center gap-2 transition-colors duration-200 hover:text-saffron"
+                  >
+                    Bhakti Shastri Syllabus
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                      <polyline points="7 10 12 15 17 10" />
+                      <line x1="12" y1="15" x2="12" y2="3" />
+                    </svg>
+                  </a>
+                </h3>
 
                 <div className="handbook-meta-grid">
                   {handbook.courseInfo.map((item) => (
