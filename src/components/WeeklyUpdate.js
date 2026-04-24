@@ -26,18 +26,21 @@ function WeeklyUpdate({ update }) {
 
   if (!update) return null;
 
+  const menuSections = resolveMenu(update);
+  const hasMenu = menuSections.length > 0;
+
   return (
     <section id="weekly-update" className="py-12 sm:py-16 md:py-20 lg:py-24">
       <div className="section-shell">
         <SectionHeader
           eyebrow="Weekly Update"
-          title="This week's dinner recipes"
-          description="Keep the community rhythm close at hand with the latest message, gathering details, and feast offerings."
+          title={hasMenu ? "This week's dinner recipes" : "This week's program"}
+          description="Keep the community rhythm close at hand with the latest message and gathering details."
         />
 
         <div
           ref={ref}
-          className={`mt-8 grid gap-4 sm:mt-10 sm:gap-5 md:mt-12 lg:grid-cols-[1.1fr_1fr] lg:gap-6 transition-all duration-700 ease-out
+          className={`mt-8 grid gap-4 sm:mt-10 sm:gap-5 md:mt-12 ${hasMenu ? "lg:grid-cols-[1.1fr_1fr]" : ""} lg:gap-6 transition-all duration-700 ease-out
             ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
         >
           {/* Announcement card */}

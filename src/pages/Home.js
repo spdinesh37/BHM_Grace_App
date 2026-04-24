@@ -4,7 +4,6 @@ import HeroVideo from "../components/HeroVideo";
 import WeeklyUpdate from "../components/WeeklyUpdate";
 import ExpandCards from "../components/ExpandCards";
 import eventsData from "../data/events.json";
-import weeklyUpdateData from "../data/weeklyUpdate.json";
 
 const pillars = [
   {
@@ -25,19 +24,18 @@ const pillars = [
 ];
 
 function buildWeeklyUpdateFromEvent(event) {
-  if (!event || !event.menu) return null;
+  if (!event) return null;
   return {
     week: event.date,
     menuTitle: event.title,
     announcement: event.description,
-    menu: event.menu,
+    menu: event.menu || null,
   };
 }
 
 function Home() {
-  const feastEvent = eventsData.find((e) => e.menu);
-  const weeklyUpdate =
-    buildWeeklyUpdateFromEvent(feastEvent) || weeklyUpdateData;
+  const nextEvent = eventsData[0];
+  const weeklyUpdate = buildWeeklyUpdateFromEvent(nextEvent);
 
   return (
     <>
@@ -58,7 +56,7 @@ function Home() {
         </div>
       </section>
 
-      <WeeklyUpdate update={weeklyUpdate} />
+      {weeklyUpdate && <WeeklyUpdate update={weeklyUpdate} />}
 
       <EventsList events={eventsData} limit={3} showCta />
     </>
