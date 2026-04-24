@@ -17,8 +17,9 @@
   },
   "scripts": {
     "fetch-events": "node scripts/fetch-events.js",
-    "prestart": "node scripts/fetch-events.js",
-    "prebuild": "node scripts/fetch-events.js",
+    "fetch-instagram": "node scripts/fetch-instagram.js",
+    "prestart": "node scripts/fetch-events.js && node scripts/fetch-instagram.js",
+    "prebuild": "node scripts/fetch-events.js && node scripts/fetch-instagram.js",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

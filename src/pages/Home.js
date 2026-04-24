@@ -24,7 +24,21 @@ const pillars = [
   },
 ];
 
+function buildWeeklyUpdateFromEvent(event) {
+  if (!event || !event.menu) return null;
+  return {
+    week: event.date,
+    menuTitle: event.title,
+    announcement: event.description,
+    menu: event.menu,
+  };
+}
+
 function Home() {
+  const feastEvent = eventsData.find((e) => e.menu);
+  const weeklyUpdate =
+    buildWeeklyUpdateFromEvent(feastEvent) || weeklyUpdateData;
+
   return (
     <>
       <HeroVideo />
@@ -44,7 +58,7 @@ function Home() {
         </div>
       </section>
 
-      <WeeklyUpdate update={weeklyUpdateData} />
+      <WeeklyUpdate update={weeklyUpdate} />
 
       <EventsList events={eventsData} limit={3} showCta />
     </>

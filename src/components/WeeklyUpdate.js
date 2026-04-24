@@ -1,12 +1,25 @@
 import { useReveal } from "./useReveal";
 import SectionHeader from "./SectionHeader";
 
-const menuGroups = [
-  { key: "mainItems", label: "Main Items",  icon: "🍛" },
-  { key: "soups",     label: "Soups",       icon: "🥣" },
-  { key: "desserts",  label: "Desserts",    icon: "🍮" },
-  { key: "drinks",    label: "Drinks",      icon: "🥤" },
+const FALLBACK_MENU_GROUPS = [
+  { key: "mainItems", label: "Main Items", icon: "🍛" },
+  { key: "soups",     label: "Soups",      icon: "🥣" },
+  { key: "desserts",  label: "Desserts",   icon: "🍮" },
+  { key: "drinks",    label: "Drinks",     icon: "🥤" },
 ];
+
+// Accept either:
+// - update.menu = [{ key, label, icon, items }, ...]  (dynamic from calendar)
+// - legacy flat shape: update.mainItems, update.soups, etc.
+function resolveMenu(update) {
+  if (Array.isArray(update?.menu)) {
+    return update.menu.filter((s) => s.items?.length > 0);
+  }
+  return FALLBACK_MENU_GROUPS.map((g) => ({
+    ...g,
+    items: update?.[g.key] || [],
+  })).filter((s) => s.items.length > 0);
+}
 
 function WeeklyUpdate({ update }) {
   const [ref, visible] = useReveal(0.1);
@@ -67,29 +80,42 @@ function WeeklyUpdate({ update }) {
             </div>
           </article>
 
-          {/* Menu grid */}
-          <div className="grid grid-cols-2 gap-3 sm:gap-4">
-            {menuGroups.map((group) => (
-              <article key={group.key} className="soft-card overflow-hidden p-0">
-                {/* Card header */}
-                <div className="flex items-center gap-2 border-b border-yellow-50 px-5 py-3 bg-sandal/50">
-                  <span className="text-base">{group.icon}</span>
-                  <p className="eyebrow text-[10px]">{group.label}</p>
-                </div>
-                <ul className="space-y-2 p-4">
-                  {update[group.key]?.map((item) => (
-                    <li
-                      key={item}
-                      className="flex items-center gap-2.5 rounded-xl bg-white/70 px-3 py-2.5 font-body text-sm font-medium text-stone-700 shadow-sm"
-                    >
-                      <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-saffron/70" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </article>
-            ))}
-          </div>
+          {/* Menu grid — adapts to however many categories have items */}
+          {(() => {
+            const visible = resolveMenu(update);
+            if (visible.length === 0) return null;
+            return (
+              <div
+                className="grid gap-3 sm:gap-4"
+                style={{
+                  gridTemplateColumns: `repeat(auto-fit, minmax(${
+                    visible.length === 1 ? "100%" : "180px"
+                  }, 1fr))`,
+                }}
+              >
+                {visible.map((group) => (
+                  <article key={group.key} className="soft-card overflow-hidden p-0">
+                    {/* Card header */}
+                    <div className="flex items-center gap-2 border-b border-yellow-50 px-5 py-3 bg-sandal/50">
+                      <span className="text-base">{group.icon}</span>
+                      <p className="eyebrow text-[10px]">{group.label}</p>
+                    </div>
+                    <ul className="space-y-2 p-4">
+                      {group.items.map((item) => (
+                        <li
+                          key={item}
+                          className="flex items-center gap-2.5 rounded-xl bg-white/70 px-3 py-2.5 font-body text-sm font-medium text-stone-700 shadow-sm"
+                        >
+                          <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-saffron/70" />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </article>
+                ))}
+              </div>
+            );
+          })()}
         </div>
       </div>
     </section>

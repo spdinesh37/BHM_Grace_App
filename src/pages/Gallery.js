@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import GalleryGrid from "../components/GalleryGrid";
 import PageHero from "../components/PageHero";
 import galleryData from "../data/gallery.json";
@@ -7,35 +6,7 @@ const INSTAGRAM_HANDLE = "alabamabhakti";
 const INSTAGRAM_URL = `https://www.instagram.com/${INSTAGRAM_HANDLE}/`;
 
 function Gallery() {
-  const [posts, setPosts] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    let cancelled = false;
-
-    async function loadPosts() {
-      try {
-        setLoading(true);
-        // TODO: Replace with live Instagram feed once API is set up.
-        // Endpoint will return the same shape: [{ id, image, caption, permalink, timestamp }]
-        await new Promise((resolve) => setTimeout(resolve, 200));
-        if (!cancelled) {
-          setPosts(galleryData);
-          setError(null);
-        }
-      } catch (err) {
-        if (!cancelled) setError(err.message || "Could not load posts");
-      } finally {
-        if (!cancelled) setLoading(false);
-      }
-    }
-
-    loadPosts();
-    return () => {
-      cancelled = true;
-    };
-  }, []);
+  const posts = galleryData.slice(0, 10);
 
   return (
     <>
@@ -76,29 +47,7 @@ function Gallery() {
             </a>
           </div>
 
-          {/* Loading state */}
-          {loading && (
-            <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-4">
-              {Array.from({ length: 8 }).map((_, i) => (
-                <div
-                  key={i}
-                  className="aspect-square animate-pulse rounded-2xl bg-stone-200/70"
-                />
-              ))}
-            </div>
-          )}
-
-          {/* Error state */}
-          {!loading && error && (
-            <div className="rounded-2xl border border-red-100 bg-red-50/80 p-8 text-center">
-              <p className="font-body text-sm text-red-700">
-                {error}
-              </p>
-            </div>
-          )}
-
-          {/* Posts */}
-          {!loading && !error && <GalleryGrid posts={posts} />}
+          <GalleryGrid posts={posts} />
         </div>
       </section>
     </>

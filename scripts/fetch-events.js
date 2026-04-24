@@ -4,7 +4,7 @@ const path = require("path");
 
 const ICS_URL =
   process.env.ICS_URL ||
-  "https://calendar.google.com/calendar/ical/albhakticommunity108%40gmail.com/public/basic.ics";
+  "https://calendar.google.com/calendar/ical/albhakticommunity108%40gmail.com/public/basic.icsfor ";
 const OUTPUT = path.join(__dirname, "..", "src", "data", "events.json");
 const DISPLAY_TIMEZONE = "America/Chicago";
 
@@ -151,6 +151,83 @@ function cleanDescription(desc, location) {
   return cleaned;
 }
 
+const DEFAULT_ICONS = {
+  mainItems: "🍛",
+  soups: "🥣",
+  desserts: "🍮",
+  drinks: "🥤",
+};
+
+function parseMenuFromDescription(text) {
+  if (!text) return { announcement: "", menu: null };
+
+  const lines = text.split(/\r?\n/);
+  const announcementLines = [];
+  const sections = [];
+  let currentSection = null;
+  let inMenu = false;
+
+  const isSkippable = (line) => {
+    const t = line.trim();
+    if (!t) return true;
+    if (/^📍/.test(t)) return true;
+    if (/^(today|tomorrow|tonight)\s*$/i.test(t)) return true;
+    if (/^\d{1,2}[:.]?\d{0,2}\s*(am|pm)?\s*[-–—]\s*\d{1,2}[:.]?\d{0,2}\s*(am|pm)?\s*$/i.test(t)) return true;
+    return false;
+  };
+
+  const getBullet = (line) => {
+    const m = line.trim().match(/^[\*\-•●]\s+(.+)/);
+    return m ? m[1] : null;
+  };
+
+  const EMOJI_PREFIX = /^(\p{Extended_Pictographic}+)\s*/u;
+
+  const parseSectionHeader = (line) => {
+    const lower = line.toLowerCase();
+    let key = null;
+    if (/\b(savor[yi]|main|dishes?|entr[ée]e?s?)\b/.test(lower)) key = "mainItems";
+    else if (/\b(sweets?|desserts?)\b/.test(lower)) key = "desserts";
+    else if (/\b(drinks?|beverages?|fresh)\b/.test(lower)) key = "drinks";
+    else if (/\bsoups?\b/.test(lower)) key = "soups";
+    if (!key) return null;
+
+    const emojiMatch = line.match(EMOJI_PREFIX);
+    const icon = emojiMatch ? emojiMatch[1] : DEFAULT_ICONS[key];
+    const label = line.replace(EMOJI_PREFIX, "").trim() || key;
+    return { key, label, icon, items: [] };
+  };
+
+  for (const rawLine of lines) {
+    const line = rawLine.trim();
+    if (isSkippable(line)) continue;
+
+    const bulletText = getBullet(line);
+    if (bulletText && currentSection) {
+      const clean = bulletText.replace(/\s*\([^)]*\)\s*$/, "").trim();
+      if (clean) currentSection.items.push(clean);
+      continue;
+    }
+    if (bulletText) continue;
+
+    const header = line.length < 40 ? parseSectionHeader(line) : null;
+    if (header) {
+      currentSection = header;
+      sections.push(currentSection);
+      inMenu = true;
+      continue;
+    }
+
+    if (!inMenu) announcementLines.push(line);
+  }
+
+  const populated = sections.filter((s) => s.items.length > 0);
+  return {
+    announcement: announcementLines.join(" ").replace(/\s+/g, " ").trim(),
+    menu: populated.length > 0 ? populated : null,
+  };
+}
+
 async function main() {
   try {
     const ics = await fetchUrl(ICS_URL);
@@ -167,12 +244,19 @@ async function main() {
       .filter((e) => e.start && e.start.date >= startOfToday)
       .sort((a, b) => a.start.date - b.start.date);
 
-    const output = upcoming.map((e) => ({
-      date: formatDate(e.start),
-      title: e.summary || "Untitled Event",
-      time: formatTime(e.start, e.end),
-      description: cleanDescription(e.description, e.location),
-    }));
+    const output = upcoming.map((e) => {
+      const cleanedDesc = cleanDescription(e.description, e.location);
+      const { announcement, menu } = parseMenuFromDescription(cleanedDesc);
+      const base = {
+        date: formatDate(e.start),
+        title: e.summary || "Untitled Event",
+        time: formatTime(e.start, e.end),
+        description: announcement || cleanedDesc,
+      };
+      if (e.location) base.location = e.location;
+      if (menu) base.menu = menu;
+      return base;
+    });
 
     if (output.length === 0) {
       console.warn(
