@@ -7,6 +7,7 @@ const links = [
   { label: "About",         to: "/about" },
   { label: "Grace Ashram",  to: "/grace-ashram" },
   { label: "Events",        to: "/events" },
+  { label: "Media",         to: "/gallery" },
   { label: "Contact",       to: "/contact" },
 ];
 
